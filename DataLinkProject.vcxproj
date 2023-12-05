@@ -149,6 +149,7 @@
     <ClCompile Include="CLPerson.cpp" />
     <ClCompile Include="CLSociety.cpp" />
     <ClCompile Include="CLStaff.cpp" />
+    <ClCompile Include="CLStock.cpp" />
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="pch.cpp">
