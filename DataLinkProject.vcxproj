@@ -135,6 +135,7 @@
     <ClInclude Include="CLPerson.h" />
     <ClInclude Include="CLSociety.h" />
     <ClInclude Include="CLStaff.h" />
+    <ClInclude Include="CLStats.h" />
     <ClInclude Include="CLStock.h" />
     <ClInclude Include="Form1.h">
       <FileType>CppForm</FileType>
