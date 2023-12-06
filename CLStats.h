@@ -14,12 +14,12 @@ private:
 	int variation; */
 
 public:
-	int moy_basket();
-	int turnover();
-	int under_treshold();
-	System::String^ best_sell();
-	System::String^ less_sell();
-	int commercial_value();
-	int purchse_value();
-	int variation();
+	int moy_basket(int);
+	//int turnover();
+	//int under_treshold();
+	//System::String^ best_sell();
+	//System::String^ less_sell();
+	//int commercial_value();
+	//int purchse_value();
+	//int variation();
 };

@@ -7,15 +7,15 @@ ref class CLStaff : public CLPerson {
 private:
 	int Id_Staff;
 	CLAddress^ staff_address;
-	System::String^ hired_date;
-	CLStaff^ superior;
+	System::String^ hire_date;
+	System::String^ superior;
 public:
 
 	//*******Setup les infos Staff**************
 	void setId_Staff(int);
 	void setstaff_address(CLAddress^ staff_address);
 	void sethire_date(System::String^ hire_date);
-	void setsuperior(int);
+	void setsuperior(System::String^ superior);
 
 
 	//*********Récuperer les infos Staff*************
