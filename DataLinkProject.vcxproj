@@ -132,6 +132,7 @@
   <ItemGroup>
     <ClInclude Include="CLAddress.h" />
     <ClInclude Include="CLClients.h" />
+    <ClInclude Include="CLOrder.h" />
     <ClInclude Include="CLPerson.h" />
     <ClInclude Include="CLSociety.h" />
     <ClInclude Include="CLStaff.h" />
@@ -147,6 +148,7 @@
     <ClCompile Include="AssemblyInfo.cpp" />
     <ClCompile Include="CLAddress.cpp" />
     <ClCompile Include="CLClients.cpp" />
+    <ClCompile Include="CLOrder.cpp" />
     <ClCompile Include="CLPerson.cpp" />
     <ClCompile Include="CLSociety.cpp" />
     <ClCompile Include="CLStaff.cpp" />
