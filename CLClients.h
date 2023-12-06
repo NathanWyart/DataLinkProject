@@ -20,8 +20,8 @@ public:
 
 	//****Récuperer les infos******
 	int getId_Client();
-	CLAddress^ getdelivery_address(CLAddress^ delivery_address);
-	CLAddress^ getbilling_address(CLAddress^ billing_address);
-	System::String^ getdate_first_order(System::String^ date_first_order);
+	CLAddress^ getdelivery_address();
+	CLAddress^ getbilling_address();
+	System::String^ getdate_first_order();
 
 };

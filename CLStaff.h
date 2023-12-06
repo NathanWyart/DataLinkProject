@@ -8,19 +8,19 @@ private:
 	int Id_Staff;
 	CLAddress^ staff_address;
 	System::String^ hired_date;
-	CLStaff^ superior;
+	int Id_Staff_superior;
 public:
 
 	//*******Setup les infos Staff**************
 	void setId_Staff(int);
 	void setstaff_address(CLAddress^ staff_address);
-	void sethire_date(System::String^ hire_date);
+	void sethired_date(System::String^ hired_date);
 	void setsuperior(int);
 
 
 	//*********Récuperer les infos Staff*************
 	int getId_Staff();
-	CLAddress^ getstaff_address(CLAddress^ staff_address);
-	System::String^ gethire_date(System::String^ hire_date);
-	System::String^ getsuperior(System::String^ superior);
+	CLAddress^ getstaff_address();
+	System::String^ gethired_date();
+	int getsuperior();
 };

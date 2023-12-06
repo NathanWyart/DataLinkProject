@@ -19,11 +19,11 @@ public:
 	void setquantity(int quantity);
 	void setprice(int price);
 
-	int getref(int);
-	System::String^ getarticle_name(System::String^ article_name);
-	int getreorder_treshold(int);
-	int getTVA(int);
-	System::String^ getnature(System::String^ nature);
-	int getquantity(int);
-	int getprice(int);
+	int getref();
+	System::String^ getarticle_name();
+	int getreorder_treshold();
+	int getTVA();
+	System::String^ getnature();
+	int getquantity();
+	int getprice();
 };

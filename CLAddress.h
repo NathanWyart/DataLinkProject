@@ -27,5 +27,5 @@ public:
 	virtual System::String^ getpostal();
 
 	//***Undéfinit***
-	virtual static System::String^ avalue = "undefined";
+	//virtual static System::String^ avalue = "undefined";
 };

@@ -17,6 +17,5 @@ public:
 	int getId_Society();
 	System::String^ getsociety_name(System::String^ society_name);
 	CLAddress^ getsociety_address(CLAddress^ society_address);
-	int getservice_phone(int);
-
+	int getservice_phone();
 };
