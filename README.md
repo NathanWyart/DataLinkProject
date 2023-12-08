@@ -1,4 +1,6 @@
-<h1 align="center">Projet CESI - DataLink</h1>
+<p align="center"><img src ="https://imgur.com/V85PuVl.png"></img></p>
+
+<h1 align="center">Projet CESI - Programmation Orientée Objet</h1>
 
 ## Sommaire
 
@@ -9,7 +11,9 @@
   - [Languages et Outils utilisés](#Languages-et-Outils-utilisés)
 - [Réalisation](#Réalisation)
   - [Diagrammes](#Diagrammes)
-
+  - [Programmation](#La-Programmation)
+  - [Base de données](#La-Base-de-Données)
+- [Guide de l'utilisateur](#Guide-de-l'utilisateur)
 
 
 
@@ -68,20 +72,56 @@ Voici toutes les fonctionnalités que l’application contient :
 ### Languages et Outils utilisés
 Pour la réalisation de notre application nous avons utiliés :
 
-- <img src="https://www.svgrepo.com/show/354520/visual-studio.svg" alt="Visual Studio" width="30" height="30"/></a>  Visual Studio pour la programmation de notre l'application.
-- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="cplusplus" width="30" height="30"/></a>  C++ est notre language de programmation.
-- <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="30" height="30"/></a>  SQL Server pour notre base de données.
-- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="30" height="30"/></a>  .NET pour l'interface de notre application.
+- <img src="https://www.svgrepo.com/show/354520/visual-studio.svg" width="30" height="30"/></a>  Visual Studio pour la programmation de notre l'application.
+- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" width="30" height="30"/></a>  C++ est notre language de programmation.
+- <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" width="30" height="30"/></a>  SQL Server pour notre base de données.
+- <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" width="30" height="30"/></a>  .NET pour l'interface de notre application.
+- <img src="https://imgur.com/8OEkEwz.jpg" alt="dotnet" width="60" height="30"/></a>  GitHub pour la mise en page et la collaboration sur le programme.
  
 ## Réalisation
 Nous avons commencer par se répartir les tâches, ensuite nous avons réalisés la modélisation logicielle et de données grâce à différents diagrammes, et enfin la réalisation de notre solution (application et base de données).
 ### Les Diagrammes
-Le premier était un **OBS** afin de se répartir les tâches équitablements et astucieusements.
+Le premier était un **OBS** afin de se répartir les tâches équitablements et astucieusements :
 
 <p align="center"><img src="https://imgur.com/kYFGRqa.png"></img></p>
 
-Nous avons ensuite réalisés un diagramme de **Cas d'Utilisation**
+Nous avons pu également réaliser un diagramme de **Classes** afin modéliser le programme avant de le créer :
 
-<p align="center"><img src="https://imgur.com/tI1Prer.png"></p>img></p>
+<p align="center"><img src="https://imgur.com/itB8ivO.png" width="686.5" height="762.5"></img></p>
+
+> ! Les autres diagrammes que nous avons pus réaliser se trouvent dans les annexes.
+
+### La Programmation
+Grâce aux différents diagrammes nous sommes ensuite passés à la réalisation de notre solution.
+
+Le programme à était réalisé avec Visual Studio et voici un exemple de l'interface :
+
+
+<p align="center"><img src="https://imgur.com/3qCutfy.png"></img></p>
+
+
+Afin de collaborer correctement et facilement sur le programme nous avons utilisés GitHub qui nous permet de travailler sur le même code, de le partager aux autres et de récupérer les changements apportés par les autres membres de l'équipe, en voici un exemple :
+
+
+<p align="center"><img src="https://imgur.com/CYpJecz.png"></img></p>
+
+
+### La Base de Données
+
+Nous avons réalisés la base de données avec SQL Server et voici également un exemple de l'interface :
+
+<p align="center"><img src="https://imgur.com/hPl6PIf.png"></img></p>
+
+## Guide de l'utilisateur
+
+### Menu d'Acceuil
+
+###
+
+
+
+
+
+
 
 
