@@ -6,6 +6,10 @@ void CLAddress::setIdAddress(int id_address) {
 	this->id_address = id_address;
 }
 
+void CLAddress::setIdCity(int id_city) {
+	this->id_city = id_city;
+}
+
 void CLAddress::setcountry(System::String^ country) {
 	this->country = country;
 }
@@ -18,11 +22,11 @@ void CLAddress::setstreet(System::String^ street) {
 	this->street = street;
 }
 
-void CLAddress::setstreet_number(System::String^ street_number) {
+void CLAddress::setstreet_number(int street_number) {
 	this->street_number = street_number;
 }
 
-void CLAddress::setpostal(System::String^ postal) {
+void CLAddress::setpostal(int postal) {
 	this->postal = postal;
 }
 
@@ -44,10 +48,14 @@ System::String^ CLAddress::getstreet() {
 	return this->street;
 }
 
-System::String^ CLAddress::getstreet_number() {
+int CLAddress::getstreet_number() {
 	return this->street_number;
 }
 
-System::String^ CLAddress::getpostal() {
+int CLAddress::getpostal() {
 	return this->postal;
+}
+
+int CLAddress::getIdCity() {
+	return this->id_city;
 }
