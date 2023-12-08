@@ -3,9 +3,12 @@
 ## Sommaire
 
 - [Présentation du projet](#Présentation)
-  - [Contexte](Contexte)
+  - [Contexte](#Contexte)
   - [Équipe DataLink](#Équipe-DataLink)
-
+  - [Fonctionnalitées de l'application](#Fonctionnalitées-de-l'application)
+  - [Languages et Outils utilisés](#Languages-et-Outils-utilisés)
+- [Réalisation](#Réalisation)
+  - [Diagrammes](#Diagrammes)
 
 
 
@@ -13,7 +16,7 @@
 
 ## Présentation
 ### Contexte
-Nous devons réaliser un une architecture de type **Client-Serveur** composée d’une application programmée en **C++** et d’une base de données avec **SQL Server** afin de permettre à une entreprise de développer son système d’information dans la vente en ligne de composants électroniques.
+Nous devons réaliser un une architecture de type **Client-Serveur** composée d’une application programmée en **C++** et d’une base de données avec **SQL Server** afin de permettre à une entreprise de développer son système d’information dans la vente en    ligne de composants électroniques.
 Nous devrons gérer : 
 
   -	La gestion du personnel
@@ -71,6 +74,14 @@ Pour la réalisation de notre application nous avons utiliés :
 - <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/dot-net/dot-net-original-wordmark.svg" alt="dotnet" width="30" height="30"/></a>  .NET pour l'interface de notre application.
  
 ## Réalisation
-Pour ce faire nous allons commencer par la modélisation logicielle et de données grâce à différents diagrammes, puis la réalisation de notre solution (application et base de données).
-### Diagrammes
+Nous avons commencer par se répartir les tâches, ensuite nous avons réalisés la modélisation logicielle et de données grâce à différents diagrammes, et enfin la réalisation de notre solution (application et base de données).
+### Les Diagrammes
+Le premier était un **OBS** afin de se répartir les tâches équitablements et astucieusements.
+
+<p align="center"><img src="https://imgur.com/kYFGRqa.png"></img></p>
+
+Nous avons ensuite réalisés un diagramme de **Cas d'Utilisation**
+
+<p align="center"><img src="https://imgur.com/tI1Prer.png"></p>img></p>
+
 
