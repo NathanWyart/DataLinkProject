@@ -19,6 +19,4 @@ public:
 	virtual System::String^ getname();
 	virtual System::String^ getfirstname();
 	virtual System::String^ getbirth_date();
-
-	//virtual System::String^ Create() = 0;   pas sur §§§§§§§§§§§§§§§§§§§§
 };

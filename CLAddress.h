@@ -26,6 +26,4 @@ public:
 	virtual System::String^ getstreet_number();
 	virtual System::String^ getpostal();
 
-	//***Undéfinit***
-	//virtual static System::String^ avalue = "undefined";
 };
