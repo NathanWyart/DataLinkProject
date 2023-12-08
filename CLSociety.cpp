@@ -33,12 +33,6 @@ CLAddress^ CLSociety::getsociety_address(CLAddress^ society_address) {
 	return this->society_address;
 }
 
-//CLAddress^ CLSociety::getsociety_address(CLAddress^ society_address)
-//{
-//	throw gcnew System::NotImplementedException();
-//	return this->society_address;
-//}
-
 int CLSociety::getservice_phone() {
 	return this->service_phone;
 }
