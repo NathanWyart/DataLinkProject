@@ -470,7 +470,7 @@ namespace CppCLRWinFormsProject {
 
 			catch (Exception^ ex) {
 				sqlTran->Rollback();
-				MessageBox::Show("Failed to register  caca new staff: " + ex->Message, "Register failure", MessageBoxButtons::OK);
+				MessageBox::Show("Failed to register new staff: " + ex->Message, "Register failure", MessageBoxButtons::OK);
 			}
 
 		}
