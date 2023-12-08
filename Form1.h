@@ -1,4 +1,5 @@
 #pragma once
+#include "InsertStaff.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -38,6 +39,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel2;
 	private: System::Windows::Forms::Button^ button1;
 	private: System::Windows::Forms::Button^ button2;
+	private: System::Windows::Forms::Button^ button3;
 	protected:
 
 	private:
@@ -57,6 +59,7 @@ namespace CppCLRWinFormsProject {
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->button3 = (gcnew System::Windows::Forms::Button());
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -105,11 +108,22 @@ namespace CppCLRWinFormsProject {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
 			// 
+			// button3
+			// 
+			this->button3->Location = System::Drawing::Point(417, 235);
+			this->button3->Name = L"button3";
+			this->button3->Size = System::Drawing::Size(202, 40);
+			this->button3->TabIndex = 4;
+			this->button3->Text = L"button3";
+			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &Form1::button3_Click);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(979, 529);
+			this->Controls->Add(this->button3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->panel2);
@@ -130,5 +144,11 @@ namespace CppCLRWinFormsProject {
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
 	}
+private: System::Void button3_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	InsertStaff obj;
+	obj.ShowDialog();
+
+}
 };
 }

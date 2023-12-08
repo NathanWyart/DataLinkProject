@@ -25,11 +25,11 @@ int CLSociety::getId_Society() {
 	return this->Id_Society;
 }
 
-System::String^ CLSociety::getsociety_name(System::String^ society_name) {
+System::String^ CLSociety::getsociety_name() {
 	return this->society_name;
 }
 
-CLAddress^ CLSociety::getsociety_address(CLAddress^ society_address) {
+CLAddress^ CLSociety::getsociety_address() {
 	return this->society_address;
 }
 

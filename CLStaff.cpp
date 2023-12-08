@@ -30,11 +30,11 @@ int CLStaff::getId_Staff() {
 	return this->Id_Staff;
 }
 
-CLAddress^ CLStaff::getstaff_address(CLAddress^ staff_address) {
+CLAddress^ CLStaff::getstaff_address() {
 	return this->staff_address;
 }
 
-System::String^ CLStaff::gethire_date(System::String^ hire_date) {
+System::String^ CLStaff::gethire_date() {
 	return this->hire_date;
 }
 

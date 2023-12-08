@@ -23,8 +23,8 @@ public:
 
 	//*********Récuperer les infos Staff*************
 	int getId_Staff();
-	CLAddress^ getstaff_address(CLAddress^ staff_address);
-	System::String^ gethire_date(System::String^ hire_date);
+	CLAddress^ getstaff_address();
+	System::String^ gethire_date();
 	System::String^ getfirst_name_sup();
 	System::String^ getlast_name_sup();
 };
