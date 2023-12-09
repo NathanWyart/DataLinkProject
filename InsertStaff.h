@@ -77,7 +77,8 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::DateTimePicker^ DateHiredPicker;
 	private: System::Windows::Forms::Label^ label3;
-
+	private: System::Windows::Forms::Label^ label2;
+	private: System::Windows::Forms::Panel^ panel1;
 
 
 
@@ -122,16 +123,18 @@ namespace CppCLRWinFormsProject {
 			this->tbSNumber = (gcnew System::Windows::Forms::TextBox());
 			this->DateHiredPicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->SuspendLayout();
 			// 
 			// label1
 			// 
 			this->label1->Anchor = System::Windows::Forms::AnchorStyles::Top;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 25.8F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 25.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(502, 9);
+			this->label1->Location = System::Drawing::Point(494, 6);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(540, 77);
+			this->label1->Size = System::Drawing::Size(540, 72);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Register Staff";
 			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
@@ -140,16 +143,17 @@ namespace CppCLRWinFormsProject {
 			// LastNameSuperior
 			// 
 			this->LastNameSuperior->AutoSize = true;
-			this->LastNameSuperior->Location = System::Drawing::Point(12, 301);
+			this->LastNameSuperior->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->LastNameSuperior->Location = System::Drawing::Point(13, 409);
 			this->LastNameSuperior->Name = L"LastNameSuperior";
-			this->LastNameSuperior->Size = System::Drawing::Size(256, 32);
+			this->LastNameSuperior->Size = System::Drawing::Size(268, 34);
 			this->LastNameSuperior->TabIndex = 1;
 			this->LastNameSuperior->Text = L"Last name superior";
 			this->LastNameSuperior->Click += gcnew System::EventHandler(this, &InsertStaff::label2_Click);
 			// 
 			// tbLNS
 			// 
-			this->tbLNS->Location = System::Drawing::Point(318, 301);
+			this->tbLNS->Location = System::Drawing::Point(318, 345);
 			this->tbLNS->Name = L"tbLNS";
 			this->tbLNS->Size = System::Drawing::Size(379, 38);
 			this->tbLNS->TabIndex = 2;
@@ -157,15 +161,16 @@ namespace CppCLRWinFormsProject {
 			// FirstNameSuperior
 			// 
 			this->FirstNameSuperior->AutoSize = true;
-			this->FirstNameSuperior->Location = System::Drawing::Point(12, 350);
+			this->FirstNameSuperior->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->FirstNameSuperior->Location = System::Drawing::Point(13, 349);
 			this->FirstNameSuperior->Name = L"FirstNameSuperior";
-			this->FirstNameSuperior->Size = System::Drawing::Size(257, 32);
+			this->FirstNameSuperior->Size = System::Drawing::Size(267, 34);
 			this->FirstNameSuperior->TabIndex = 3;
 			this->FirstNameSuperior->Text = L"First name superior";
 			// 
 			// tbFNS
 			// 
-			this->tbFNS->Location = System::Drawing::Point(318, 350);
+			this->tbFNS->Location = System::Drawing::Point(318, 405);
 			this->tbFNS->Name = L"tbFNS";
 			this->tbFNS->Size = System::Drawing::Size(379, 38);
 			this->tbFNS->TabIndex = 4;
@@ -174,11 +179,15 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->btnOK->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(128)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->btnOK->Location = System::Drawing::Point(587, 468);
+			this->btnOK->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnOK->FlatAppearance->BorderSize = 0;
+			this->btnOK->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnOK->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->btnOK->Location = System::Drawing::Point(580, 507);
 			this->btnOK->Name = L"btnOK";
 			this->btnOK->Size = System::Drawing::Size(172, 47);
 			this->btnOK->TabIndex = 5;
-			this->btnOK->Text = L"OK";
+			this->btnOK->Text = L"Confirm";
 			this->btnOK->UseVisualStyleBackColor = false;
 			this->btnOK->Click += gcnew System::EventHandler(this, &InsertStaff::btnOK_Click);
 			// 
@@ -186,7 +195,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->btnCancel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(128)),
 				static_cast<System::Int32>(static_cast<System::Byte>(128)));
-			this->btnCancel->Location = System::Drawing::Point(794, 468);
+			this->btnCancel->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->btnCancel->FlatAppearance->BorderSize = 0;
+			this->btnCancel->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->btnCancel->Location = System::Drawing::Point(807, 507);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(172, 46);
 			this->btnCancel->TabIndex = 6;
@@ -197,19 +210,22 @@ namespace CppCLRWinFormsProject {
 			// DateHired
 			// 
 			this->DateHired->AutoSize = true;
-			this->DateHired->BackColor = System::Drawing::SystemColors::ActiveBorder;
-			this->DateHired->Location = System::Drawing::Point(12, 151);
+			this->DateHired->BackColor = System::Drawing::Color::Transparent;
+			this->DateHired->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->DateHired->Location = System::Drawing::Point(13, 175);
 			this->DateHired->Name = L"DateHired";
-			this->DateHired->Size = System::Drawing::Size(149, 32);
+			this->DateHired->Size = System::Drawing::Size(158, 34);
 			this->DateHired->TabIndex = 7;
 			this->DateHired->Text = L"Date Hired";
 			// 
 			// FirstName
 			// 
 			this->FirstName->AutoSize = true;
-			this->FirstName->Location = System::Drawing::Point(12, 197);
+			this->FirstName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->FirstName->Location = System::Drawing::Point(13, 230);
 			this->FirstName->Name = L"FirstName";
-			this->FirstName->Size = System::Drawing::Size(147, 32);
+			this->FirstName->Size = System::Drawing::Size(151, 34);
 			this->FirstName->TabIndex = 9;
 			this->FirstName->Text = L"First name";
 			this->FirstName->Click += gcnew System::EventHandler(this, &InsertStaff::label5_Click);
@@ -217,22 +233,23 @@ namespace CppCLRWinFormsProject {
 			// LastName
 			// 
 			this->LastName->AutoSize = true;
-			this->LastName->Location = System::Drawing::Point(12, 248);
+			this->LastName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->LastName->Location = System::Drawing::Point(13, 289);
 			this->LastName->Name = L"LastName";
-			this->LastName->Size = System::Drawing::Size(146, 32);
+			this->LastName->Size = System::Drawing::Size(152, 34);
 			this->LastName->TabIndex = 10;
 			this->LastName->Text = L"Last name";
 			// 
 			// tbFN
 			// 
-			this->tbFN->Location = System::Drawing::Point(318, 194);
+			this->tbFN->Location = System::Drawing::Point(318, 227);
 			this->tbFN->Name = L"tbFN";
 			this->tbFN->Size = System::Drawing::Size(379, 38);
 			this->tbFN->TabIndex = 11;
 			// 
 			// tbLN
 			// 
-			this->tbLN->Location = System::Drawing::Point(318, 248);
+			this->tbLN->Location = System::Drawing::Point(318, 285);
 			this->tbLN->Name = L"tbLN";
 			this->tbLN->Size = System::Drawing::Size(379, 38);
 			this->tbLN->TabIndex = 12;
@@ -240,18 +257,20 @@ namespace CppCLRWinFormsProject {
 			// PostalCode
 			// 
 			this->PostalCode->AutoSize = true;
-			this->PostalCode->Location = System::Drawing::Point(788, 200);
+			this->PostalCode->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->PostalCode->Location = System::Drawing::Point(791, 230);
 			this->PostalCode->Name = L"PostalCode";
-			this->PostalCode->Size = System::Drawing::Size(163, 32);
+			this->PostalCode->Size = System::Drawing::Size(174, 34);
 			this->PostalCode->TabIndex = 13;
 			this->PostalCode->Text = L"Postal code";
 			// 
 			// CityName
 			// 
 			this->CityName->AutoSize = true;
-			this->CityName->Location = System::Drawing::Point(788, 151);
+			this->CityName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->CityName->Location = System::Drawing::Point(790, 172);
 			this->CityName->Name = L"CityName";
-			this->CityName->Size = System::Drawing::Size(141, 32);
+			this->CityName->Size = System::Drawing::Size(155, 34);
 			this->CityName->TabIndex = 14;
 			this->CityName->Text = L"City name";
 			this->CityName->Click += gcnew System::EventHandler(this, &InsertStaff::label8_Click);
@@ -259,52 +278,54 @@ namespace CppCLRWinFormsProject {
 			// StreetName
 			// 
 			this->StreetName->AutoSize = true;
-			this->StreetName->Location = System::Drawing::Point(788, 248);
+			this->StreetName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->StreetName->Location = System::Drawing::Point(788, 289);
 			this->StreetName->Name = L"StreetName";
-			this->StreetName->Size = System::Drawing::Size(168, 32);
+			this->StreetName->Size = System::Drawing::Size(178, 34);
 			this->StreetName->TabIndex = 15;
 			this->StreetName->Text = L"Street name";
 			// 
 			// StreetNumber
 			// 
 			this->StreetNumber->AutoSize = true;
-			this->StreetNumber->Location = System::Drawing::Point(788, 301);
+			this->StreetNumber->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->StreetNumber->Location = System::Drawing::Point(788, 349);
 			this->StreetNumber->Name = L"StreetNumber";
-			this->StreetNumber->Size = System::Drawing::Size(193, 32);
+			this->StreetNumber->Size = System::Drawing::Size(204, 34);
 			this->StreetNumber->TabIndex = 16;
 			this->StreetNumber->Text = L"Street number";
 			// 
 			// tbCN
 			// 
-			this->tbCN->Location = System::Drawing::Point(997, 145);
+			this->tbCN->Location = System::Drawing::Point(997, 173);
 			this->tbCN->Name = L"tbCN";
 			this->tbCN->Size = System::Drawing::Size(379, 38);
 			this->tbCN->TabIndex = 17;
 			// 
 			// tbPC
 			// 
-			this->tbPC->Location = System::Drawing::Point(997, 197);
+			this->tbPC->Location = System::Drawing::Point(997, 230);
 			this->tbPC->Name = L"tbPC";
 			this->tbPC->Size = System::Drawing::Size(379, 38);
 			this->tbPC->TabIndex = 18;
 			// 
 			// tbSN
 			// 
-			this->tbSN->Location = System::Drawing::Point(997, 242);
+			this->tbSN->Location = System::Drawing::Point(997, 289);
 			this->tbSN->Name = L"tbSN";
 			this->tbSN->Size = System::Drawing::Size(379, 38);
 			this->tbSN->TabIndex = 19;
 			// 
 			// tbSNumber
 			// 
-			this->tbSNumber->Location = System::Drawing::Point(997, 295);
+			this->tbSNumber->Location = System::Drawing::Point(997, 347);
 			this->tbSNumber->Name = L"tbSNumber";
 			this->tbSNumber->Size = System::Drawing::Size(379, 38);
 			this->tbSNumber->TabIndex = 20;
 			// 
 			// DateHiredPicker
 			// 
-			this->DateHiredPicker->Location = System::Drawing::Point(318, 142);
+			this->DateHiredPicker->Location = System::Drawing::Point(318, 170);
 			this->DateHiredPicker->Name = L"DateHiredPicker";
 			this->DateHiredPicker->Size = System::Drawing::Size(379, 38);
 			this->DateHiredPicker->TabIndex = 23;
@@ -312,18 +333,45 @@ namespace CppCLRWinFormsProject {
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Location = System::Drawing::Point(1126, 92);
+			this->label3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->Location = System::Drawing::Point(1042, 101);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(184, 32);
+			this->label3->Size = System::Drawing::Size(203, 37);
 			this->label3->TabIndex = 27;
 			this->label3->Text = L"Address Staff";
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(143, 101);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(307, 37);
+			this->label2->TabIndex = 28;
+			this->label2->Text = L"General Information";
+			this->label2->Click += gcnew System::EventHandler(this, &InsertStaff::label2_Click_1);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::Transparent;
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
+			this->panel1->Location = System::Drawing::Point(0, 0);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(1422, 82);
+			this->panel1->TabIndex = 29;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &InsertStaff::panel1_Paint);
 			// 
 			// InsertStaff
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::SystemColors::ActiveBorder;
+			this->BackColor = System::Drawing::Color::LightSteelBlue;
 			this->ClientSize = System::Drawing::Size(1422, 624);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->DateHiredPicker);
 			this->Controls->Add(this->tbSNumber);
@@ -346,6 +394,7 @@ namespace CppCLRWinFormsProject {
 			this->Controls->Add(this->tbLNS);
 			this->Controls->Add(this->LastNameSuperior);
 			this->Controls->Add(this->label1);
+			this->Controls->Add(this->panel1);
 			this->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->Margin = System::Windows::Forms::Padding(6);
@@ -500,5 +549,10 @@ namespace CppCLRWinFormsProject {
 	private: System::Void linkLabel1_LinkClicked(System::Object^ sender, System::Windows::Forms::LinkLabelLinkClickedEventArgs^ e) {
 
 	}
-	};
+	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+
+	private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
+	}
+};
 }

@@ -320,11 +320,12 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void btnclient_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlBut->Top = btnclient->Top;
+		pnlDisplay->Visible = false;
 	}
 
 
 	private: System::Void btnstaff_Click(System::Object^ sender, System::EventArgs^ e) {
-		pnlBut->Top = btnstaff->Top;
+		pnlDisplay->Visible = false;
 		pnlBut->Top = btnstaff->Top;
 		pnlDisplay->Visible = true;
 		AddStaffButtons();
@@ -332,13 +333,16 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void btnstock_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlBut->Top = btnstock->Top;
+		pnlDisplay->Visible = false;
 	}
 	private: System::Void btnorder_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlBut->Top = btnorder->Top;
+		pnlDisplay->Visible = false;
 	}
 
 	private: System::Void btnstats_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlBut->Top = btnstats->Top;
+		pnlDisplay->Visible = false;
 	}
 	private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -544,7 +548,7 @@ namespace CppCLRWinFormsProject {
 		btnAddStaff->Left = margin;
 		btnAddStaff->Top = pnlDisplay->Height - buttonHeight - 10;
 
-		Button^ btnModifyStaff = createStyledButton("Update", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
+		Button^ btnModifyStaff = createStyledButton("Edit", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
 		btnModifyStaff->Width = buttonWidth;
 		btnModifyStaff->Height = buttonHeight;
 		btnModifyStaff->Left = btnAddStaff->Right + spacing;
