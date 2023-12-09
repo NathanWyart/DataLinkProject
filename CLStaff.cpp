@@ -29,10 +29,14 @@ CLAddress^ CLStaff::getstaff_address(CLAddress^ staff_address) {
 	return this->staff_address;
 }
 
-System::String^ CLStaff::gethire_date(System::String^ hire_date) {
-	return this->hire_date;
+System::String^ CLStaff::gethire_date() {
+	return hire_date;
 }
 
-System::String^ CLStaff::getsuperior(System::String^ superior) {
-	return this->superior;
-}
+System::String^ CLStaff::getfirst_name_sup() {
+	return first_name_sup;
+};
+
+System::String^ CLStaff::getlast_name_sup() {
+	return last_name_sup;
+};
