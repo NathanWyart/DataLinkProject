@@ -1,4 +1,6 @@
 #pragma once
+#include "InsertStaff.h"
+#include "UpdateStaff.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -15,6 +17,9 @@ namespace CppCLRWinFormsProject {
 	/// </summary>
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
+	private :
+
+		DataGridView^ dataGridView;
 	public:
 		Form1(void)
 		{
@@ -341,26 +346,23 @@ namespace CppCLRWinFormsProject {
 	}
 
 	private: System::Void btnAddStaff_Click(System::Object^ sender, System::EventArgs^ e) {
-		// Logique pour ajouter du personnel
-		// Vous pouvez afficher un formulaire d'ajout, etc.
+		InsertStaff obj;
+		obj.ShowDialog();
 	}
 
 	private: System::Void btnModifyStaff_Click(System::Object^ sender, System::EventArgs^ e) {
-		// Logique pour modifier le personnel
-		// Vous pouvez afficher une boîte de dialogue de modification, etc.
+		UpdateStaff obj;
+		obj.ShowDialog();
 	}
 
-	private: System::Void btnDeleteStaff_Click(System::Object^ sender, System::EventArgs^ e) {
-		// Logique pour supprimer le personnel
-		// Vous pouvez afficher une boîte de dialogue de confirmation, etc.
-	}
-
+	
+		  
 	private: System::Void btnShowStaff_Click(System::Object^ sender, System::EventArgs^ e) {
 		try {
 
 			int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
 			int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
-			int spacing = 10;      // Espace entre les boutons
+			int spacing = 30;      // Espace entre les boutons
 
 			int panelWidth = pnlDisplay->Width;
 			int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
@@ -381,7 +383,7 @@ namespace CppCLRWinFormsProject {
 			dataAdapter->Fill(dataSet, "STAFF");
 
 			// Créez et configurez le DataGridView
-			DataGridView^ dataGridView = gcnew DataGridView();
+			dataGridView = gcnew DataGridView();
 			dataGridView->Width = pnlDisplay->Width - 20;
 			dataGridView->Height = pnlDisplay->Height - 60;
 			dataGridView->Left = 10;
@@ -395,18 +397,112 @@ namespace CppCLRWinFormsProject {
 			btnRetour->Height = buttonHeight;
 			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
 
+			Button^ btnDeleteStaff = createStyledButton("Delete", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
+			btnDeleteStaff->Width = buttonWidth;
+			btnDeleteStaff->Height = buttonHeight;
+			btnDeleteStaff->Left = btnRetour->Right + spacing;
+			btnDeleteStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+
 			// Ajouter le DataGridView au Panel (pnlDisplay)
 			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
 			pnlDisplay->Controls->Add(dataGridView);
 			pnlDisplay->Controls->Add(btnRetour);
+			pnlDisplay->Controls->Add(btnDeleteStaff);
 
 			// Fermer la connexion après utilisation
 			sqlConn.Close();
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("Échec de la récupération des données de la table STAFF : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+			MessageBox::Show("Échec de la récupération des données de la table STAFF : " + ex->Message, "Error", MessageBoxButtons::OK);
 		}
 	}
+
+	private: System::Void btnDeleteStaff_Click(System::Object^ sender, System::EventArgs^ e) {
+		
+
+		if (dataGridView->SelectedRows->Count > 0) {
+
+
+			// Récupérez l'ID de la ligne sélectionnée
+			int rowIndex = dataGridView->SelectedRows[0]->Index;
+			int personId = Convert::ToInt32(dataGridView->Rows[rowIndex]->Cells["ID_PERSON"]->Value);
+
+			// Supprimez les entrées associées dans les tables PERSON, ADDRESS et CITY
+			try {
+				String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+				SqlConnection sqlConn(connString);
+				sqlConn.Open();
+
+				// Récupérez l'ID_ADDRESS et l'ID_CITY associés à cette personne
+				String^ selectAddressAndCityIdsQuery =
+					"SELECT ADDRESS.ID_ADDRESS, ADDRESS.ID_CITY " +
+					"FROM STAFF INNER JOIN ADDRESS ON STAFF.ID_ADDRESS = ADDRESS.ID_ADDRESS " +
+					"WHERE STAFF.ID_PERSON = @ID_PERSON;";
+
+				SqlCommand^ commandGetIds = gcnew SqlCommand(selectAddressAndCityIdsQuery, % sqlConn);
+				commandGetIds->Parameters->AddWithValue("@ID_PERSON", personId);
+
+				SqlDataReader^ reader = commandGetIds->ExecuteReader();
+				int addressId, cityId;
+
+				if (reader->Read()) {
+					addressId = Convert::ToInt32(reader["ID_ADDRESS"]);
+					cityId = Convert::ToInt32(reader["ID_CITY"]);
+				}
+				else {
+					
+					MessageBox::Show("ID_PERSON non trouvé dans la table STAFF ou pas d'ID_ADDRESS associé.", "Erreur", MessageBoxButtons::OK);
+					return;
+				}
+
+				reader->Close();
+
+				// Supprimez d'abord l'entrée dans la table STAFF
+				String^ deleteStaffQuery =
+					"DELETE FROM STAFF WHERE ID_PERSON = @ID_PERSON;";
+
+				SqlCommand^ commandDeleteStaff = gcnew SqlCommand(deleteStaffQuery, % sqlConn);
+				commandDeleteStaff->Parameters->AddWithValue("@ID_PERSON", personId);
+				commandDeleteStaff->ExecuteNonQuery();
+
+				// Supprimez l'entrée dans la table ADDRESS liée
+				String^ deleteAddressQuery =
+					"DELETE FROM ADDRESS WHERE ID_ADDRESS = @ID_ADDRESS;";
+
+				SqlCommand^ commandDeleteAddress = gcnew SqlCommand(deleteAddressQuery, % sqlConn);
+				commandDeleteAddress->Parameters->AddWithValue("@ID_ADDRESS", personId);  // Supposant que l'ID_ADDRESS est lié à l'ID_PERSON
+				commandDeleteAddress->ExecuteNonQuery();
+
+
+				// Supprimez l'entrée dans la table CITY liée
+				String^ deleteCityQuery =
+					"DELETE FROM CITY WHERE ID_CITY = @ID_CITY;";
+
+				SqlCommand^ commandDeleteCity = gcnew SqlCommand(deleteCityQuery, % sqlConn);
+				commandDeleteCity->Parameters->AddWithValue("@ID_CITY", cityId);
+				commandDeleteCity->ExecuteNonQuery();
+
+
+				// Supprimez l'entrée dans la table PERSON
+				String^ deletePersonQuery =
+					"DELETE FROM PERSON WHERE ID_PERSON = @ID_PERSON;";
+
+				SqlCommand^ commandDeletePerson = gcnew SqlCommand(deletePersonQuery, % sqlConn);
+				commandDeletePerson->Parameters->AddWithValue("@ID_PERSON", personId);
+				commandDeletePerson->ExecuteNonQuery();
+
+				MessageBox::Show("La ligne a été supprimée avec succès.", "Suppression réussie", MessageBoxButtons::OK);
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show("Échec de la suppression : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+			}
+		}
+
+
+
+	}
+
+
 
 	private: System::Void btnRetour_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -443,23 +539,18 @@ namespace CppCLRWinFormsProject {
 		btnModifyStaff->Left = btnAddStaff->Right + spacing;
 		btnModifyStaff->Top = pnlDisplay->Height - buttonHeight - 10;
 
-		Button^ btnDeleteStaff = createStyledButton("Delete", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
-		btnDeleteStaff->Width = buttonWidth;
-		btnDeleteStaff->Height = buttonHeight;
-		btnDeleteStaff->Left = btnModifyStaff->Right + spacing;
-		btnDeleteStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+		
 
 		Button^ btnShowStaff = createStyledButton("Display", gcnew System::EventHandler(this, &Form1::btnShowStaff_Click));
 		btnShowStaff->Width = buttonWidth;
 		btnShowStaff->Height = buttonHeight;
-		btnShowStaff->Left = btnDeleteStaff->Right + spacing;
+		btnShowStaff->Left = btnModifyStaff->Right + spacing;
 		btnShowStaff->Top = pnlDisplay->Height - buttonHeight - 10;
 
 		// Ajouter les boutons au Panel (pnlDisplay)
 		pnlDisplay->Controls->Clear();
 		pnlDisplay->Controls->Add(btnAddStaff);
 		pnlDisplay->Controls->Add(btnModifyStaff);
-		pnlDisplay->Controls->Add(btnDeleteStaff);
 		pnlDisplay->Controls->Add(btnShowStaff);
 		pnlDisplay->Controls->Add(dataGridView);
 	}
