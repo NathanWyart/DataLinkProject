@@ -8,6 +8,7 @@ namespace CppCLRWinFormsProject {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
 
 	/// <summary>
 	/// Summary for Form1
@@ -285,6 +286,20 @@ namespace CppCLRWinFormsProject {
 
 		}
 #pragma endregion
+		   private:  Button^ createStyledButton(String^ text, EventHandler^ clickHandler) {
+			   Button^ button = gcnew Button();
+			   button->BackgroundImageLayout = System::Windows::Forms::ImageLayout::None;
+			   button->Cursor = System::Windows::Forms::Cursors::Hand;
+			   button->FlatAppearance->BorderSize = 0;
+			   button->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			   button->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				   static_cast<System::Byte>(0)));
+			   button->ForeColor = System::Drawing::SystemColors::ControlLightLight;
+			   button->Text = text;
+			   button->Click += clickHandler;
+			   return button;
+		   }
+
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
@@ -302,8 +317,12 @@ namespace CppCLRWinFormsProject {
 		pnlBut->Top = btnclient->Top;
 	}
 
+
 	private: System::Void btnstaff_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlBut->Top = btnstaff->Top;
+		pnlBut->Top = btnstaff->Top;
+		pnlDisplay->Visible = true;
+		AddStaffButtons();
 	}
 
 	private: System::Void btnstock_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -319,6 +338,130 @@ namespace CppCLRWinFormsProject {
 	private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Management_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	private: System::Void btnAddStaff_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Logique pour ajouter du personnel
+		// Vous pouvez afficher un formulaire d'ajout, etc.
+	}
+
+	private: System::Void btnModifyStaff_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Logique pour modifier le personnel
+		// Vous pouvez afficher une boîte de dialogue de modification, etc.
+	}
+
+	private: System::Void btnDeleteStaff_Click(System::Object^ sender, System::EventArgs^ e) {
+		// Logique pour supprimer le personnel
+		// Vous pouvez afficher une boîte de dialogue de confirmation, etc.
+	}
+
+	private: System::Void btnShowStaff_Click(System::Object^ sender, System::EventArgs^ e) {
+		try {
+
+			int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+			int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+			int spacing = 10;      // Espace entre les boutons
+
+			int panelWidth = pnlDisplay->Width;
+			int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+			String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+
+
+			// Sélectionnez toutes les colonnes de la table STAFF
+			String^ selectStaffQuery =
+				"SELECT * FROM STAFF;";
+
+			SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(selectStaffQuery, % sqlConn);
+			DataSet^ dataSet = gcnew DataSet();
+
+			// Remplissez le DataSet avec les données de la table STAFF
+			dataAdapter->Fill(dataSet, "STAFF");
+
+			// Créez et configurez le DataGridView
+			DataGridView^ dataGridView = gcnew DataGridView();
+			dataGridView->Width = pnlDisplay->Width - 20;
+			dataGridView->Height = pnlDisplay->Height - 60;
+			dataGridView->Left = 10;
+			dataGridView->Top = 10;
+			dataGridView->DataSource = dataSet;
+			dataGridView->DataMember = "STAFF";
+
+			// Créez le bouton "Retour"
+			Button^ btnRetour = createStyledButton("Back", gcnew System::EventHandler(this, &Form1::btnRetour_Click));
+			btnRetour->Width = buttonWidth;
+			btnRetour->Height = buttonHeight;
+			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
+
+			// Ajouter le DataGridView au Panel (pnlDisplay)
+			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
+			pnlDisplay->Controls->Add(dataGridView);
+			pnlDisplay->Controls->Add(btnRetour);
+
+			// Fermer la connexion après utilisation
+			sqlConn.Close();
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Échec de la récupération des données de la table STAFF : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+		}
+	}
+
+	private: System::Void btnRetour_Click(System::Object^ sender, System::EventArgs^ e) {
+
+			AddStaffButtons();
+	}
+
+	private: System::Void AddStaffButtons() {
+		int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+		int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+		int spacing = 10;      // Espace entre les boutons
+
+		int panelWidth = pnlDisplay->Width;
+		int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+		// Ajout du DataGridView
+		DataGridView^ dataGridView = gcnew DataGridView();
+		dataGridView->Width = pnlDisplay->Width - 20; // Largeur du DataGridView
+		dataGridView->Height = pnlDisplay->Height - 60; // Hauteur du DataGridView
+		dataGridView->Left = 10;
+		dataGridView->Top = 10;
+
+		// Calculer la marge nécessaire pour centrer les boutons horizontalement
+		int margin = (panelWidth - totalButtonWidth) / 2;
+
+		Button^ btnAddStaff = createStyledButton("Add", gcnew System::EventHandler(this, &Form1::btnAddStaff_Click));
+		btnAddStaff->Width = buttonWidth;
+		btnAddStaff->Height = buttonHeight;
+		btnAddStaff->Left = margin;
+		btnAddStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		Button^ btnModifyStaff = createStyledButton("Update", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
+		btnModifyStaff->Width = buttonWidth;
+		btnModifyStaff->Height = buttonHeight;
+		btnModifyStaff->Left = btnAddStaff->Right + spacing;
+		btnModifyStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		Button^ btnDeleteStaff = createStyledButton("Delete", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
+		btnDeleteStaff->Width = buttonWidth;
+		btnDeleteStaff->Height = buttonHeight;
+		btnDeleteStaff->Left = btnModifyStaff->Right + spacing;
+		btnDeleteStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		Button^ btnShowStaff = createStyledButton("Display", gcnew System::EventHandler(this, &Form1::btnShowStaff_Click));
+		btnShowStaff->Width = buttonWidth;
+		btnShowStaff->Height = buttonHeight;
+		btnShowStaff->Left = btnDeleteStaff->Right + spacing;
+		btnShowStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		// Ajouter les boutons au Panel (pnlDisplay)
+		pnlDisplay->Controls->Clear();
+		pnlDisplay->Controls->Add(btnAddStaff);
+		pnlDisplay->Controls->Add(btnModifyStaff);
+		pnlDisplay->Controls->Add(btnDeleteStaff);
+		pnlDisplay->Controls->Add(btnShowStaff);
+		pnlDisplay->Controls->Add(dataGridView);
 	}
 	};
 }
