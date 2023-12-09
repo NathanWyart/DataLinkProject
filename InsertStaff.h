@@ -76,6 +76,7 @@ namespace CppCLRWinFormsProject {
 
 
 	private: System::Windows::Forms::DateTimePicker^ DateHiredPicker;
+	private: System::Windows::Forms::Label^ label3;
 
 
 
@@ -120,6 +121,7 @@ namespace CppCLRWinFormsProject {
 			this->tbSN = (gcnew System::Windows::Forms::TextBox());
 			this->tbSNumber = (gcnew System::Windows::Forms::TextBox());
 			this->DateHiredPicker = (gcnew System::Windows::Forms::DateTimePicker());
+			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -307,12 +309,22 @@ namespace CppCLRWinFormsProject {
 			this->DateHiredPicker->Size = System::Drawing::Size(379, 38);
 			this->DateHiredPicker->TabIndex = 23;
 			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(1126, 92);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(184, 32);
+			this->label3->TabIndex = 27;
+			this->label3->Text = L"Address Staff";
+			// 
 			// InsertStaff
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::SystemColors::ActiveBorder;
 			this->ClientSize = System::Drawing::Size(1422, 624);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->DateHiredPicker);
 			this->Controls->Add(this->tbSNumber);
 			this->Controls->Add(this->tbSN);
