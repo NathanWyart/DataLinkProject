@@ -1,6 +1,6 @@
 #pragma once
 
-ref class CLPerson abstract {
+ref class CLPerson  {
 
 protected:
 	int id;

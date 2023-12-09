@@ -18,7 +18,8 @@ public:
 	void setId_Staff(int);
 	void setstaff_address(CLAddress^ staff_address);
 	void sethire_date(System::String^ hire_date);
-	void setsuperior(System::String^ superior);
+	void setfirst_name_sup(System::String^ first_name_sup);
+	void setlast_name_sup(System::String^ last_name_sup);
 
 
 	//*********Récuperer les infos Staff*************

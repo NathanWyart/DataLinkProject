@@ -15,9 +15,13 @@ void CLStaff::sethire_date(System::String^ hire_date) {
 	this->hire_date = hire_date;
 }
 
-void CLStaff::setsuperior(System::String^ superior) {
-	this->superior = superior;
-}
+void CLStaff::setfirst_name_sup(System::String^ first_name_sup) {
+	this->first_name_sup = first_name_sup;
+};
+
+void CLStaff::setlast_name_sup(System::String^ last_name_sup) {
+	this->last_name_sup = last_name_sup;
+};
 
 
 //**********Récupération infos staff************
