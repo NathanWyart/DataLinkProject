@@ -345,6 +345,17 @@ namespace CppCLRWinFormsProject {
 	private: System::Void Management_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
+
+
+
+
+
+
+
+
+
+
+	// Gestion Staff
 	private: System::Void btnAddStaff_Click(System::Object^ sender, System::EventArgs^ e) {
 		InsertStaff obj;
 		obj.ShowDialog();
@@ -470,7 +481,7 @@ namespace CppCLRWinFormsProject {
 					"DELETE FROM ADDRESS WHERE ID_ADDRESS = @ID_ADDRESS;";
 
 				SqlCommand^ commandDeleteAddress = gcnew SqlCommand(deleteAddressQuery, % sqlConn);
-				commandDeleteAddress->Parameters->AddWithValue("@ID_ADDRESS", personId);  // Supposant que l'ID_ADDRESS est lié à l'ID_PERSON
+				commandDeleteAddress->Parameters->AddWithValue("@ID_ADDRESS", personId);
 				commandDeleteAddress->ExecuteNonQuery();
 
 
