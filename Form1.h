@@ -509,12 +509,12 @@ namespace CppCLRWinFormsProject {
 			dataGridView->DataMember = "STAFF";
 
 			// Créez le bouton "Retour"
-			Button^ btnRetour = createStyledButton("Back", gcnew System::EventHandler(this, &Form1::btnRetour_Click));
+			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour_Click));
 			btnRetour->Width = buttonWidth;
 			btnRetour->Height = buttonHeight;
 			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
 
-			Button^ btnDeleteStaff = createStyledButton("Delete", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
+			Button^ btnDeleteStaff = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
 			btnDeleteStaff->Width = buttonWidth;
 			btnDeleteStaff->Height = buttonHeight;
 			btnDeleteStaff->Left = btnRetour->Right + spacing;
