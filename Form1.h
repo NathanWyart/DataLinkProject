@@ -5,6 +5,8 @@
 #include "UpdateClient.h"
 #include "InsertStock.h"
 #include "UpdateStock.h"
+#include "InsertOrder.h"
+#include "UpdateOrder.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -43,22 +45,20 @@ namespace CppCLRWinFormsProject {
 		}
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Panel^ panel3; 
+	private: System::Windows::Forms::Panel^ panel4;
+	private: System::Windows::Forms::Panel^ pnlBut; 
+	private: System::Windows::Forms::Panel^ pnlDisplay;  
+	
 	private: System::Windows::Forms::Button^ button2;
-
 	private: System::Windows::Forms::Button^ btnclient;
 	private: System::Windows::Forms::Button^ btnstats;
-
 	private: System::Windows::Forms::Button^ btnorder;
-
-
 	private: System::Windows::Forms::Button^ btnstock;
-
 	private: System::Windows::Forms::Button^ btnstaff;
-	private: System::Windows::Forms::Panel^ panel4;
-	private: System::Windows::Forms::Panel^ panel3;
 	private: System::Windows::Forms::Button^ Management;
-	private: System::Windows::Forms::Panel^ pnlBut;
-	private: System::Windows::Forms::Panel^ pnlDisplay;
+
+	private: System::Windows::Forms::Label^ label2;
 
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::PictureBox^ pictureBox2;
@@ -66,10 +66,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::PictureBox^ pictureBox6;
-	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
-	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::PictureBox^ pictureBox7;
-	private: System::Windows::Forms::Label^ label2;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -106,12 +103,10 @@ namespace CppCLRWinFormsProject {
 			this->btnstaff = (gcnew System::Windows::Forms::Button());
 			this->btnclient = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->pnlDisplay = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
@@ -360,23 +355,6 @@ namespace CppCLRWinFormsProject {
 			this->panel2->TabIndex = 1;
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel2_Paint);
 			// 
-			// label1
-			// 
-			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
-				| System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(83, 117);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(209, 47);
-			this->label1->TabIndex = 4;
-			this->label1->Text = L"DATALINK";
-			this->label1->Visible = false;
-			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
-			// 
 			// button2
 			// 
 			this->button2->FlatAppearance->BorderSize = 0;
@@ -392,11 +370,21 @@ namespace CppCLRWinFormsProject {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &Form1::button2_Click);
 			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(144, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(647, 70);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"Welcome to DataLink";
+			// 
 			// pnlDisplay
 			// 
 			this->pnlDisplay->BackColor = System::Drawing::Color::LightGray;
 			this->pnlDisplay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pnlDisplay->Controls->Add(this->label1);
 			this->pnlDisplay->Controls->Add(this->pictureBox7);
 			this->pnlDisplay->Location = System::Drawing::Point(227, 73);
 			this->pnlDisplay->Name = L"pnlDisplay";
@@ -416,23 +404,6 @@ namespace CppCLRWinFormsProject {
 			this->pictureBox7->TabIndex = 1;
 			this->pictureBox7->TabStop = false;
 			this->pictureBox7->Click += gcnew System::EventHandler(this, &Form1::pictureBox7_Click);
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(144, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(647, 70);
-			this->label2->TabIndex = 0;
-			this->label2->Text = L"Welcome to DataLink";
-			// 
-			// contextMenuStrip1
-			// 
-			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
-			this->contextMenuStrip1->Name = L"contextMenuStrip1";
-			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
 			// 
 			// Form1
 			// 
@@ -456,7 +427,6 @@ namespace CppCLRWinFormsProject {
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
 			this->pnlDisplay->ResumeLayout(false);
-			this->pnlDisplay->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			this->ResumeLayout(false);
 
@@ -521,6 +491,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Void btnorder_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlDisplay->Visible = false;
 		pnlBut->Top = btnorder->Top;
+		pnlDisplay->Visible = true;
+		AddOrderButtons();
 	}
 
 	private: System::Void btnstats_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -710,6 +682,11 @@ namespace CppCLRWinFormsProject {
 	private: System::Void btnRetour3_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		AddStockButtons();
+	}
+
+	private: System::Void btnRetour4_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		AddOrderButtons();
 	}
 
 	private: System::Void AddStaffButtons() {
@@ -1031,7 +1008,7 @@ namespace CppCLRWinFormsProject {
 		btnAddClient->Width = buttonWidth;
 		btnAddClient->Height = buttonHeight;
 		btnAddClient->Left = margin;
-		btnAddClient->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnAddClient->Top = pnlDisplay->Height - buttonHeight - 5;
 		btnAddClient->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(80)), static_cast<System::Int32>(static_cast<System::Byte>(240)),
 			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
@@ -1039,7 +1016,7 @@ namespace CppCLRWinFormsProject {
 		btnModifyClient->Width = buttonWidth;
 		btnModifyClient->Height = buttonHeight;
 		btnModifyClient->Left = btnAddClient->Right + spacing;
-		btnModifyClient->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnModifyClient->Top = pnlDisplay->Height - buttonHeight - 5;
 		btnModifyClient->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
 			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
@@ -1049,7 +1026,7 @@ namespace CppCLRWinFormsProject {
 		btnShowClient->Width = buttonWidth;
 		btnShowClient->Height = buttonHeight;
 		btnShowClient->Left = btnModifyClient->Right + spacing;
-		btnShowClient->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnShowClient->Top = pnlDisplay->Height - buttonHeight - 5;
 		btnShowClient->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
 			static_cast<System::Int32>(static_cast<System::Byte>(250)));
 
@@ -1238,6 +1215,184 @@ namespace CppCLRWinFormsProject {
 		pnlDisplay->Controls->Add(btnAddStock);
 		pnlDisplay->Controls->Add(btnModifyStock);
 		pnlDisplay->Controls->Add(btnShowStock);
+		pnlDisplay->Controls->Add(dataGridView);
+	}
+
+		   // ORDER
+
+	private: System::Void btnAddOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+		InsertOrder obj;
+		obj.ShowDialog();
+	}
+
+	private: System::Void btnModifyOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+		UpdateOrder obj;
+		obj.ShowDialog();
+	}
+
+	private: System::Void btnShowOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+		try {
+
+			int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+			int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+			int spacing = 30;      // Espace entre les boutons
+
+			int panelWidth = pnlDisplay->Width;
+			int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+			String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+
+
+			// Sélectionnez toutes les colonnes de la table Order
+			String^ selectOrderQuery =
+				"SELECT * FROM ORDERS;";
+
+			SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(selectOrderQuery, % sqlConn);
+			DataSet^ dataSet = gcnew DataSet();
+
+			// Remplissez le DataSet avec les données de la table Order
+			dataAdapter->Fill(dataSet, "ORDERS");
+
+			// Créez et configurez le DataGridView
+			dataGridView = gcnew DataGridView();
+			dataGridView->Width = pnlDisplay->Width - 20;
+			dataGridView->Height = pnlDisplay->Height - 60;
+			dataGridView->Left = 10;
+			dataGridView->Top = 10;
+			dataGridView->DataSource = dataSet;
+			dataGridView->DataMember = "ORDERS";
+
+			// Créez le bouton "Retour"
+			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour4_Click));
+			btnRetour->Width = buttonWidth;
+			btnRetour->Height = buttonHeight;
+			btnRetour->Left = btnRetour->Right + spacing;
+			btnRetour->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnRetour->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+
+			Button^ btnDeleteOrder = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteOrder_Click));
+			btnDeleteOrder->Width = buttonWidth;
+			btnDeleteOrder->Height = buttonHeight;
+			btnDeleteOrder->Left = btnRetour->Right + spacing;
+			btnDeleteOrder->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnDeleteOrder->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
+
+			// Ajouter le DataGridView au Panel (pnlDisplay)
+			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
+			pnlDisplay->Controls->Add(dataGridView);
+			pnlDisplay->Controls->Add(btnRetour);
+			pnlDisplay->Controls->Add(btnDeleteOrder);
+
+			// Fermer la connexion après utilisation
+			sqlConn.Close();
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Failed to retrieve data from the Order table : " + ex->Message, "Error", MessageBoxButtons::OK);
+		}
+	}
+
+	private: System::Void btnDeleteOrder_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+		if (dataGridView->SelectedRows->Count > 0) {
+
+
+			// Récupérez l'ID de la ligne sélectionnée
+			int rowIndex = dataGridView->SelectedRows[0]->Index;
+
+			// Supprimez les entrées associées dans les tables PERSON, ADDRESS et CITY
+			try {
+				String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+				SqlConnection sqlConn(connString);
+				sqlConn.Open();
+
+				// Récupérer les valeurs de la ligne sélectionnée
+				int idArticle = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["ID_ARTICLE"]->Value);
+				String^ articleName = dataGridView->SelectedRows[0]->Cells["PRODUCT_NAME"]->Value->ToString();
+				int OrderQuantity = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["STOCK_QUANTITY"]->Value);
+				int priceHT = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["PRICE_HT"]->Value);
+				int rateTVA = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["RATE_TVA"]->Value);
+				int reorderThreshold = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["REORDER_THRESHOLD"]->Value);
+
+				String^ deleteQuery =
+					"DELETE FROM ARTICLE "
+					"WHERE ID_ARTICLE = @ID_ARTICLE "
+					"AND PRODUCT_NAME = @PRODUCT_NAME "
+					"AND STOCK_QUANTITY = @STOCK_QUANTITY "
+					"AND PRICE_HT = @PRICE_HT "
+					"AND RATE_TVA = @RATE_TVA "
+					"AND REORDER_THRESHOLD = @REORDER_THRESHOLD;";
+
+				SqlCommand^ commandDelete = gcnew SqlCommand(deleteQuery, % sqlConn);
+				commandDelete->Parameters->AddWithValue("@ID_ARTICLE", idArticle);
+				commandDelete->Parameters->AddWithValue("@PRODUCT_NAME", articleName);
+				commandDelete->Parameters->AddWithValue("@STOCK_QUANTITY", OrderQuantity);
+				commandDelete->Parameters->AddWithValue("@PRICE_HT", priceHT);
+				commandDelete->Parameters->AddWithValue("@RATE_TVA", rateTVA);
+				commandDelete->Parameters->AddWithValue("@REORDER_THRESHOLD", reorderThreshold);
+
+				commandDelete->ExecuteNonQuery();
+
+				MessageBox::Show("The line was successfully removed !", "Suppression réussie", MessageBoxButtons::OK);
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show("Deletion failed : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+			}
+		}
+	}
+
+
+	private: System::Void AddOrderButtons() {
+		int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+		int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+		int spacing = 10;      // Espace entre les boutons
+
+		int panelWidth = pnlDisplay->Width;
+		int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+		// Ajout du DataGridView
+		DataGridView^ dataGridView = gcnew DataGridView();
+		dataGridView->Width = pnlDisplay->Width - 40; // Largeur du DataGridView
+		dataGridView->Height = pnlDisplay->Height - 60; // Hauteur du DataGridView
+		dataGridView->Left = 10;
+		dataGridView->Top = 10;
+
+		// balculer la marge nécessaire pour centrer les boutons horizontalement
+		int margin = (panelWidth - totalButtonWidth) / 2;
+
+		Button^ btnAddOrder = createStyledButton("ADD", gcnew System::EventHandler(this, &Form1::btnAddOrder_Click));
+		btnAddOrder->Width = buttonWidth;
+		btnAddOrder->Height = buttonHeight;
+		btnAddOrder->Left = margin;
+		btnAddOrder->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnAddOrder->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(80)), static_cast<System::Int32>(static_cast<System::Byte>(240)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
+
+		Button^ btnModifyOrder = createStyledButton("EDIT", gcnew System::EventHandler(this, &Form1::btnModifyOrder_Click));
+		btnModifyOrder->Width = buttonWidth;
+		btnModifyOrder->Height = buttonHeight;
+		btnModifyOrder->Left = btnAddOrder->Right + spacing;
+		btnModifyOrder->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnModifyOrder->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
+
+		Button^ btnShowOrder = createStyledButton("DISPLAY", gcnew System::EventHandler(this, &Form1::btnShowOrder_Click));
+		btnShowOrder->Width = buttonWidth;
+		btnShowOrder->Height = buttonHeight;
+		btnShowOrder->Left = btnModifyOrder->Right + spacing;
+		btnShowOrder->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnShowOrder->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+			static_cast<System::Int32>(static_cast<System::Byte>(250)));
+
+		// Ajouter les boutons au Panel (pnlDisplay)
+		pnlDisplay->Controls->Clear();
+		pnlDisplay->Controls->Add(btnAddOrder);
+		pnlDisplay->Controls->Add(btnModifyOrder);
+		pnlDisplay->Controls->Add(btnShowOrder);
 		pnlDisplay->Controls->Add(dataGridView);
 	}
 };
