@@ -790,15 +790,15 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Open();
 
 
-			// Sélectionnez toutes les colonnes de la table STAFF
+			// Sélectionnez toutes les colonnes de la table CLIENT
 			String^ selectStaffQuery =
-				"SELECT * FROM STAFF;";
+				"SELECT * FROM CLIENT;";
 
 			SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(selectStaffQuery, % sqlConn);
 			DataSet^ dataSet = gcnew DataSet();
 
-			// Remplissez le DataSet avec les données de la table STAFF
-			dataAdapter->Fill(dataSet, "STAFF");
+			// Remplissez le DataSet avec les données de la table CLIENT
+			dataAdapter->Fill(dataSet, "CLIENT");
 
 			// Créez et configurez le DataGridView
 			dataGridView = gcnew DataGridView();
@@ -807,7 +807,7 @@ namespace CppCLRWinFormsProject {
 			dataGridView->Left = 10;
 			dataGridView->Top = 10;
 			dataGridView->DataSource = dataSet;
-			dataGridView->DataMember = "STAFF";
+			dataGridView->DataMember = "CLIENT";
 
 			// Créez le bouton "Retour"
 			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour2_Click));
