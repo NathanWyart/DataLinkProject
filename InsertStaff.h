@@ -547,7 +547,7 @@ namespace CppCLRWinFormsProject {
 				commandStaff->ExecuteNonQuery();
 				sqlTran->Commit();
 
-				MessageBox::Show("Transfert de données réussi !", "Succès", MessageBoxButtons::OK);
+				MessageBox::Show("Successful data transfert !", "Succès", MessageBoxButtons::OK);
 			}
 
 			catch (Exception^ ex) {
