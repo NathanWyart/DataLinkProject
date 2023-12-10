@@ -818,7 +818,7 @@ namespace CppCLRWinFormsProject {
 			btnRetour->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
 				static_cast<System::Int32>(static_cast<System::Byte>(0))); 
 
-			Button^ btnDeleteClient = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
+			Button^ btnDeleteClient = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteClient_Click));
 			btnDeleteClient->Width = buttonWidth;
 			btnDeleteClient->Height = buttonHeight;
 			btnDeleteClient->Left = btnRetour->Right + spacing;
@@ -836,7 +836,7 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Close();
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("Failed to retrieve data from the STAFF table : " + ex->Message, "Error", MessageBoxButtons::OK);
+			MessageBox::Show("Failed to retrieve data from the CLIENT table : " + ex->Message, "Error", MessageBoxButtons::OK);
 		}
 	}
 
@@ -845,84 +845,166 @@ namespace CppCLRWinFormsProject {
 
 
 		if (dataGridView->SelectedRows->Count > 0) {
-
-
 			// Récupérez l'ID de la ligne sélectionnée
 			int rowIndex = dataGridView->SelectedRows[0]->Index;
 			int personId = Convert::ToInt32(dataGridView->Rows[rowIndex]->Cells["ID_PERSON"]->Value);
 
-			// Supprimez les entrées associées dans les tables PERSON, ADDRESS et CITY
 			try {
 				String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
 				SqlConnection sqlConn(connString);
 				sqlConn.Open();
 
-				// Récupérez l'ID_ADDRESS et l'ID_CITY associés à cette personne
-				String^ selectAddressAndCityIdsQuery =
-					"SELECT ADDRESS.ID_ADDRESS, ADDRESS.ID_CITY " +
-					"FROM STAFF INNER JOIN ADDRESS ON STAFF.ID_ADDRESS = ADDRESS.ID_ADDRESS " +
-					"WHERE STAFF.ID_PERSON = @ID_PERSON;";
+				int deliveryAddressId, deliveryCityId, billingAddressId, billingCityId;
 
-				SqlCommand^ commandGetIds = gcnew SqlCommand(selectAddressAndCityIdsQuery, % sqlConn);
-				commandGetIds->Parameters->AddWithValue("@ID_PERSON", personId);
+				// Récupérez l'ID_DELIVERY et l'ID_BILLING associés à cette personne
+				String^ selectClientIdsQuery =
+					"SELECT ID_DELIVERY, ID_BILLING FROM CLIENT WHERE ID_PERSON = @ID_PERSON;";
 
-				SqlDataReader^ reader = commandGetIds->ExecuteReader();
-				int addressId, cityId;
+				SqlCommand^ commandGetClientIds = gcnew SqlCommand(selectClientIdsQuery, % sqlConn);
+				commandGetClientIds->Parameters->AddWithValue("@ID_PERSON", personId);
+
+				SqlDataReader^ reader = commandGetClientIds->ExecuteReader();
+				int clientDeliveryId, clientBillingId;
 
 				if (reader->Read()) {
-					addressId = Convert::ToInt32(reader["ID_ADDRESS"]);
-					cityId = Convert::ToInt32(reader["ID_CITY"]);
+					clientDeliveryId = Convert::ToInt32(reader["ID_DELIVERY"]);
+					clientBillingId = Convert::ToInt32(reader["ID_BILLING"]);
 				}
 				else {
-
-					MessageBox::Show("ID_PERSON not found in STAFF table or no associated ID_ADDRESS.", "Erreur", MessageBoxButtons::OK);
+					// Gérer le cas où l'ID_PERSON n'est pas trouvé dans la table CLIENT
+					MessageBox::Show("ID_PERSON non trouvé dans la table CLIENT.", "Erreur", MessageBoxButtons::OK);
 					return;
 				}
 
 				reader->Close();
+				
 
-				// Supprimez d'abord l'entrée dans la table STAFF
+				// Récupérer les ID_ADDRESS et ID_CITY associés à cette personne pour l'adresse de livraison
+				String^ selectDeliveryAddressAndCityIdsQuery =
+					"SELECT DELIVERY_ADDRESS.ID_ADDRESS AS DELIVERY_ID_ADDRESS, ADDRESS.ID_CITY AS DELIVERY_ID_CITY " +
+					"FROM DELIVERY_ADDRESS " +
+					"INNER JOIN ADDRESS ON DELIVERY_ADDRESS.ID_ADDRESS = ADDRESS.ID_ADDRESS " +
+					"WHERE DELIVERY_ADDRESS.ID_DELIVERY = @ID_DELIVERY;";
+
+				SqlCommand^ commandGetDeliveryIds = gcnew SqlCommand(selectDeliveryAddressAndCityIdsQuery, % sqlConn);
+				commandGetDeliveryIds->Parameters->AddWithValue("@ID_DELIVERY", clientDeliveryId);  // Utilisez l'ID_DELIVERY que vous avez récupéré précédemment
+
+				SqlDataReader^ readerGetDeliveryIds = commandGetDeliveryIds->ExecuteReader();
+
+				if (readerGetDeliveryIds->Read()) {
+					deliveryAddressId = Convert::ToInt32(readerGetDeliveryIds["DELIVERY_ID_ADDRESS"]);
+					deliveryCityId = Convert::ToInt32(readerGetDeliveryIds["DELIVERY_ID_CITY"]);
+				}
+				else {
+					MessageBox::Show("ID_DELIVERY non trouvé dans la table DELIVERY_ADDRESS ou pas d'ID_ADDRESS associé.", "Erreur", MessageBoxButtons::OK);
+					return;
+				}
+
+				readerGetDeliveryIds->Close();
+
+				// Récupérer les ID_ADDRESS et ID_CITY associés à cette personne pour l'adresse de facturation
+				String^ selectBillingAddressAndCityIdsQuery =
+					"SELECT BILLING_ADDRESS.ID_ADDRESS AS BILLING_ID_ADDRESS, ADDRESS.ID_CITY AS BILLING_ID_CITY " +
+					"FROM BILLING_ADDRESS " +
+					"INNER JOIN ADDRESS ON BILLING_ADDRESS.ID_ADDRESS = ADDRESS.ID_ADDRESS " +
+					"WHERE BILLING_ADDRESS.ID_BILLING = @ID_BILLING;";
+
+				SqlCommand^ commandGetBillingIds = gcnew SqlCommand(selectBillingAddressAndCityIdsQuery, % sqlConn);
+				commandGetBillingIds->Parameters->AddWithValue("@ID_BILLING", clientBillingId);  // Utilisez l'ID_BILLING que vous avez récupéré précédemment
+
+				SqlDataReader^ readerGetBillingIds = commandGetBillingIds->ExecuteReader();
+
+				if (readerGetBillingIds->Read()) {
+					billingAddressId = Convert::ToInt32(readerGetBillingIds["BILLING_ID_ADDRESS"]);
+					billingCityId = Convert::ToInt32(readerGetBillingIds["BILLING_ID_CITY"]);
+				}
+				else {
+					MessageBox::Show("ID_BILLING non trouvé dans la table BILLING_ADDRESS ou pas d'ID_ADDRESS associé.", "Erreur", MessageBoxButtons::OK);
+					return;
+				}
+
+				readerGetBillingIds->Close();
+
+				// Supprimez d'abord l'entrée dans la table CLIENT
 				String^ deleteClientQuery =
-					"DELETE FROM STAFF WHERE ID_PERSON = @ID_PERSON;";
+					"DELETE FROM CLIENT WHERE ID_PERSON = @ID_PERSON;";
 
 				SqlCommand^ commandDeleteClient = gcnew SqlCommand(deleteClientQuery, % sqlConn);
 				commandDeleteClient->Parameters->AddWithValue("@ID_PERSON", personId);
 				commandDeleteClient->ExecuteNonQuery();
 
-				// Supprimez l'entrée dans la table ADDRESS liée
-				String^ deleteAddressQuery =
-					"DELETE FROM ADDRESS WHERE ID_ADDRESS = @ID_ADDRESS;";
-
-				SqlCommand^ commandDeleteAddress = gcnew SqlCommand(deleteAddressQuery, % sqlConn);
-				commandDeleteAddress->Parameters->AddWithValue("@ID_ADDRESS", personId);
-				commandDeleteAddress->ExecuteNonQuery();
 
 
-				// Supprimez l'entrée dans la table CITY liée
-				String^ deleteCityQuery =
-					"DELETE FROM CITY WHERE ID_CITY = @ID_CITY;";
+				// Supprimer l'enregistrement dans la table DELIVERY_ADDRESS
+				String^ deleteDeliveryQuery =
+					"DELETE FROM DELIVERY_ADDRESS WHERE ID_DELIVERY = @ID_DELIVERY;";
 
-				SqlCommand^ commandDeleteCity = gcnew SqlCommand(deleteCityQuery, % sqlConn);
-				commandDeleteCity->Parameters->AddWithValue("@ID_CITY", cityId);
-				commandDeleteCity->ExecuteNonQuery();
+				SqlCommand^ commandDeleteDelivery = gcnew SqlCommand(deleteDeliveryQuery, % sqlConn);
+				commandDeleteDelivery->Parameters->AddWithValue("@ID_DELIVERY", clientDeliveryId);
+				commandDeleteDelivery->ExecuteNonQuery();
 
+				// Supprimer l'enregistrement dans la table ADDRESS lié à l'adresse de livraison
+				String^ deleteDeliveryAddressQuery =
+					"DELETE FROM ADDRESS WHERE ID_ADDRESS = @DELIVERY_ID_ADDRESS;";
 
-				// Supprimez l'entrée dans la table PERSON
+				SqlCommand^ commandDeleteDeliveryAddress = gcnew SqlCommand(deleteDeliveryAddressQuery, % sqlConn);
+				commandDeleteDeliveryAddress->Parameters->AddWithValue("@DELIVERY_ID_ADDRESS", deliveryAddressId);
+				commandDeleteDeliveryAddress->ExecuteNonQuery();
+
+				// Supprimer l'enregistrement dans la table CITY lié à l'adresse de livraison
+				String^ deleteDeliveryCityQuery =
+					"DELETE FROM CITY WHERE ID_CITY = @DELIVERY_ID_CITY;";
+
+				SqlCommand^ commandDeleteDeliveryCity = gcnew SqlCommand(deleteDeliveryCityQuery, % sqlConn);
+				commandDeleteDeliveryCity->Parameters->AddWithValue("@DELIVERY_ID_CITY", deliveryCityId);
+				commandDeleteDeliveryCity->ExecuteNonQuery();
+
+				// Supprimer l'enregistrement dans la table BILLING_ADDRESS
+				String^ deleteBillingQuery =
+					"DELETE FROM BILLING_ADDRESS WHERE ID_BILLING = @ID_BILLING;";
+
+				SqlCommand^ commandDeleteBilling = gcnew SqlCommand(deleteBillingQuery, % sqlConn);
+				commandDeleteBilling->Parameters->AddWithValue("@ID_BILLING", clientBillingId);
+				commandDeleteBilling->ExecuteNonQuery();
+
+				// Supprimer l'enregistrement dans la table ADDRESS lié à l'adresse de facturation
+				String^ deleteBillingAddressQuery =
+					"DELETE FROM ADDRESS WHERE ID_ADDRESS = @BILLING_ID_ADDRESS;";
+
+				SqlCommand^ commandDeleteBillingAddress = gcnew SqlCommand(deleteBillingAddressQuery, % sqlConn);
+				commandDeleteBillingAddress->Parameters->AddWithValue("@BILLING_ID_ADDRESS", billingAddressId);
+				commandDeleteBillingAddress->ExecuteNonQuery();
+
+				// Supprimer l'enregistrement dans la table CITY lié à l'adresse de facturation
+				String^ deleteBillingCityQuery =
+					"DELETE FROM CITY WHERE ID_CITY = @BILLING_ID_CITY;";
+
+				SqlCommand^ commandDeleteBillingCity = gcnew SqlCommand(deleteBillingCityQuery, % sqlConn);
+				commandDeleteBillingCity->Parameters->AddWithValue("@BILLING_ID_CITY", billingCityId);
+				commandDeleteBillingCity->ExecuteNonQuery();
+				
+				// Ensuite, supprimez l'entrée dans la table PERSON
 				String^ deletePersonQuery =
 					"DELETE FROM PERSON WHERE ID_PERSON = @ID_PERSON;";
 
 				SqlCommand^ commandDeletePerson = gcnew SqlCommand(deletePersonQuery, % sqlConn);
 				commandDeletePerson->Parameters->AddWithValue("@ID_PERSON", personId);
 				commandDeletePerson->ExecuteNonQuery();
+				
+				// Valider la transaction
+				sqlConn.Close();
 
-				MessageBox::Show("The line was successfully removed !", "Suppression réussie", MessageBoxButtons::OK);
+				MessageBox::Show("Successful data deletion!", "Success", MessageBoxButtons::OK);
 			}
 			catch (Exception^ ex) {
-				MessageBox::Show("Deletion failed : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+				MessageBox::Show("Error during deletion: " + ex->Message, "Error", MessageBoxButtons::OK);
 			}
+
+
 		}
-
-
+		else {
+			MessageBox::Show("Veuillez sélectionner une ligne à supprimer.", "Avertissement", MessageBoxButtons::OK);
+		}
 
 	}
 
@@ -950,12 +1032,16 @@ namespace CppCLRWinFormsProject {
 		btnAddClient->Height = buttonHeight;
 		btnAddClient->Left = margin;
 		btnAddClient->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnAddClient->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(80)), static_cast<System::Int32>(static_cast<System::Byte>(240)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 		Button^ btnModifyClient = createStyledButton("EDIT", gcnew System::EventHandler(this, &Form1::btnModifyClient_Click));
 		btnModifyClient->Width = buttonWidth;
 		btnModifyClient->Height = buttonHeight;
 		btnModifyClient->Left = btnAddClient->Right + spacing;
 		btnModifyClient->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnModifyClient->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 
 
@@ -964,6 +1050,8 @@ namespace CppCLRWinFormsProject {
 		btnShowClient->Height = buttonHeight;
 		btnShowClient->Left = btnModifyClient->Right + spacing;
 		btnShowClient->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnShowClient->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+			static_cast<System::Int32>(static_cast<System::Byte>(250)));
 
 		// Ajouter les boutons au Panel (pnlDisplay)
 		pnlDisplay->Controls->Clear();
