@@ -660,7 +660,7 @@ namespace CppCLRWinFormsProject {
 		btnAddStaff->Left = margin;
 		btnAddStaff->Top = pnlDisplay->Height - buttonHeight - 10;
 
-		Button^ btnModifyStaff = createStyledButton("EXIT", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
+		Button^ btnModifyStaff = createStyledButton("EDIT", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
 		btnModifyStaff->Width = buttonWidth;
 		btnModifyStaff->Height = buttonHeight;
 		btnModifyStaff->Left = btnAddStaff->Right + spacing;
@@ -863,7 +863,7 @@ namespace CppCLRWinFormsProject {
 		btnAddClient->Left = margin;
 		btnAddClient->Top = pnlDisplay->Height - buttonHeight - 10;
 
-		Button^ btnModifyClient = createStyledButton("EXIT", gcnew System::EventHandler(this, &Form1::btnModifyClient_Click));
+		Button^ btnModifyClient = createStyledButton("EDIT", gcnew System::EventHandler(this, &Form1::btnModifyClient_Click));
 		btnModifyClient->Width = buttonWidth;
 		btnModifyClient->Height = buttonHeight;
 		btnModifyClient->Left = btnAddClient->Right + spacing;
@@ -1034,7 +1034,7 @@ namespace CppCLRWinFormsProject {
 		btnAddStock->Left = margin;
 		btnAddStock->Top = pnlDisplay->Height - buttonHeight - 10;
 
-		Button^ btnModifyStock = createStyledButton("EXIT", gcnew System::EventHandler(this, &Form1::btnModifyStock_Click));
+		Button^ btnModifyStock = createStyledButton("EDIT", gcnew System::EventHandler(this, &Form1::btnModifyStock_Click));
 		btnModifyStock->Width = buttonWidth;
 		btnModifyStock->Height = buttonHeight;
 		btnModifyStock->Left = btnAddStock->Right + spacing;
