@@ -570,17 +570,17 @@ namespace CppCLRWinFormsProject {
 					// Valider la transaction
 					sqlTran->Commit();
 
-					MessageBox::Show("Successful data update!", "Success", MessageBoxButtons::OK);
+					MessageBox::Show("Successful data update !", "Success", MessageBoxButtons::OK);
 				}
 			}
 			catch (Exception^ ex) {
 				sqlTran->Rollback();
-				MessageBox::Show("Failed to register new staff: " + ex->Message, "Register failure", MessageBoxButtons::OK);
+				MessageBox::Show("Failed to update new staff : " + ex->Message, "Update failure", MessageBoxButtons::OK);
 			}
 
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("Failed to connect to the database: " + ex->Message, "Database connection failure", MessageBoxButtons::OK);
+			MessageBox::Show("Failed to connect to the database : " + ex->Message, "Database connection failure", MessageBoxButtons::OK);
 
 		}
 
