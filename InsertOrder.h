@@ -45,12 +45,15 @@ namespace CppCLRWinFormsProject {
 		}
 	private: System::Windows::Forms::Label^ label1;
 	private: System::Windows::Forms::Label^ PM;
+	private: System::Windows::Forms::TextBox^ tbRef;
 
 
-	private: System::Windows::Forms::TextBox^ tbREF;
-	private: System::Windows::Forms::Label^ OrderREF;
 
-	private: System::Windows::Forms::TextBox^ tbPM;
+	private: System::Windows::Forms::Label^ a;
+	private: System::Windows::Forms::TextBox^ tbMP;
+
+
+
 
 
 
@@ -63,15 +66,16 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Button^ btnCancel;
 	private: System::Windows::Forms::Label^ DeliveryDate;
 
-	private: System::Windows::Forms::Label^ ArticleID;
-	private: System::Windows::Forms::Label^ ArticleQuantity;
 
 
 
 
 
-	private: System::Windows::Forms::TextBox^ tbID;
-	private: System::Windows::Forms::TextBox^ tbQ;
+
+
+
+
+
 	private: System::Windows::Forms::Label^ PD;
 
 
@@ -83,7 +87,9 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Windows::Forms::Label^ CustomerID;
 	private: System::Windows::Forms::Label^ SocietyID;
-	private: System::Windows::Forms::TextBox^ tbPD;
+	private: System::Windows::Forms::TextBox^ tbIdClient;
+	private: System::Windows::Forms::TextBox^ tbIdSociety;
+	private: System::Windows::Forms::DateTimePicker^ dtpDelivery;
 
 
 
@@ -95,9 +101,10 @@ namespace CppCLRWinFormsProject {
 
 
 
-	private: System::Windows::Forms::TextBox^ tbSN;
-	private: System::Windows::Forms::TextBox^ tbSNumber;
-	private: System::Windows::Forms::DateTimePicker^ DateDeliveryPicker;
+
+
+
+
 
 
 
@@ -106,13 +113,17 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::PictureBox^ pictureBox1;
 	private: System::Windows::Forms::Label^ PB;
+	private: System::Windows::Forms::TextBox^ tbBP;
 
-	private: System::Windows::Forms::TextBox^ tbPB;
+
 
 
 	private: System::Windows::Forms::Label^ EmissionDate;
+	private: System::Windows::Forms::DateTimePicker^ dtpSend;
 
-	private: System::Windows::Forms::DateTimePicker^ dateEmissionPicker;
+
+	private: System::Windows::Forms::DateTimePicker^ dtpPaiementDate;
+
 
 
 
@@ -138,31 +149,27 @@ namespace CppCLRWinFormsProject {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->PM = (gcnew System::Windows::Forms::Label());
-			this->tbREF = (gcnew System::Windows::Forms::TextBox());
-			this->OrderREF = (gcnew System::Windows::Forms::Label());
-			this->tbPM = (gcnew System::Windows::Forms::TextBox());
+			this->tbRef = (gcnew System::Windows::Forms::TextBox());
+			this->a = (gcnew System::Windows::Forms::Label());
+			this->tbMP = (gcnew System::Windows::Forms::TextBox());
 			this->btnOK = (gcnew System::Windows::Forms::Button());
 			this->btnCancel = (gcnew System::Windows::Forms::Button());
 			this->DeliveryDate = (gcnew System::Windows::Forms::Label());
-			this->ArticleID = (gcnew System::Windows::Forms::Label());
-			this->ArticleQuantity = (gcnew System::Windows::Forms::Label());
-			this->tbID = (gcnew System::Windows::Forms::TextBox());
-			this->tbQ = (gcnew System::Windows::Forms::TextBox());
 			this->PD = (gcnew System::Windows::Forms::Label());
 			this->CustomerID = (gcnew System::Windows::Forms::Label());
 			this->SocietyID = (gcnew System::Windows::Forms::Label());
-			this->tbPD = (gcnew System::Windows::Forms::TextBox());
-			this->tbSN = (gcnew System::Windows::Forms::TextBox());
-			this->tbSNumber = (gcnew System::Windows::Forms::TextBox());
-			this->DateDeliveryPicker = (gcnew System::Windows::Forms::DateTimePicker());
+			this->tbIdClient = (gcnew System::Windows::Forms::TextBox());
+			this->tbIdSociety = (gcnew System::Windows::Forms::TextBox());
+			this->dtpDelivery = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->PB = (gcnew System::Windows::Forms::Label());
-			this->tbPB = (gcnew System::Windows::Forms::TextBox());
+			this->tbBP = (gcnew System::Windows::Forms::TextBox());
 			this->EmissionDate = (gcnew System::Windows::Forms::Label());
-			this->dateEmissionPicker = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dtpSend = (gcnew System::Windows::Forms::DateTimePicker());
+			this->dtpPaiementDate = (gcnew System::Windows::Forms::DateTimePicker());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -191,29 +198,29 @@ namespace CppCLRWinFormsProject {
 			this->PM->Text = L"Payment Method";
 			this->PM->Click += gcnew System::EventHandler(this, &InsertOrder::label2_Click);
 			// 
-			// tbREF
+			// tbRef
 			// 
-			this->tbREF->Location = System::Drawing::Point(273, 176);
-			this->tbREF->Name = L"tbREF";
-			this->tbREF->Size = System::Drawing::Size(379, 38);
-			this->tbREF->TabIndex = 2;
+			this->tbRef->Location = System::Drawing::Point(273, 176);
+			this->tbRef->Name = L"tbRef";
+			this->tbRef->Size = System::Drawing::Size(379, 38);
+			this->tbRef->TabIndex = 2;
 			// 
-			// OrderREF
+			// a
 			// 
-			this->OrderREF->AutoSize = true;
-			this->OrderREF->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->OrderREF->Location = System::Drawing::Point(14, 175);
-			this->OrderREF->Name = L"OrderREF";
-			this->OrderREF->Size = System::Drawing::Size(145, 34);
-			this->OrderREF->TabIndex = 3;
-			this->OrderREF->Text = L"Order REF";
+			this->a->AutoSize = true;
+			this->a->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
+			this->a->Location = System::Drawing::Point(14, 175);
+			this->a->Name = L"a";
+			this->a->Size = System::Drawing::Size(145, 34);
+			this->a->TabIndex = 3;
+			this->a->Text = L"Order REF";
 			// 
-			// tbPM
+			// tbMP
 			// 
-			this->tbPM->Location = System::Drawing::Point(273, 374);
-			this->tbPM->Name = L"tbPM";
-			this->tbPM->Size = System::Drawing::Size(379, 38);
-			this->tbPM->TabIndex = 4;
+			this->tbMP->Location = System::Drawing::Point(273, 374);
+			this->tbMP->Name = L"tbMP";
+			this->tbMP->Size = System::Drawing::Size(379, 38);
+			this->tbMP->TabIndex = 4;
 			// 
 			// btnOK
 			// 
@@ -259,41 +266,6 @@ namespace CppCLRWinFormsProject {
 			this->DeliveryDate->TabIndex = 7;
 			this->DeliveryDate->Text = L"Delivery Date";
 			// 
-			// ArticleID
-			// 
-			this->ArticleID->AutoSize = true;
-			this->ArticleID->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->ArticleID->Location = System::Drawing::Point(14, 231);
-			this->ArticleID->Name = L"ArticleID";
-			this->ArticleID->Size = System::Drawing::Size(139, 34);
-			this->ArticleID->TabIndex = 9;
-			this->ArticleID->Text = L"Article ID";
-			this->ArticleID->Click += gcnew System::EventHandler(this, &InsertOrder::label5_Click);
-			// 
-			// ArticleQuantity
-			// 
-			this->ArticleQuantity->AutoSize = true;
-			this->ArticleQuantity->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->ArticleQuantity->Location = System::Drawing::Point(14, 288);
-			this->ArticleQuantity->Name = L"ArticleQuantity";
-			this->ArticleQuantity->Size = System::Drawing::Size(130, 34);
-			this->ArticleQuantity->TabIndex = 10;
-			this->ArticleQuantity->Text = L"Quantity";
-			// 
-			// tbID
-			// 
-			this->tbID->Location = System::Drawing::Point(273, 230);
-			this->tbID->Name = L"tbID";
-			this->tbID->Size = System::Drawing::Size(379, 38);
-			this->tbID->TabIndex = 11;
-			// 
-			// tbQ
-			// 
-			this->tbQ->Location = System::Drawing::Point(273, 285);
-			this->tbQ->Name = L"tbQ";
-			this->tbQ->Size = System::Drawing::Size(379, 38);
-			this->tbQ->TabIndex = 12;
-			// 
 			// PD
 			// 
 			this->PD->AutoSize = true;
@@ -325,33 +297,26 @@ namespace CppCLRWinFormsProject {
 			this->SocietyID->TabIndex = 16;
 			this->SocietyID->Text = L"Society ID";
 			// 
-			// tbPD
+			// tbIdClient
 			// 
-			this->tbPD->Location = System::Drawing::Point(273, 432);
-			this->tbPD->Name = L"tbPD";
-			this->tbPD->Size = System::Drawing::Size(379, 38);
-			this->tbPD->TabIndex = 17;
+			this->tbIdClient->Location = System::Drawing::Point(997, 371);
+			this->tbIdClient->Name = L"tbIdClient";
+			this->tbIdClient->Size = System::Drawing::Size(379, 38);
+			this->tbIdClient->TabIndex = 19;
 			// 
-			// tbSN
+			// tbIdSociety
 			// 
-			this->tbSN->Location = System::Drawing::Point(997, 371);
-			this->tbSN->Name = L"tbSN";
-			this->tbSN->Size = System::Drawing::Size(379, 38);
-			this->tbSN->TabIndex = 19;
+			this->tbIdSociety->Location = System::Drawing::Point(997, 428);
+			this->tbIdSociety->Name = L"tbIdSociety";
+			this->tbIdSociety->Size = System::Drawing::Size(379, 38);
+			this->tbIdSociety->TabIndex = 20;
 			// 
-			// tbSNumber
+			// dtpDelivery
 			// 
-			this->tbSNumber->Location = System::Drawing::Point(997, 428);
-			this->tbSNumber->Name = L"tbSNumber";
-			this->tbSNumber->Size = System::Drawing::Size(379, 38);
-			this->tbSNumber->TabIndex = 20;
-			// 
-			// DateDeliveryPicker
-			// 
-			this->DateDeliveryPicker->Location = System::Drawing::Point(997, 211);
-			this->DateDeliveryPicker->Name = L"DateDeliveryPicker";
-			this->DateDeliveryPicker->Size = System::Drawing::Size(379, 38);
-			this->DateDeliveryPicker->TabIndex = 23;
+			this->dtpDelivery->Location = System::Drawing::Point(997, 211);
+			this->dtpDelivery->Name = L"dtpDelivery";
+			this->dtpDelivery->Size = System::Drawing::Size(413, 38);
+			this->dtpDelivery->TabIndex = 23;
 			// 
 			// label3
 			// 
@@ -411,12 +376,12 @@ namespace CppCLRWinFormsProject {
 			this->PB->TabIndex = 30;
 			this->PB->Text = L"Payment Balance";
 			// 
-			// tbPB
+			// tbBP
 			// 
-			this->tbPB->Location = System::Drawing::Point(273, 490);
-			this->tbPB->Name = L"tbPB";
-			this->tbPB->Size = System::Drawing::Size(379, 38);
-			this->tbPB->TabIndex = 31;
+			this->tbBP->Location = System::Drawing::Point(273, 490);
+			this->tbBP->Name = L"tbBP";
+			this->tbBP->Size = System::Drawing::Size(379, 38);
+			this->tbBP->TabIndex = 31;
 			// 
 			// EmissionDate
 			// 
@@ -430,12 +395,19 @@ namespace CppCLRWinFormsProject {
 			this->EmissionDate->TabIndex = 32;
 			this->EmissionDate->Text = L"Emission Date";
 			// 
-			// dateEmissionPicker
+			// dtpSend
 			// 
-			this->dateEmissionPicker->Location = System::Drawing::Point(997, 267);
-			this->dateEmissionPicker->Name = L"dateEmissionPicker";
-			this->dateEmissionPicker->Size = System::Drawing::Size(379, 38);
-			this->dateEmissionPicker->TabIndex = 33;
+			this->dtpSend->Location = System::Drawing::Point(997, 267);
+			this->dtpSend->Name = L"dtpSend";
+			this->dtpSend->Size = System::Drawing::Size(413, 38);
+			this->dtpSend->TabIndex = 33;
+			// 
+			// dtpPaiementDate
+			// 
+			this->dtpPaiementDate->Location = System::Drawing::Point(273, 435);
+			this->dtpPaiementDate->Name = L"dtpPaiementDate";
+			this->dtpPaiementDate->Size = System::Drawing::Size(419, 38);
+			this->dtpPaiementDate->TabIndex = 34;
 			// 
 			// InsertOrder
 			// 
@@ -443,29 +415,25 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightSteelBlue;
 			this->ClientSize = System::Drawing::Size(1422, 624);
-			this->Controls->Add(this->dateEmissionPicker);
+			this->Controls->Add(this->dtpPaiementDate);
+			this->Controls->Add(this->dtpSend);
 			this->Controls->Add(this->EmissionDate);
-			this->Controls->Add(this->tbPB);
+			this->Controls->Add(this->tbBP);
 			this->Controls->Add(this->PB);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label3);
-			this->Controls->Add(this->DateDeliveryPicker);
-			this->Controls->Add(this->tbSNumber);
-			this->Controls->Add(this->tbSN);
-			this->Controls->Add(this->tbPD);
+			this->Controls->Add(this->dtpDelivery);
+			this->Controls->Add(this->tbIdSociety);
+			this->Controls->Add(this->tbIdClient);
 			this->Controls->Add(this->SocietyID);
 			this->Controls->Add(this->CustomerID);
 			this->Controls->Add(this->PD);
-			this->Controls->Add(this->tbQ);
-			this->Controls->Add(this->tbID);
-			this->Controls->Add(this->ArticleQuantity);
-			this->Controls->Add(this->ArticleID);
 			this->Controls->Add(this->DeliveryDate);
 			this->Controls->Add(this->btnCancel);
 			this->Controls->Add(this->btnOK);
-			this->Controls->Add(this->tbPM);
-			this->Controls->Add(this->OrderREF);
-			this->Controls->Add(this->tbREF);
+			this->Controls->Add(this->tbMP);
+			this->Controls->Add(this->a);
+			this->Controls->Add(this->tbRef);
 			this->Controls->Add(this->PM);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->panel1);
@@ -498,166 +466,69 @@ namespace CppCLRWinFormsProject {
 
 
 	private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) {
+		if (tbRef->Text->Length == 0 || tbIdClient->Text->Length == 0 || tbBP->Text->Length == 0 || tbMP->Text->Length == 0 ||
+			dtpDelivery->Text->Length == 0 || dtpSend->Text->Length == 0 || dtpPaiementDate->Text->Length == 0 || tbIdSociety->Text->Length == 0) {
 
-
-		if (tbREF->Text->Length == 0 || tbID->Text->Length == 0 || tbQ->Text->Length == 0 || tbPM->Text->Length == 0 ||
-			tbPD->Text->Length == 0 || tbPB->Text->Length == 0 || DateDeliveryPicker->Text->Length == 0 || dateEmissionPicker->Text->Length == 0 ||
-			CustomerID->Text->Length == 0 || SocietyID->Text->Length == 0) {
-
-			MessageBox::Show("Please enter all the fields", "On or more empty fields",
-				MessageBoxButtons::OK);
+			MessageBox::Show("Please enter all the fields", "One or more empty fields", MessageBoxButtons::OK);
 			return;
 		}
 
-
-
 		try {
-
 			String^ connString = "Data Source = localhost\\ ; Initial Catalog=datalink; Integrated Security=True";
 			SqlConnection sqlConn(connString);
 			sqlConn.Open();
 
 			SqlTransaction^ sqlTran = sqlConn.BeginTransaction();
 
-			try {
-				// CLasse "Order"
-				CLOrder^ order = gcnew CLOrder;
+			int clientId;
+			if (Int32::TryParse(this->tbIdClient->Text, clientId)) {
+				int societyId;
+				if (Int32::TryParse(this->tbIdSociety->Text, societyId)) {
+					// Utilisez des paramètres pour éviter les attaques par injection SQL
+					String^ orderQuery =
+						"INSERT INTO ORDERS (REF_ORDER, DATE_DELEVERY, DATE_EMISSION, ID_CLIENT, ID_SOCIETY) "
+						"VALUES (@REF_ORDER, @DATE_DELEVERY, @DATE_EMISSION, @ID_CLIENT, @ID_SOCIETY);";
 
-				int ref;
-				if (Int32::TryParse(this->tbREF->Text, ref)) {
-					order->setref(ref);
-				}
+					SqlCommand^ commandOrder = gcnew SqlCommand(orderQuery, % sqlConn, sqlTran);
+					commandOrder->Parameters->AddWithValue("@REF_ORDER", tbRef->Text);
+					commandOrder->Parameters->AddWithValue("@DATE_DELEVERY", dtpDelivery->Value.ToString("yyyy-MM-dd"));
+					commandOrder->Parameters->AddWithValue("@DATE_EMISSION", dtpSend->Value.ToString("yyyy-MM-dd"));
+					commandOrder->Parameters->AddWithValue("@ID_CLIENT", clientId);
+					commandOrder->Parameters->AddWithValue("@ID_SOCIETY", societyId);
 
-				// CLasse "Article"
-				CLStock^ stock = gcnew CLStock;
 
-				//int id;
-				//if (Int32::TryParse(this->tbID->Text, id)) {
-					//stock->set
-				//}
+					commandOrder->ExecuteNonQuery();
 
-				String^ getIDsQuery =
-					"SELECT o.ID_CLIENT, o.ID_SOCIETY, o.ID_BILL, a.ID_ARTICLE "
-					"FROM ORDERS o "
-					"INNER JOIN ARTICLE a ON o.ID_ARTICLE = a.ID_ARTICLE "
-					"INNER JOIN CLIENT c ON o.ID_CLIENT = c.ID_CLIENT "
-					"INNER JOIN SOCIETY s ON o.ID_SOCIETY = s.ID_SOCIETY "
-					"INNER JOIN BILL b ON o.ID_BILL = b.ID_BILL "
-					"WHERE o.ORDER_ID = @ORDER_ID;";
+					// Insérer dans la table PAYMENT
+					String^ paymentQuery =
+						"INSERT INTO PAYMENT (PAYMENT_METHOD, DATE_PAYMENT, BALANCE_PAYMENT, REF_ORDER) "
+						"VALUES (@PAYMENT_METHOD, @DATE_PAYMENT, @BALANCE_PAYMENT, @REF_ORDER);";
 
-				SqlCommand^ commandGetIDs = gcnew SqlCommand(getIDsQuery, % sqlConn, sqlTran);
-				commandGetIDs->Parameters->AddWithValue("@ORDER_ID", tbREF->Text);
+					SqlCommand^ commandPayment = gcnew SqlCommand(paymentQuery, % sqlConn, sqlTran);
+					commandPayment->Parameters->AddWithValue("@PAYMENT_METHOD", tbMP->Text); 
+					commandPayment->Parameters->AddWithValue("@DATE_PAYMENT", dtpPaiementDate->Value.ToString("yyyy-MM-dd"));
+					commandPayment->Parameters->AddWithValue("@BALANCE_PAYMENT", Convert::ToInt32(tbBP->Text));
+					commandPayment->Parameters->AddWithValue("@REF_ORDER", tbRef->Text);
 
-				SqlDataReader^ reader = commandGetIDs->ExecuteReader();
-				int clientId, societyId, billId, articleId;
+					commandPayment->ExecuteNonQuery();
+					sqlTran->Commit();
 
-				if (reader->Read()) {
-					clientId = Convert::ToInt32(reader["ID_CLIENT"]);
-					societyId = Convert::ToInt32(reader["ID_SOCIETY"]);
-					billId = Convert::ToInt32(reader["ID_BILL"]);
-					articleId = Convert::ToInt32(reader["ID_ARTICLE"]);
+					MessageBox::Show("Transfert de données réussi !", "Succès", MessageBoxButtons::OK);
 				}
 				else {
-					MessageBox::Show("ORDER_ID not found in the ORDERS table or no associated IDs.", "Error", MessageBoxButtons::OK);
-					return;
+					MessageBox::Show("Invalid Society ID format.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				}
-
-				//order->setfirstname(this->tbID->Text);
-
-				// CLasse "Staff"
-				CLStaff^ staff = gcnew CLStaff;
-				//staff->sethire_date(this->DateHiredPicker->Value.ToString("yyyy-MM-dd"));
-				//staff->setfirst_name_sup(this->tbLNS->Text);
-				//staff->setlast_name_sup(this->tbFNS->Text);
-
-				// CLasse "Address"
-				CLAddress^ address_staff = gcnew CLAddress;
-				//address_staff->setcity(this->tbCN->Text);
-
-				int postal_value;
-				if (Int32::TryParse(this->tbSN->Text, postal_value)) {
-					address_staff->setpostal(postal_value);
-
-				};
-				address_staff->setstreet(this->tbSN->Text);
-
-				int street_number_value;
-				if (Int32::TryParse(this->tbSNumber->Text, street_number_value)) {
-					address_staff->setstreet_number(street_number_value);
-				};
-
-
-
-				staff->setstaff_address(address_staff);
-
-
-
-				// Table "City"
-				String^ cityQuery =
-					"INSERT INTO CITY (POSTAL_CODE, CITY_NAME) VALUES (@POSTAL_CODE, @CITY_NAME); "
-					"SELECT SCOPE_IDENTITY();";
-
-				SqlCommand^ commandCity = gcnew SqlCommand(cityQuery, % sqlConn, sqlTran);
-				commandCity->Parameters->AddWithValue("@POSTAL_CODE", address_staff->getpostal());
-				commandCity->Parameters->AddWithValue("@CITY_NAME", address_staff->getcity());
-
-				int cityId = Convert::ToInt32(commandCity->ExecuteScalar());
-
-				// Table "Address"
-				String^ addressQuery =
-					"INSERT INTO ADDRESS (STREET_NAME, STREET_NUMBER, ID_CITY) VALUES (@STREET_NAME, @STREET_NUMBER, @ID_CITY); "
-					"SELECT SCOPE_IDENTITY();";
-
-				SqlCommand^ commandAddress = gcnew SqlCommand(addressQuery, % sqlConn, sqlTran);
-				commandAddress->Parameters->AddWithValue("@STREET_NAME", address_staff->getstreet());
-				commandAddress->Parameters->AddWithValue("@STREET_NUMBER", address_staff->getstreet_number());
-				commandAddress->Parameters->AddWithValue("@ID_CITY", cityId);
-
-				int addressId = Convert::ToInt32(commandAddress->ExecuteScalar());
-
-
-				// Table "Person"
-				String^ personQuery =
-					"INSERT INTO PERSON (FIRST_NAME, LAST_NAME) VALUES (@FIRST_NAME, @LAST_NAME); "
-					"SELECT SCOPE_IDENTITY();";
-
-				SqlCommand^ commandPerson = gcnew SqlCommand(personQuery, % sqlConn, sqlTran);
-				//commandPerson->Parameters->AddWithValue("@FIRST_NAME", person->getfirstname());
-				//commandPerson->Parameters->AddWithValue("@LAST_NAME", person->getfirstname());
-
-				int personId = Convert::ToInt32(commandPerson->ExecuteScalar());
-
-
-				// Table "Staff"
-				String^ staffQuery =
-					"INSERT INTO STAFF (DATE_HIRED, FIRST_NAME_SUP, LAST_NAME_SUP, ID_ADDRESS, ID_PERSON) VALUES (@DATE_HIRED, @FIRST_NAME_SUP, @LAST_NAME_SUP, @ID_ADDRESS, @ID_PERSON);";
-
-				SqlCommand^ commandStaff = gcnew SqlCommand(staffQuery, % sqlConn, sqlTran);
-				commandStaff->Parameters->AddWithValue("@DATE_HIRED", staff->gethire_date());
-				commandStaff->Parameters->AddWithValue("@FIRST_NAME_SUP", staff->getfirst_name_sup());
-				commandStaff->Parameters->AddWithValue("@LAST_NAME_SUP", staff->getlast_name_sup());
-				commandStaff->Parameters->AddWithValue("@ID_ADDRESS", addressId);
-				commandStaff->Parameters->AddWithValue("@ID_PERSON", personId);
-
-
-				commandStaff->ExecuteNonQuery();
-				sqlTran->Commit();
-
-				MessageBox::Show("Successful data transfer !", "Succès", MessageBoxButtons::OK);
 			}
-
-			catch (Exception^ ex) {
-				sqlTran->Rollback();
-				MessageBox::Show("Failed to register new staff: " + ex->Message, "Register failure", MessageBoxButtons::OK);
+			else {
+				MessageBox::Show("Invalid Client ID format.", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("Failed to connect to the database: " + ex->Message, "Database connection failure", MessageBoxButtons::OK);
 
+
+			MessageBox::Show("Failed to register new order: " + ex->Message, "Register failure", MessageBoxButtons::OK);
 		}
-
-
 	}
 
 	private: System::Void label8_Click(System::Object^ sender, System::EventArgs^ e) {
