@@ -10,7 +10,7 @@
   - [Fonctionnalitées de l'application](#Fonctionnalitées-de-l'application)
   - [Languages et Outils utilisés](#Languages-et-Outils-utilisés)
 - [Réalisation](#Réalisation)
-  - [Diagrammes](#Diagrammes)
+  - [Diagrammes](#Les-Diagrammes)
   - [Programmation](#La-Programmation)
   - [Base de données](#La-Base-de-Données)
 - [Guide de l'utilisateur](#Guide-de-l'utilisateur)
@@ -87,7 +87,7 @@ Le premier était un **OBS** afin de se répartir les tâches équitablements et
 
 Nous avons pu également réaliser un diagramme de **Classes** afin modéliser le programme avant de le créer :
 
-<p align="center"><img src="https://imgur.com/itB8ivO.png" width="686.5" height="762.5"></img></p>
+<p align="center"><img src="https://imgur.com/R3SMR7j.png" width="686.5" ></img></p>
 
 > ! Les autres diagrammes que nous avons pus réaliser se trouvent dans les annexes.
 
