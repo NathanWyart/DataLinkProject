@@ -198,9 +198,9 @@ namespace CppCLRWinFormsProject {
 			this->TVAName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
 			this->TVAName->Location = System::Drawing::Point(132, 350);
 			this->TVAName->Name = L"TVAName";
-			this->TVAName->Size = System::Drawing::Size(68, 34);
+			this->TVAName->Size = System::Drawing::Size(92, 34);
 			this->TVAName->TabIndex = 10;
-			this->TVAName->Text = L"TVA";
+			this->TVAName->Text = L"TVA%";
 			// 
 			// tbPE
 			// 

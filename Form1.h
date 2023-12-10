@@ -22,7 +22,6 @@ namespace CppCLRWinFormsProject {
 	public ref class Form1 : public System::Windows::Forms::Form
 	{
 	private :
-
 		DataGridView^ dataGridView;
 	public:
 		Form1(void)
@@ -69,6 +68,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox6;
 	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
 	private: System::Windows::Forms::Label^ label1;
+	private: System::Windows::Forms::PictureBox^ pictureBox7;
+	private: System::Windows::Forms::Label^ label2;
 
 	private: System::ComponentModel::IContainer^ components;
 
@@ -108,6 +109,8 @@ namespace CppCLRWinFormsProject {
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->pnlDisplay = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
@@ -117,6 +120,8 @@ namespace CppCLRWinFormsProject {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel2->SuspendLayout();
+			this->pnlDisplay->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -346,8 +351,8 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel2->BackColor = System::Drawing::Color::LightSkyBlue;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel2->Controls->Add(this->label1);
 			this->panel2->Controls->Add(this->button2);
+			this->panel2->Controls->Add(this->label2);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(227, 0);
 			this->panel2->Name = L"panel2";
@@ -364,11 +369,12 @@ namespace CppCLRWinFormsProject {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label1->ForeColor = System::Drawing::Color::Black;
-			this->label1->Location = System::Drawing::Point(379, 12);
+			this->label1->Location = System::Drawing::Point(83, 117);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(209, 47);
 			this->label1->TabIndex = 4;
 			this->label1->Text = L"DATALINK";
+			this->label1->Visible = false;
 			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
 			// 
 			// button2
@@ -390,11 +396,37 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->pnlDisplay->BackColor = System::Drawing::Color::LightGray;
 			this->pnlDisplay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pnlDisplay->Controls->Add(this->label1);
+			this->pnlDisplay->Controls->Add(this->pictureBox7);
 			this->pnlDisplay->Location = System::Drawing::Point(227, 73);
 			this->pnlDisplay->Name = L"pnlDisplay";
 			this->pnlDisplay->Size = System::Drawing::Size(979, 528);
 			this->pnlDisplay->TabIndex = 4;
 			this->pnlDisplay->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::pnlDisplay_Paint);
+			// 
+			// pictureBox7
+			// 
+			this->pictureBox7->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox7->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183417675775479979/gra"
+				L"ndlogo.png\?ex=65884298&is=6575cd98&hm=c612f29e8cfa13783750ce067f596345ab06acc6cd"
+				L"cbf8cad1743cee7d593e0a&";
+			this->pictureBox7->Location = System::Drawing::Point(298, 82);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(364, 396);
+			this->pictureBox7->TabIndex = 1;
+			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Click += gcnew System::EventHandler(this, &Form1::pictureBox7_Click);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 36, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->Location = System::Drawing::Point(144, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(647, 70);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"Welcome to DataLink";
 			// 
 			// contextMenuStrip1
 			// 
@@ -423,6 +455,9 @@ namespace CppCLRWinFormsProject {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel2->ResumeLayout(false);
 			this->panel2->PerformLayout();
+			this->pnlDisplay->ResumeLayout(false);
+			this->pnlDisplay->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
 			this->ResumeLayout(false);
 
 		}
@@ -441,6 +476,8 @@ namespace CppCLRWinFormsProject {
 			   return button;
 		   }
 
+	private: System::Void pictureBox7_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
 	private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 
@@ -546,17 +583,22 @@ namespace CppCLRWinFormsProject {
 			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour_Click));
 			btnRetour->Width = buttonWidth;
 			btnRetour->Height = buttonHeight;
-			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
+			btnRetour->Left = btnRetour->Right + spacing; 
+			btnRetour->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnRetour->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 			Button^ btnDeleteStaff = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
 			btnDeleteStaff->Width = buttonWidth;
 			btnDeleteStaff->Height = buttonHeight;
 			btnDeleteStaff->Left = btnRetour->Right + spacing;
-			btnDeleteStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+			btnDeleteStaff->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnDeleteStaff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 			// Ajouter le DataGridView au Panel (pnlDisplay)
 			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
-			pnlDisplay->Controls->Add(dataGridView);
+			pnlDisplay->Controls->Add(dataGridView); 
 			pnlDisplay->Controls->Add(btnRetour);
 			pnlDisplay->Controls->Add(btnDeleteStaff);
 
@@ -692,25 +734,31 @@ namespace CppCLRWinFormsProject {
 		btnAddStaff->Width = buttonWidth;
 		btnAddStaff->Height = buttonHeight;
 		btnAddStaff->Left = margin;
-		btnAddStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnAddStaff->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnAddStaff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(80)), static_cast<System::Int32>(static_cast<System::Byte>(240)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 		Button^ btnModifyStaff = createStyledButton("EDIT", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
 		btnModifyStaff->Width = buttonWidth;
 		btnModifyStaff->Height = buttonHeight;
 		btnModifyStaff->Left = btnAddStaff->Right + spacing;
-		btnModifyStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnModifyStaff->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnModifyStaff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 		Button^ btnShowStaff = createStyledButton("DISPLAY", gcnew System::EventHandler(this, &Form1::btnShowStaff_Click));
 		btnShowStaff->Width = buttonWidth;
 		btnShowStaff->Height = buttonHeight;
 		btnShowStaff->Left = btnModifyStaff->Right + spacing;
-		btnShowStaff->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnShowStaff->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnShowStaff->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(206)),
+			static_cast<System::Int32>(static_cast<System::Byte>(250)));
 
 		// Ajouter les boutons au Panel (pnlDisplay)
 		pnlDisplay->Controls->Clear();
 		pnlDisplay->Controls->Add(btnAddStaff);
 		pnlDisplay->Controls->Add(btnModifyStaff);
-		pnlDisplay->Controls->Add(btnShowStaff);
+		pnlDisplay->Controls->Add(btnShowStaff); 
 		pnlDisplay->Controls->Add(dataGridView);
 	}
 
@@ -765,17 +813,22 @@ namespace CppCLRWinFormsProject {
 			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour2_Click));
 			btnRetour->Width = buttonWidth;
 			btnRetour->Height = buttonHeight;
-			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
+			btnRetour->Left = btnRetour->Right + spacing;
+			btnRetour->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnRetour->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0))); 
 
 			Button^ btnDeleteClient = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
 			btnDeleteClient->Width = buttonWidth;
 			btnDeleteClient->Height = buttonHeight;
 			btnDeleteClient->Left = btnRetour->Right + spacing;
-			btnDeleteClient->Top = pnlDisplay->Height - buttonHeight - 10;
+			btnDeleteClient->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnDeleteClient->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 			// Ajouter le DataGridView au Panel (pnlDisplay)
 			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
-			pnlDisplay->Controls->Add(dataGridView);
+			pnlDisplay->Controls->Add(dataGridView); 
 			pnlDisplay->Controls->Add(btnRetour);
 			pnlDisplay->Controls->Add(btnDeleteClient);
 
@@ -786,6 +839,7 @@ namespace CppCLRWinFormsProject {
 			MessageBox::Show("Failed to retrieve data from the STAFF table : " + ex->Message, "Error", MessageBoxButtons::OK);
 		}
 	}
+
 
 	private: System::Void btnDeleteClient_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -971,13 +1025,18 @@ namespace CppCLRWinFormsProject {
 			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour3_Click));
 			btnRetour->Width = buttonWidth;
 			btnRetour->Height = buttonHeight;
-			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
+			btnRetour->Left = btnRetour->Right + spacing;
+			btnRetour->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnRetour->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(0)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 			Button^ btnDeleteStock = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteStock_Click));
 			btnDeleteStock->Width = buttonWidth;
 			btnDeleteStock->Height = buttonHeight;
 			btnDeleteStock->Left = btnRetour->Right + spacing;
-			btnDeleteStock->Top = pnlDisplay->Height - buttonHeight - 10;
+			btnDeleteStock->Top = pnlDisplay->Height - buttonHeight - 5;
+			btnDeleteStock->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(0)),
+				static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 			// Ajouter le DataGridView au Panel (pnlDisplay)
 			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
@@ -1066,21 +1125,25 @@ namespace CppCLRWinFormsProject {
 		btnAddStock->Width = buttonWidth;
 		btnAddStock->Height = buttonHeight;
 		btnAddStock->Left = margin;
-		btnAddStock->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnAddStock->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnAddStock->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(80)), static_cast<System::Int32>(static_cast<System::Byte>(240)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 		Button^ btnModifyStock = createStyledButton("EDIT", gcnew System::EventHandler(this, &Form1::btnModifyStock_Click));
 		btnModifyStock->Width = buttonWidth;
 		btnModifyStock->Height = buttonHeight;
 		btnModifyStock->Left = btnAddStock->Right + spacing;
-		btnModifyStock->Top = pnlDisplay->Height - buttonHeight - 10;
-
-
+		btnModifyStock->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnModifyStock->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(170)),
+			static_cast<System::Int32>(static_cast<System::Byte>(0)));
 
 		Button^ btnShowStock = createStyledButton("DISPLAY", gcnew System::EventHandler(this, &Form1::btnShowStock_Click));
 		btnShowStock->Width = buttonWidth;
 		btnShowStock->Height = buttonHeight;
 		btnShowStock->Left = btnModifyStock->Right + spacing;
-		btnShowStock->Top = pnlDisplay->Height - buttonHeight - 10;
+		btnShowStock->Top = pnlDisplay->Height - buttonHeight - 5;
+		btnShowStock->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(135)), static_cast<System::Int32>(static_cast<System::Byte>(206)), 
+			static_cast<System::Int32>(static_cast<System::Byte>(250))); 
 
 		// Ajouter les boutons au Panel (pnlDisplay)
 		pnlDisplay->Controls->Clear();
