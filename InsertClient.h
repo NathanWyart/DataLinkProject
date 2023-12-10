@@ -215,7 +215,7 @@ namespace CppCLRWinFormsProject {
 			this->DateBirth->BackColor = System::Drawing::Color::Transparent;
 			this->DateBirth->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DateBirth->Location = System::Drawing::Point(860, 150);
+			this->DateBirth->Location = System::Drawing::Point(828, 160);
 			this->DateBirth->Name = L"DateBirth";
 			this->DateBirth->Size = System::Drawing::Size(145, 27);
 			this->DateBirth->TabIndex = 7;
@@ -238,7 +238,7 @@ namespace CppCLRWinFormsProject {
 			this->LastName->AutoSize = true;
 			this->LastName->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->LastName->Location = System::Drawing::Point(433, 150);
+			this->LastName->Location = System::Drawing::Point(417, 150);
 			this->LastName->Name = L"LastName";
 			this->LastName->Size = System::Drawing::Size(126, 27);
 			this->LastName->TabIndex = 10;
@@ -253,7 +253,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tbLN
 			// 
-			this->tbLN->Location = System::Drawing::Point(566, 143);
+			this->tbLN->Location = System::Drawing::Point(549, 143);
 			this->tbLN->Name = L"tbLN";
 			this->tbLN->Size = System::Drawing::Size(262, 38);
 			this->tbLN->TabIndex = 12;
@@ -333,7 +333,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// DateBirthPicker
 			// 
-			this->DateBirthPicker->Location = System::Drawing::Point(1013, 143);
+			this->DateBirthPicker->Location = System::Drawing::Point(1013, 150);
 			this->DateBirthPicker->Name = L"DateBirthPicker";
 			this->DateBirthPicker->Size = System::Drawing::Size(406, 38);
 			this->DateBirthPicker->TabIndex = 23;
@@ -472,7 +472,7 @@ namespace CppCLRWinFormsProject {
 			this->label5->BackColor = System::Drawing::Color::Transparent;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(826, 98);
+			this->label5->Location = System::Drawing::Point(826, 104);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(181, 27);
 			this->label5->TabIndex = 40;
@@ -480,7 +480,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// DateOrderPicker
 			// 
-			this->DateOrderPicker->Location = System::Drawing::Point(1013, 88);
+			this->DateOrderPicker->Location = System::Drawing::Point(1013, 94);
 			this->DateOrderPicker->Name = L"DateOrderPicker";
 			this->DateOrderPicker->Size = System::Drawing::Size(406, 38);
 			this->DateOrderPicker->TabIndex = 41;

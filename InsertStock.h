@@ -253,7 +253,7 @@ namespace CppCLRWinFormsProject {
 				L"e3df2911f505ec7dd0&";
 			this->pictureBox1->Location = System::Drawing::Point(3, 3);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(138, 69);
+			this->pictureBox1->Size = System::Drawing::Size(138, 78);
 			this->pictureBox1->TabIndex = 1;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &InsertStock::pictureBox1_Click);
