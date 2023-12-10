@@ -30,30 +30,30 @@ void CLStock::setprice(int price){
 }
 
 //************Récupération infos stock**************
-int CLStock::getref(int) {
+int CLStock::getref() {
 	return this->ref;
 }
 
-System::String^ CLStock::getarticle_name(System::String^ article_name) {
+System::String^ CLStock::getarticle_name() {
 	return this->article_name;
 }
 
-int CLStock::getreorder_treshold(int) {
+int CLStock::getreorder_treshold() {
 	return this->reorder_treshold;
 }
 
-int CLStock::getTVA(int) {
+int CLStock::getTVA() {
 	return this->TVA;
 }
 
-System::String^ CLStock::getnature(System::String^ nature) {
+System::String^ CLStock::getnature() {
 	return this->nature;
 }
 
-int CLStock::getquantity(int) {
+int CLStock::getquantity() {
 	return this->quantity;
 }
 
-int CLStock::getprice(int) {
+int CLStock::getprice() {
 	return this->price;
 }
