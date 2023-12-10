@@ -66,14 +66,18 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ CityName;
 	private: System::Windows::Forms::Label^ StreetName;
 	private: System::Windows::Forms::Label^ StreetNumber;
+	private: System::Windows::Forms::TextBox^ tbCNL;
+	private: System::Windows::Forms::TextBox^ tbPCL;
+	private: System::Windows::Forms::TextBox^ tbSNL;
+	private: System::Windows::Forms::TextBox^ tbSNumberL;
 
 
 
 
-	private: System::Windows::Forms::TextBox^ tbCN;
-	private: System::Windows::Forms::TextBox^ tbPC;
-	private: System::Windows::Forms::TextBox^ tbSN;
-	private: System::Windows::Forms::TextBox^ tbSNumber;
+
+
+
+
 
 
 	private: System::Windows::Forms::DateTimePicker^ DateBirthPicker;
@@ -82,16 +86,23 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ panel1;
 	private: System::Windows::Forms::Label^ label4;
 	private: System::Windows::Forms::Label^ CityNameBilling;
-	private: System::Windows::Forms::TextBox^ tbCNB;
+	private: System::Windows::Forms::TextBox^ tbCNF;
+
 	private: System::Windows::Forms::Label^ BillingPostal;
-	private: System::Windows::Forms::TextBox^ tbPCB;
+	private: System::Windows::Forms::TextBox^ tbPCF;
+
 
 	private: System::Windows::Forms::Label^ streetBilling;
-	private: System::Windows::Forms::TextBox^ tbSNB;
+	private: System::Windows::Forms::TextBox^ tbSNF;
+
 
 	private: System::Windows::Forms::Label^ streetNumberBilling;
-	private: System::Windows::Forms::TextBox^ tbSNumberB;
+	private: System::Windows::Forms::TextBox^ tbSNumberF;
+
 	private: System::Windows::Forms::Panel^ panel2;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::DateTimePicker^ DateOrderPicker;
+
 
 
 
@@ -131,24 +142,26 @@ namespace CppCLRWinFormsProject {
 			this->CityName = (gcnew System::Windows::Forms::Label());
 			this->StreetName = (gcnew System::Windows::Forms::Label());
 			this->StreetNumber = (gcnew System::Windows::Forms::Label());
-			this->tbCN = (gcnew System::Windows::Forms::TextBox());
-			this->tbPC = (gcnew System::Windows::Forms::TextBox());
-			this->tbSN = (gcnew System::Windows::Forms::TextBox());
-			this->tbSNumber = (gcnew System::Windows::Forms::TextBox());
+			this->tbCNL = (gcnew System::Windows::Forms::TextBox());
+			this->tbPCL = (gcnew System::Windows::Forms::TextBox());
+			this->tbSNL = (gcnew System::Windows::Forms::TextBox());
+			this->tbSNumberL = (gcnew System::Windows::Forms::TextBox());
 			this->DateBirthPicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->CityNameBilling = (gcnew System::Windows::Forms::Label());
-			this->tbCNB = (gcnew System::Windows::Forms::TextBox());
+			this->tbCNF = (gcnew System::Windows::Forms::TextBox());
 			this->BillingPostal = (gcnew System::Windows::Forms::Label());
-			this->tbPCB = (gcnew System::Windows::Forms::TextBox());
+			this->tbPCF = (gcnew System::Windows::Forms::TextBox());
 			this->streetBilling = (gcnew System::Windows::Forms::Label());
-			this->tbSNB = (gcnew System::Windows::Forms::TextBox());
+			this->tbSNF = (gcnew System::Windows::Forms::TextBox());
 			this->streetNumberBilling = (gcnew System::Windows::Forms::Label());
-			this->tbSNumberB = (gcnew System::Windows::Forms::TextBox());
+			this->tbSNumberF = (gcnew System::Windows::Forms::TextBox());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->DateOrderPicker = (gcnew System::Windows::Forms::DateTimePicker());
 			this->SuspendLayout();
 			// 
 			// label1
@@ -290,33 +303,33 @@ namespace CppCLRWinFormsProject {
 			this->StreetNumber->TabIndex = 16;
 			this->StreetNumber->Text = L"Street number";
 			// 
-			// tbCN
+			// tbCNL
 			// 
-			this->tbCN->Location = System::Drawing::Point(263, 295);
-			this->tbCN->Name = L"tbCN";
-			this->tbCN->Size = System::Drawing::Size(379, 38);
-			this->tbCN->TabIndex = 17;
+			this->tbCNL->Location = System::Drawing::Point(263, 295);
+			this->tbCNL->Name = L"tbCNL";
+			this->tbCNL->Size = System::Drawing::Size(379, 38);
+			this->tbCNL->TabIndex = 17;
 			// 
-			// tbPC
+			// tbPCL
 			// 
-			this->tbPC->Location = System::Drawing::Point(263, 352);
-			this->tbPC->Name = L"tbPC";
-			this->tbPC->Size = System::Drawing::Size(379, 38);
-			this->tbPC->TabIndex = 18;
+			this->tbPCL->Location = System::Drawing::Point(263, 352);
+			this->tbPCL->Name = L"tbPCL";
+			this->tbPCL->Size = System::Drawing::Size(379, 38);
+			this->tbPCL->TabIndex = 18;
 			// 
-			// tbSN
+			// tbSNL
 			// 
-			this->tbSN->Location = System::Drawing::Point(263, 411);
-			this->tbSN->Name = L"tbSN";
-			this->tbSN->Size = System::Drawing::Size(379, 38);
-			this->tbSN->TabIndex = 19;
+			this->tbSNL->Location = System::Drawing::Point(263, 411);
+			this->tbSNL->Name = L"tbSNL";
+			this->tbSNL->Size = System::Drawing::Size(379, 38);
+			this->tbSNL->TabIndex = 19;
 			// 
-			// tbSNumber
+			// tbSNumberL
 			// 
-			this->tbSNumber->Location = System::Drawing::Point(263, 469);
-			this->tbSNumber->Name = L"tbSNumber";
-			this->tbSNumber->Size = System::Drawing::Size(379, 38);
-			this->tbSNumber->TabIndex = 20;
+			this->tbSNumberL->Location = System::Drawing::Point(263, 469);
+			this->tbSNumberL->Name = L"tbSNumberL";
+			this->tbSNumberL->Size = System::Drawing::Size(379, 38);
+			this->tbSNumberL->TabIndex = 20;
 			// 
 			// DateBirthPicker
 			// 
@@ -383,12 +396,12 @@ namespace CppCLRWinFormsProject {
 			this->CityNameBilling->TabIndex = 31;
 			this->CityNameBilling->Text = L"City name";
 			// 
-			// tbCNB
+			// tbCNF
 			// 
-			this->tbCNB->Location = System::Drawing::Point(957, 300);
-			this->tbCNB->Name = L"tbCNB";
-			this->tbCNB->Size = System::Drawing::Size(379, 38);
-			this->tbCNB->TabIndex = 32;
+			this->tbCNF->Location = System::Drawing::Point(957, 300);
+			this->tbCNF->Name = L"tbCNF";
+			this->tbCNF->Size = System::Drawing::Size(379, 38);
+			this->tbCNF->TabIndex = 32;
 			// 
 			// BillingPostal
 			// 
@@ -401,12 +414,12 @@ namespace CppCLRWinFormsProject {
 			this->BillingPostal->TabIndex = 33;
 			this->BillingPostal->Text = L"Postal code";
 			// 
-			// tbPCB
+			// tbPCF
 			// 
-			this->tbPCB->Location = System::Drawing::Point(957, 357);
-			this->tbPCB->Name = L"tbPCB";
-			this->tbPCB->Size = System::Drawing::Size(379, 38);
-			this->tbPCB->TabIndex = 34;
+			this->tbPCF->Location = System::Drawing::Point(957, 357);
+			this->tbPCF->Name = L"tbPCF";
+			this->tbPCF->Size = System::Drawing::Size(379, 38);
+			this->tbPCF->TabIndex = 34;
 			// 
 			// streetBilling
 			// 
@@ -419,12 +432,12 @@ namespace CppCLRWinFormsProject {
 			this->streetBilling->TabIndex = 35;
 			this->streetBilling->Text = L"Street name";
 			// 
-			// tbSNB
+			// tbSNF
 			// 
-			this->tbSNB->Location = System::Drawing::Point(957, 416);
-			this->tbSNB->Name = L"tbSNB";
-			this->tbSNB->Size = System::Drawing::Size(379, 38);
-			this->tbSNB->TabIndex = 36;
+			this->tbSNF->Location = System::Drawing::Point(957, 416);
+			this->tbSNF->Name = L"tbSNF";
+			this->tbSNF->Size = System::Drawing::Size(379, 38);
+			this->tbSNF->TabIndex = 36;
 			// 
 			// streetNumberBilling
 			// 
@@ -437,12 +450,12 @@ namespace CppCLRWinFormsProject {
 			this->streetNumberBilling->TabIndex = 37;
 			this->streetNumberBilling->Text = L"Street number";
 			// 
-			// tbSNumberB
+			// tbSNumberF
 			// 
-			this->tbSNumberB->Location = System::Drawing::Point(957, 469);
-			this->tbSNumberB->Name = L"tbSNumberB";
-			this->tbSNumberB->Size = System::Drawing::Size(379, 38);
-			this->tbSNumberB->TabIndex = 38;
+			this->tbSNumberF->Location = System::Drawing::Point(957, 469);
+			this->tbSNumberF->Name = L"tbSNumberF";
+			this->tbSNumberF->Size = System::Drawing::Size(379, 38);
+			this->tbSNumberF->TabIndex = 38;
 			// 
 			// panel2
 			// 
@@ -453,29 +466,50 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Size = System::Drawing::Size(1454, 10);
 			this->panel2->TabIndex = 39;
 			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::Transparent;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->Location = System::Drawing::Point(826, 98);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(181, 27);
+			this->label5->TabIndex = 40;
+			this->label5->Text = L"First Order Date";
+			// 
+			// DateOrderPicker
+			// 
+			this->DateOrderPicker->Location = System::Drawing::Point(1013, 88);
+			this->DateOrderPicker->Name = L"DateOrderPicker";
+			this->DateOrderPicker->Size = System::Drawing::Size(406, 38);
+			this->DateOrderPicker->TabIndex = 41;
+			// 
 			// InsertClient
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(16, 31);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightSteelBlue;
 			this->ClientSize = System::Drawing::Size(1422, 624);
+			this->Controls->Add(this->DateOrderPicker);
+			this->Controls->Add(this->label5);
 			this->Controls->Add(this->panel2);
-			this->Controls->Add(this->tbSNumberB);
+			this->Controls->Add(this->tbSNumberF);
 			this->Controls->Add(this->streetNumberBilling);
-			this->Controls->Add(this->tbSNB);
+			this->Controls->Add(this->tbSNF);
 			this->Controls->Add(this->streetBilling);
-			this->Controls->Add(this->tbPCB);
+			this->Controls->Add(this->tbPCF);
 			this->Controls->Add(this->BillingPostal);
-			this->Controls->Add(this->tbCNB);
+			this->Controls->Add(this->tbCNF);
 			this->Controls->Add(this->CityNameBilling);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->DateBirthPicker);
-			this->Controls->Add(this->tbSNumber);
-			this->Controls->Add(this->tbSN);
-			this->Controls->Add(this->tbPC);
-			this->Controls->Add(this->tbCN);
+			this->Controls->Add(this->tbSNumberL);
+			this->Controls->Add(this->tbSNL);
+			this->Controls->Add(this->tbPCL);
+			this->Controls->Add(this->tbCNL);
 			this->Controls->Add(this->StreetNumber);
 			this->Controls->Add(this->StreetName);
 			this->Controls->Add(this->CityName);
@@ -512,11 +546,9 @@ namespace CppCLRWinFormsProject {
 
 
 	private: System::Void btnOK_Click(System::Object^ sender, System::EventArgs^ e) {
-
-
-		if (DateBirthPicker->Text->Length == 0 || tbFN->Text->Length == 0 || tbLN->Text->Length == 0
-			|| tbCN->Text->Length == 0 || tbPC->Text->Length == 0 || tbSN->Text->Length == 0 ||
-			tbSNumber->Text->Length == 0) {
+		if (DateBirthPicker->Text->Length == 0 || DateOrderPicker->Text->Length == 0 || tbFN->Text->Length == 0 || tbLN->Text->Length == 0 || tbCNL->Text->Length == 0 || tbPCL->Text->Length == 0 || tbSNL->Text->Length == 0 ||
+			tbSNumberL->Text->Length == 0 || tbCNF->Text->Length == 0 || tbPCF->Text->Length == 0 || tbSNF->Text->Length == 0 ||
+			tbSNumberF->Text->Length == 0) {
 
 			MessageBox::Show("Please enter all the fields", "On or more empty fields",
 				MessageBoxButtons::OK);
@@ -540,53 +572,116 @@ namespace CppCLRWinFormsProject {
 				person->setfirstname(this->tbFN->Text);
 
 				// CLasse "Client"
-				CLStaff^ staff = gcnew CLStaff;
-				staff->sethire_date(this->DateBirthPicker->Value.ToString("yyyy-MM-dd"));
+				CLClients^ client = gcnew CLClients;
+				client->setbirth_date(this->DateBirthPicker->Value.ToString("yyyy-MM-dd"));
+				client->setdate_first_order(this->DateOrderPicker->Value.ToString("yyyy-MM-dd"));
 
-				// CLasse "Address"
-				CLAddress^ address_staff = gcnew CLAddress;
-				address_staff->setcity(this->tbCN->Text);
 
-				int postal_value;
-				if (Int32::TryParse(this->tbPC->Text, postal_value)) {
-					address_staff->setpostal(postal_value);
+				// CLasse "Address" Livraison
+				CLAddress^ address_client_delivery = gcnew CLAddress;
+				address_client_delivery->setcity(this->tbCNL->Text);
+
+				int postal_value_delivery;
+				if (Int32::TryParse(this->tbPCL->Text, postal_value_delivery)) {
+					address_client_delivery->setpostal(postal_value_delivery);
 
 				};
-				address_staff->setstreet(this->tbSN->Text);
+				address_client_delivery->setstreet(this->tbSNL->Text);
 
-				int street_number_value;
-				if (Int32::TryParse(this->tbSNumber->Text, street_number_value)) {
-					address_staff->setstreet_number(street_number_value);
+				int street_number_value_delivery;
+				if (Int32::TryParse(this->tbSNumberL->Text, street_number_value_delivery)) {
+					address_client_delivery->setstreet_number(street_number_value_delivery);
 				};
 
 
 
-				staff->setstaff_address(address_staff);
+				client->setdelivery_address(address_client_delivery);
+
+				// CLasse "Address" Facturation
+				CLAddress^ address_client_billing = gcnew CLAddress;
+				address_client_billing->setcity(this->tbCNF->Text);
+
+				int postal_value_billing;
+				if (Int32::TryParse(this->tbPCF->Text, postal_value_billing)) {
+					address_client_billing->setpostal(postal_value_billing);
+
+				};
+				address_client_billing->setstreet(this->tbSNF->Text);
+
+				int street_number_value_billing;
+				if (Int32::TryParse(this->tbSNumberF->Text, street_number_value_billing)) {
+					address_client_billing->setstreet_number(street_number_value_billing);
+				};
 
 
 
-				// Table "City"
-				String^ cityQuery =
+				client->setbilling_address(address_client_billing);
+
+
+
+				// Insérer l'adresse de livraison
+				String^ deliveryCityQuery =
 					"INSERT INTO CITY (POSTAL_CODE, CITY_NAME) VALUES (@POSTAL_CODE, @CITY_NAME); "
 					"SELECT SCOPE_IDENTITY();";
 
-				SqlCommand^ commandCity = gcnew SqlCommand(cityQuery, % sqlConn, sqlTran);
-				commandCity->Parameters->AddWithValue("@POSTAL_CODE", address_staff->getpostal());
-				commandCity->Parameters->AddWithValue("@CITY_NAME", address_staff->getcity());
+				SqlCommand^ commandDeliveryCity = gcnew SqlCommand(deliveryCityQuery, % sqlConn, sqlTran);
+				commandDeliveryCity->Parameters->AddWithValue("@POSTAL_CODE", address_client_delivery->getpostal());
+				commandDeliveryCity->Parameters->AddWithValue("@CITY_NAME", address_client_delivery->getcity());
 
-				int cityId = Convert::ToInt32(commandCity->ExecuteScalar());
+				int deliveryCityId = Convert::ToInt32(commandDeliveryCity->ExecuteScalar());
 
-				// Table "Address"
-				String^ addressQuery =
+				String^ deliveryAddressQuery =
 					"INSERT INTO ADDRESS (STREET_NAME, STREET_NUMBER, ID_CITY) VALUES (@STREET_NAME, @STREET_NUMBER, @ID_CITY); "
 					"SELECT SCOPE_IDENTITY();";
 
-				SqlCommand^ commandAddress = gcnew SqlCommand(addressQuery, % sqlConn, sqlTran);
-				commandAddress->Parameters->AddWithValue("@STREET_NAME", address_staff->getstreet());
-				commandAddress->Parameters->AddWithValue("@STREET_NUMBER", address_staff->getstreet_number());
-				commandAddress->Parameters->AddWithValue("@ID_CITY", cityId);
+				SqlCommand^ commandDeliveryAddress = gcnew SqlCommand(deliveryAddressQuery, % sqlConn, sqlTran);
+				commandDeliveryAddress->Parameters->AddWithValue("@STREET_NAME", address_client_delivery->getstreet());
+				commandDeliveryAddress->Parameters->AddWithValue("@STREET_NUMBER", address_client_delivery->getstreet_number());
+				commandDeliveryAddress->Parameters->AddWithValue("@ID_CITY", deliveryCityId);
 
-				int addressId = Convert::ToInt32(commandAddress->ExecuteScalar());
+				int deliveryAddressId = Convert::ToInt32(commandDeliveryAddress->ExecuteScalar());
+
+				// Insérer l'adresse de facturation
+				String^ billingCityQuery =
+					"INSERT INTO CITY (POSTAL_CODE, CITY_NAME) VALUES (@POSTAL_CODE, @CITY_NAME); "
+					"SELECT SCOPE_IDENTITY();";
+
+				SqlCommand^ commandBillingCity = gcnew SqlCommand(billingCityQuery, % sqlConn, sqlTran);
+				commandBillingCity->Parameters->AddWithValue("@POSTAL_CODE", address_client_billing->getpostal());
+				commandBillingCity->Parameters->AddWithValue("@CITY_NAME", address_client_billing->getcity());
+
+				int billingCityId = Convert::ToInt32(commandBillingCity->ExecuteScalar());
+
+				String^ billingAddressQuery =
+					"INSERT INTO ADDRESS (STREET_NAME, STREET_NUMBER, ID_CITY) VALUES (@STREET_NAME, @STREET_NUMBER, @ID_CITY); "
+					"SELECT SCOPE_IDENTITY();";
+
+				SqlCommand^ commandBillingAddress = gcnew SqlCommand(billingAddressQuery, % sqlConn, sqlTran);
+				commandBillingAddress->Parameters->AddWithValue("@STREET_NAME", address_client_billing->getstreet());
+				commandBillingAddress->Parameters->AddWithValue("@STREET_NUMBER", address_client_billing->getstreet_number());
+				commandBillingAddress->Parameters->AddWithValue("@ID_CITY", billingCityId);
+
+				int billingAddressId = Convert::ToInt32(commandBillingAddress->ExecuteScalar());
+
+				// Insérer dans la table BILLING_ADDRESS
+				String^ billingAddressInsertQuery =
+					"INSERT INTO BILLING_ADDRESS (ID_ADDRESS) VALUES (@ID_ADDRESS); "
+					"SELECT SCOPE_IDENTITY();";
+
+				SqlCommand^ commandBillingAddressInsert = gcnew SqlCommand(billingAddressInsertQuery, % sqlConn, sqlTran);
+				commandBillingAddressInsert->Parameters->AddWithValue("@ID_ADDRESS", billingAddressId);
+
+				int billingAddressIdInserted = Convert::ToInt32(commandBillingAddressInsert->ExecuteScalar());
+
+				// Insérer dans la table DELIVERY_ADDRESS
+				String^ deliveryAddressInsertQuery =
+					"INSERT INTO DELIVERY_ADDRESS (ID_ADDRESS) VALUES (@ID_ADDRESS); "
+					"SELECT SCOPE_IDENTITY();";
+
+				SqlCommand^ commandDeliveryAddressInsert = gcnew SqlCommand(deliveryAddressInsertQuery, % sqlConn, sqlTran);
+				commandDeliveryAddressInsert->Parameters->AddWithValue("@ID_ADDRESS", deliveryAddressId);
+
+				int deliveryAddressIdInserted = Convert::ToInt32(commandDeliveryAddressInsert->ExecuteScalar());
 
 
 				// Table "Person"
@@ -596,24 +691,24 @@ namespace CppCLRWinFormsProject {
 
 				SqlCommand^ commandPerson = gcnew SqlCommand(personQuery, % sqlConn, sqlTran);
 				commandPerson->Parameters->AddWithValue("@FIRST_NAME", person->getfirstname());
-				commandPerson->Parameters->AddWithValue("@LAST_NAME", person->getfirstname());
+				commandPerson->Parameters->AddWithValue("@LAST_NAME", person->getname());
 
 				int personId = Convert::ToInt32(commandPerson->ExecuteScalar());
 
 
-				// Table "Staff"
-				String^ staffQuery =
-					"INSERT INTO STAFF (DATE_HIRED, FIRST_NAME_SUP, LAST_NAME_SUP, ID_ADDRESS, ID_PERSON) VALUES (@DATE_HIRED, @FIRST_NAME_SUP, @LAST_NAME_SUP, @ID_ADDRESS, @ID_PERSON);";
+				// Table "Client"
+				String^ clientQuery =
+					"INSERT INTO CLIENT (BIRTH_DATE, FIRST_ORDER_DATE, ID_BILLING, ID_DELIVERY, ID_PERSON) VALUES (@BIRTH_DATE, @FIRST_ORDER_DATE,@ID_BILLING, @ID_DELIVERY, @ID_PERSON);";
 
-				SqlCommand^ commandStaff = gcnew SqlCommand(staffQuery, % sqlConn, sqlTran);
-				commandStaff->Parameters->AddWithValue("@DATE_HIRED", staff->gethire_date());
-				commandStaff->Parameters->AddWithValue("@FIRST_NAME_SUP", staff->getfirst_name_sup());
-				commandStaff->Parameters->AddWithValue("@LAST_NAME_SUP", staff->getlast_name_sup());
-				commandStaff->Parameters->AddWithValue("@ID_ADDRESS", addressId);
-				commandStaff->Parameters->AddWithValue("@ID_PERSON", personId);
+				SqlCommand^ commandClient = gcnew SqlCommand(clientQuery, % sqlConn, sqlTran);
+				commandClient->Parameters->AddWithValue("@BIRTH_DATE", client->getbirth_date());
+				commandClient->Parameters->AddWithValue("@FIRST_ORDER_DATE", client->getdate_first_order());
+				commandClient->Parameters->AddWithValue("@ID_DELIVERY", deliveryAddressIdInserted);
+				commandClient->Parameters->AddWithValue("@ID_BILLING", billingAddressIdInserted);
+				commandClient->Parameters->AddWithValue("@ID_PERSON", personId);
 
 
-				commandStaff->ExecuteNonQuery();
+				commandClient->ExecuteNonQuery();
 				sqlTran->Commit();
 
 				MessageBox::Show("Transfert de données réussi !", "Succès", MessageBoxButtons::OK);
@@ -629,7 +724,6 @@ namespace CppCLRWinFormsProject {
 			MessageBox::Show("Failed to connect to the database: " + ex->Message, "Database connection failure", MessageBoxButtons::OK);
 
 		}
-
 
 	}
 
