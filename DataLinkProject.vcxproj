@@ -143,6 +143,18 @@
     <ClInclude Include="InsertStaff.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="InsertClient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="InsertStock.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdateStock.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="UpdateClient.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="UpdateStaff.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -161,6 +173,10 @@
     <ClCompile Include="CppCLR_WinFormsProject.cpp" />
     <ClCompile Include="Form1.cpp" />
     <ClCompile Include="InsertStaff.cpp" />
+    <ClCompile Include="InsertClient.cpp" />
+    <ClCompile Include="InsertStock.cpp" />
+    <ClCompile Include="UpdateStock.cpp" />
+    <ClCompile Include="UpdateClient.cpp" />
     <ClCompile Include="UpdateStaff.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -183,11 +199,23 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InsertClient.resx">
+      <DependentUpon>InsertClient.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="InsertStaff.resx">
       <DependentUpon>InsertStaff.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="InsertStock.resx">
+      <DependentUpon>InsertStock.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateClient.resx">
+      <DependentUpon>UpdateClient.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateStaff.resx">
       <DependentUpon>UpdateStaff.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UpdateStock.resx">
+      <DependentUpon>UpdateStock.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
