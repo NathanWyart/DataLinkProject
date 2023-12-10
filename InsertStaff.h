@@ -79,6 +79,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Label^ label3;
 	private: System::Windows::Forms::Label^ label2;
 	private: System::Windows::Forms::Panel^ panel1;
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
 
 
 
@@ -125,6 +126,9 @@ namespace CppCLRWinFormsProject {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -358,12 +362,25 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Transparent;
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel1->Location = System::Drawing::Point(0, 0);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1422, 82);
 			this->panel1->TabIndex = 29;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &InsertStaff::panel1_Paint);
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183389782043267174/log"
+				L"o2.png\?ex=6588289e&is=6575b39e&hm=cb50d5a6c20698a4dc71c533fd57f5dd298b78d4adee25"
+				L"e3df2911f505ec7dd0&";
+			this->pictureBox1->Location = System::Drawing::Point(3, 1);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(127, 72);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &InsertStaff::pictureBox1_Click);
 			// 
 			// InsertStaff
 			// 
@@ -401,6 +418,8 @@ namespace CppCLRWinFormsProject {
 			this->Name = L"InsertStaff";
 			this->Text = L"InsertStaff";
 			this->Load += gcnew System::EventHandler(this, &InsertStaff::InsertStaff_Load);
+			this->panel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -414,6 +433,9 @@ namespace CppCLRWinFormsProject {
 		this->Close();
 	}
 	private: System::Void label5_Click(System::Object^ sender, System::EventArgs^ e) {
+	}
+
+	private: System::Void pictureBox1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 

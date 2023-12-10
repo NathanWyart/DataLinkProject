@@ -67,6 +67,10 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::PictureBox^ pictureBox4;
 	private: System::Windows::Forms::PictureBox^ pictureBox5;
 	private: System::Windows::Forms::PictureBox^ pictureBox6;
+	private: System::Windows::Forms::ContextMenuStrip^ contextMenuStrip1;
+	private: System::Windows::Forms::Label^ label1;
+
+	private: System::ComponentModel::IContainer^ components;
 
 	protected:
 
@@ -74,7 +78,7 @@ namespace CppCLRWinFormsProject {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
-		System::ComponentModel::Container^ components;
+
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -83,6 +87,7 @@ namespace CppCLRWinFormsProject {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			this->components = (gcnew System::ComponentModel::Container());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
@@ -100,8 +105,10 @@ namespace CppCLRWinFormsProject {
 			this->btnstaff = (gcnew System::Windows::Forms::Button());
 			this->btnclient = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->pnlDisplay = (gcnew System::Windows::Forms::Panel());
+			this->contextMenuStrip1 = (gcnew System::Windows::Forms::ContextMenuStrip(this->components));
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
@@ -339,6 +346,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel2->BackColor = System::Drawing::Color::LightSkyBlue;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel2->Controls->Add(this->label1);
 			this->panel2->Controls->Add(this->button2);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(227, 0);
@@ -346,6 +354,22 @@ namespace CppCLRWinFormsProject {
 			this->panel2->Size = System::Drawing::Size(979, 83);
 			this->panel2->TabIndex = 1;
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel2_Paint);
+			// 
+			// label1
+			// 
+			this->label1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->label1->AutoSize = true;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Century Gothic", 24, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Black;
+			this->label1->Location = System::Drawing::Point(379, 12);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(209, 47);
+			this->label1->TabIndex = 4;
+			this->label1->Text = L"DATALINK";
+			this->label1->Click += gcnew System::EventHandler(this, &Form1::label1_Click);
 			// 
 			// button2
 			// 
@@ -372,6 +396,12 @@ namespace CppCLRWinFormsProject {
 			this->pnlDisplay->TabIndex = 4;
 			this->pnlDisplay->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::pnlDisplay_Paint);
 			// 
+			// contextMenuStrip1
+			// 
+			this->contextMenuStrip1->ImageScalingSize = System::Drawing::Size(20, 20);
+			this->contextMenuStrip1->Name = L"contextMenuStrip1";
+			this->contextMenuStrip1->Size = System::Drawing::Size(61, 4);
+			// 
 			// Form1
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -392,6 +422,7 @@ namespace CppCLRWinFormsProject {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -421,6 +452,9 @@ namespace CppCLRWinFormsProject {
 	}
 	private: System::Void button2_Click(System::Object^ sender, System::EventArgs^ e) {
 		Application::Exit();
+	}
+
+	private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
 
 	private: System::Void pnlDisplay_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
