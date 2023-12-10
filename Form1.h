@@ -1,6 +1,10 @@
 #pragma once
 #include "InsertStaff.h"
 #include "UpdateStaff.h"
+#include "InsertClient.h"
+#include "UpdateClient.h"
+#include "InsertStock.h"
+#include "UpdateStock.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -24,6 +28,7 @@ namespace CppCLRWinFormsProject {
 		Form1(void)
 		{
 			InitializeComponent();
+			this->Text = "DataLink";
 		}
 
 	protected:
@@ -56,6 +61,13 @@ namespace CppCLRWinFormsProject {
 	private: System::Windows::Forms::Panel^ pnlBut;
 	private: System::Windows::Forms::Panel^ pnlDisplay;
 
+	private: System::Windows::Forms::PictureBox^ pictureBox1;
+	private: System::Windows::Forms::PictureBox^ pictureBox2;
+	private: System::Windows::Forms::PictureBox^ pictureBox3;
+	private: System::Windows::Forms::PictureBox^ pictureBox4;
+	private: System::Windows::Forms::PictureBox^ pictureBox5;
+	private: System::Windows::Forms::PictureBox^ pictureBox6;
+
 	protected:
 
 	private:
@@ -72,6 +84,12 @@ namespace CppCLRWinFormsProject {
 		void InitializeComponent(void)
 		{
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->pnlBut = (gcnew System::Windows::Forms::Panel());
 			this->Management = (gcnew System::Windows::Forms::Button());
 			this->panel4 = (gcnew System::Windows::Forms::Panel());
@@ -85,6 +103,13 @@ namespace CppCLRWinFormsProject {
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->pnlDisplay = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -92,6 +117,12 @@ namespace CppCLRWinFormsProject {
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(41)), static_cast<System::Int32>(static_cast<System::Byte>(39)),
 				static_cast<System::Int32>(static_cast<System::Byte>(40)));
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel1->Controls->Add(this->pictureBox6);
+			this->panel1->Controls->Add(this->pictureBox5);
+			this->panel1->Controls->Add(this->pictureBox4);
+			this->panel1->Controls->Add(this->pictureBox3);
+			this->panel1->Controls->Add(this->pictureBox2);
+			this->panel1->Controls->Add(this->pictureBox1);
 			this->panel1->Controls->Add(this->pnlBut);
 			this->panel1->Controls->Add(this->Management);
 			this->panel1->Controls->Add(this->panel4);
@@ -107,6 +138,73 @@ namespace CppCLRWinFormsProject {
 			this->panel1->Size = System::Drawing::Size(227, 601);
 			this->panel1->TabIndex = 0;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel1_Paint);
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183238573953122354/sta"
+				L"ts.png\?ex=65879bcb&is=657526cb&hm=964be2af22c44ff4cc26b3ca0566cf3e64e9bcd8543888"
+				L"6d46536456ebee2746&";
+			this->pictureBox6->Location = System::Drawing::Point(30, 521);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(80, 44);
+			this->pictureBox6->TabIndex = 2;
+			this->pictureBox6->TabStop = false;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183238062516478012/ord"
+				L"er.png\?ex=65879b51&is=65752651&hm=603d24667ef5ba38d0bf8c86538ab453ad35e6ca4fbf36"
+				L"2cd5498530b7dee0e5&";
+			this->pictureBox5->Location = System::Drawing::Point(27, 443);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(80, 44);
+			this->pictureBox5->TabIndex = 1;
+			this->pictureBox5->TabStop = false;
+			// 
+			// pictureBox4
+			// 
+			this->pictureBox4->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183236592119320676/sto"
+				L"ck.png\?ex=658799f3&is=657524f3&hm=ca12687de28e69a5b9677026b24c6a8351e1f21f5b93ac"
+				L"9f299c07b29505d1ed&";
+			this->pictureBox4->Location = System::Drawing::Point(22, 365);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(59, 44);
+			this->pictureBox4->TabIndex = 0;
+			this->pictureBox4->TabStop = false;
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183233917642350662/sta"
+				L"ff.png\?ex=65879775&is=65752275&hm=6c9fd89d2db089a69e8f8c28f3fa7a7b5fee495136e04b"
+				L"0f4b49b4f160784e4a&";
+			this->pictureBox3->Location = System::Drawing::Point(17, 292);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(57, 50);
+			this->pictureBox3->TabIndex = 0;
+			this->pictureBox3->TabStop = false;
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183230096463638570/cli"
+				L"ent.png\?ex=658793e6&is=65751ee6&hm=cc4bb7dc150e00cef25feef959ff019737b121c04059f"
+				L"e778ba9603e0c133a6a&";
+			this->pictureBox2->Location = System::Drawing::Point(30, 219);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(61, 50);
+			this->pictureBox2->TabIndex = 0;
+			this->pictureBox2->TabStop = false;
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pictureBox1->ImageLocation = L"https://cdn.discordapp.com/attachments/960623857885118474/1183217255769706526/log"
+				L"o3.png\?ex=658787f0&is=657512f0&hm=19491145c83ae5e8a6aaffe93e8dd8f89fa4dfaa91bac1"
+				L"e1d4fb99dd9bf8fa47&";
+			this->pictureBox1->Location = System::Drawing::Point(-9, -3);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(263, 117);
+			this->pictureBox1->TabIndex = 0;
+			this->pictureBox1->TabStop = false;
 			// 
 			// pnlBut
 			// 
@@ -161,9 +259,9 @@ namespace CppCLRWinFormsProject {
 			this->btnstats->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnstats->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->btnstats->Location = System::Drawing::Point(-1, 517);
+			this->btnstats->Location = System::Drawing::Point(107, 521);
 			this->btnstats->Name = L"btnstats";
-			this->btnstats->Size = System::Drawing::Size(230, 51);
+			this->btnstats->Size = System::Drawing::Size(122, 47);
 			this->btnstats->TabIndex = 5;
 			this->btnstats->Text = L"Stats";
 			this->btnstats->UseVisualStyleBackColor = true;
@@ -178,9 +276,9 @@ namespace CppCLRWinFormsProject {
 			this->btnorder->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnorder->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->btnorder->Location = System::Drawing::Point(2, 434);
+			this->btnorder->Location = System::Drawing::Point(107, 434);
 			this->btnorder->Name = L"btnorder";
-			this->btnorder->Size = System::Drawing::Size(227, 53);
+			this->btnorder->Size = System::Drawing::Size(122, 53);
 			this->btnorder->TabIndex = 5;
 			this->btnorder->Text = L"Order";
 			this->btnorder->UseVisualStyleBackColor = true;
@@ -195,9 +293,9 @@ namespace CppCLRWinFormsProject {
 			this->btnstock->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnstock->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->btnstock->Location = System::Drawing::Point(-1, 356);
+			this->btnstock->Location = System::Drawing::Point(75, 362);
 			this->btnstock->Name = L"btnstock";
-			this->btnstock->Size = System::Drawing::Size(230, 54);
+			this->btnstock->Size = System::Drawing::Size(157, 44);
 			this->btnstock->TabIndex = 5;
 			this->btnstock->Text = L"Inventory";
 			this->btnstock->UseVisualStyleBackColor = true;
@@ -212,9 +310,9 @@ namespace CppCLRWinFormsProject {
 			this->btnstaff->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnstaff->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->btnstaff->Location = System::Drawing::Point(0, 284);
+			this->btnstaff->Location = System::Drawing::Point(75, 285);
 			this->btnstaff->Name = L"btnstaff";
-			this->btnstaff->Size = System::Drawing::Size(226, 52);
+			this->btnstaff->Size = System::Drawing::Size(154, 50);
 			this->btnstaff->TabIndex = 5;
 			this->btnstaff->Text = L"Staff";
 			this->btnstaff->UseVisualStyleBackColor = true;
@@ -229,9 +327,9 @@ namespace CppCLRWinFormsProject {
 			this->btnclient->Font = (gcnew System::Drawing::Font(L"Century Gothic", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->btnclient->ForeColor = System::Drawing::SystemColors::ControlLightLight;
-			this->btnclient->Location = System::Drawing::Point(-1, 207);
+			this->btnclient->Location = System::Drawing::Point(78, 224);
 			this->btnclient->Name = L"btnclient";
-			this->btnclient->Size = System::Drawing::Size(227, 54);
+			this->btnclient->Size = System::Drawing::Size(144, 42);
 			this->btnclient->TabIndex = 4;
 			this->btnclient->Text = L"Customer";
 			this->btnclient->UseVisualStyleBackColor = true;
@@ -241,10 +339,11 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->panel2->BackColor = System::Drawing::Color::LightSkyBlue;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel2->Controls->Add(this->button2);
 			this->panel2->Dock = System::Windows::Forms::DockStyle::Top;
 			this->panel2->Location = System::Drawing::Point(227, 0);
 			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(979, 41);
+			this->panel2->Size = System::Drawing::Size(979, 83);
 			this->panel2->TabIndex = 1;
 			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Form1::panel2_Paint);
 			// 
@@ -255,7 +354,7 @@ namespace CppCLRWinFormsProject {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::Red;
-			this->button2->Location = System::Drawing::Point(1168, 35);
+			this->button2->Location = System::Drawing::Point(935, 11);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(39, 48);
 			this->button2->TabIndex = 3;
@@ -265,7 +364,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// pnlDisplay
 			// 
-			this->pnlDisplay->BackColor = System::Drawing::SystemColors::ActiveBorder;
+			this->pnlDisplay->BackColor = System::Drawing::Color::LightGray;
 			this->pnlDisplay->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pnlDisplay->Location = System::Drawing::Point(227, 73);
 			this->pnlDisplay->Name = L"pnlDisplay";
@@ -280,13 +379,19 @@ namespace CppCLRWinFormsProject {
 			this->ClientSize = System::Drawing::Size(1206, 601);
 			this->Controls->Add(this->pnlDisplay);
 			this->Controls->Add(this->panel2);
-			this->Controls->Add(this->button2);
 			this->Controls->Add(this->panel1);
 			this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedSingle;
 			this->Name = L"Form1";
 			this->Text = L"Form1";
 			this->Load += gcnew System::EventHandler(this, &Form1::Form1_Load);
 			this->panel1->ResumeLayout(false);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}
@@ -305,6 +410,9 @@ namespace CppCLRWinFormsProject {
 			   return button;
 		   }
 
+	private: System::Void panel5_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+
 	private: System::Void Form1_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void panel1_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
@@ -319,8 +427,10 @@ namespace CppCLRWinFormsProject {
 	}
 
 	private: System::Void btnclient_Click(System::Object^ sender, System::EventArgs^ e) {
-		pnlBut->Top = btnclient->Top;
 		pnlDisplay->Visible = false;
+		pnlBut->Top = btnclient->Top;
+		pnlDisplay->Visible = true;
+		AddClientButtons();
 	}
 
 
@@ -332,32 +442,24 @@ namespace CppCLRWinFormsProject {
 	}
 
 	private: System::Void btnstock_Click(System::Object^ sender, System::EventArgs^ e) {
-		pnlBut->Top = btnstock->Top;
 		pnlDisplay->Visible = false;
+		pnlBut->Top = btnstock->Top;
+		pnlDisplay->Visible = true;
+		AddStockButtons();
 	}
 	private: System::Void btnorder_Click(System::Object^ sender, System::EventArgs^ e) {
-		pnlBut->Top = btnorder->Top;
 		pnlDisplay->Visible = false;
+		pnlBut->Top = btnorder->Top;
 	}
 
 	private: System::Void btnstats_Click(System::Object^ sender, System::EventArgs^ e) {
-		pnlBut->Top = btnstats->Top;
 		pnlDisplay->Visible = false;
+		pnlBut->Top = btnstats->Top;
 	}
 	private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
 	private: System::Void Management_Click(System::Object^ sender, System::EventArgs^ e) {
 	}
-
-
-
-
-
-
-
-
-
-
 
 	// Gestion Staff
 	private: System::Void btnAddStaff_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -428,7 +530,7 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Close();
 		}
 		catch (Exception^ ex) {
-			MessageBox::Show("Échec de la récupération des données de la table STAFF : " + ex->Message, "Error", MessageBoxButtons::OK);
+			MessageBox::Show("Failed to retrieve data from the STAFF table : " + ex->Message, "Error", MessageBoxButtons::OK);
 		}
 	}
 
@@ -466,7 +568,7 @@ namespace CppCLRWinFormsProject {
 				}
 				else {
 					
-					MessageBox::Show("ID_PERSON non trouvé dans la table STAFF ou pas d'ID_ADDRESS associé.", "Erreur", MessageBoxButtons::OK);
+					MessageBox::Show("ID_PERSON not found in STAFF table or no associated ID_ADDRESS.", "Erreur", MessageBoxButtons::OK);
 					return;
 				}
 
@@ -506,10 +608,10 @@ namespace CppCLRWinFormsProject {
 				commandDeletePerson->Parameters->AddWithValue("@ID_PERSON", personId);
 				commandDeletePerson->ExecuteNonQuery();
 
-				MessageBox::Show("La ligne a été supprimée avec succès.", "Suppression réussie", MessageBoxButtons::OK);
+				MessageBox::Show("The line was successfully removed.", "Suppression réussie", MessageBoxButtons::OK);
 			}
 			catch (Exception^ ex) {
-				MessageBox::Show("Échec de la suppression : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+				MessageBox::Show("Deletion failed : " + ex->Message, "Erreur", MessageBoxButtons::OK);
 			}
 		}
 
@@ -522,6 +624,16 @@ namespace CppCLRWinFormsProject {
 	private: System::Void btnRetour_Click(System::Object^ sender, System::EventArgs^ e) {
 
 			AddStaffButtons();
+	}
+
+	private: System::Void btnRetour2_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		AddClientButtons();
+	}
+
+	private: System::Void btnRetour3_Click(System::Object^ sender, System::EventArgs^ e) {
+
+		AddStockButtons();
 	}
 
 	private: System::Void AddStaffButtons() {
@@ -542,21 +654,19 @@ namespace CppCLRWinFormsProject {
 		// Calculer la marge nécessaire pour centrer les boutons horizontalement
 		int margin = (panelWidth - totalButtonWidth) / 2;
 
-		Button^ btnAddStaff = createStyledButton("Add", gcnew System::EventHandler(this, &Form1::btnAddStaff_Click));
+		Button^ btnAddStaff = createStyledButton("ADD", gcnew System::EventHandler(this, &Form1::btnAddStaff_Click));
 		btnAddStaff->Width = buttonWidth;
 		btnAddStaff->Height = buttonHeight;
 		btnAddStaff->Left = margin;
 		btnAddStaff->Top = pnlDisplay->Height - buttonHeight - 10;
 
-		Button^ btnModifyStaff = createStyledButton("Edit", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
+		Button^ btnModifyStaff = createStyledButton("EXIT", gcnew System::EventHandler(this, &Form1::btnModifyStaff_Click));
 		btnModifyStaff->Width = buttonWidth;
 		btnModifyStaff->Height = buttonHeight;
 		btnModifyStaff->Left = btnAddStaff->Right + spacing;
 		btnModifyStaff->Top = pnlDisplay->Height - buttonHeight - 10;
 
-		
-
-		Button^ btnShowStaff = createStyledButton("Display", gcnew System::EventHandler(this, &Form1::btnShowStaff_Click));
+		Button^ btnShowStaff = createStyledButton("DISPLAY", gcnew System::EventHandler(this, &Form1::btnShowStaff_Click));
 		btnShowStaff->Width = buttonWidth;
 		btnShowStaff->Height = buttonHeight;
 		btnShowStaff->Left = btnModifyStaff->Right + spacing;
@@ -569,5 +679,381 @@ namespace CppCLRWinFormsProject {
 		pnlDisplay->Controls->Add(btnShowStaff);
 		pnlDisplay->Controls->Add(dataGridView);
 	}
-	};
+
+
+	// CLIENT
+
+	private: System::Void btnAddClient_Click(System::Object^ sender, System::EventArgs^ e) {
+		InsertClient obj;
+		obj.ShowDialog();
+	}
+
+	private: System::Void btnModifyClient_Click(System::Object^ sender, System::EventArgs^ e) {
+		UpdateClient obj;
+		obj.ShowDialog();
+	}
+
+	private: System::Void btnShowClient_Click(System::Object^ sender, System::EventArgs^ e) {
+		try {
+
+			int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+			int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+			int spacing = 30;      // Espace entre les boutons
+
+			int panelWidth = pnlDisplay->Width;
+			int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+			String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+
+
+			// Sélectionnez toutes les colonnes de la table STAFF
+			String^ selectStaffQuery =
+				"SELECT * FROM STAFF;";
+
+			SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(selectStaffQuery, % sqlConn);
+			DataSet^ dataSet = gcnew DataSet();
+
+			// Remplissez le DataSet avec les données de la table STAFF
+			dataAdapter->Fill(dataSet, "STAFF");
+
+			// Créez et configurez le DataGridView
+			dataGridView = gcnew DataGridView();
+			dataGridView->Width = pnlDisplay->Width - 20;
+			dataGridView->Height = pnlDisplay->Height - 60;
+			dataGridView->Left = 10;
+			dataGridView->Top = 10;
+			dataGridView->DataSource = dataSet;
+			dataGridView->DataMember = "STAFF";
+
+			// Créez le bouton "Retour"
+			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour2_Click));
+			btnRetour->Width = buttonWidth;
+			btnRetour->Height = buttonHeight;
+			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
+
+			Button^ btnDeleteClient = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteStaff_Click));
+			btnDeleteClient->Width = buttonWidth;
+			btnDeleteClient->Height = buttonHeight;
+			btnDeleteClient->Left = btnRetour->Right + spacing;
+			btnDeleteClient->Top = pnlDisplay->Height - buttonHeight - 10;
+
+			// Ajouter le DataGridView au Panel (pnlDisplay)
+			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
+			pnlDisplay->Controls->Add(dataGridView);
+			pnlDisplay->Controls->Add(btnRetour);
+			pnlDisplay->Controls->Add(btnDeleteClient);
+
+			// Fermer la connexion après utilisation
+			sqlConn.Close();
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Failed to retrieve data from the STAFF table : " + ex->Message, "Error", MessageBoxButtons::OK);
+		}
+	}
+
+	private: System::Void btnDeleteClient_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+		if (dataGridView->SelectedRows->Count > 0) {
+
+
+			// Récupérez l'ID de la ligne sélectionnée
+			int rowIndex = dataGridView->SelectedRows[0]->Index;
+			int personId = Convert::ToInt32(dataGridView->Rows[rowIndex]->Cells["ID_PERSON"]->Value);
+
+			// Supprimez les entrées associées dans les tables PERSON, ADDRESS et CITY
+			try {
+				String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+				SqlConnection sqlConn(connString);
+				sqlConn.Open();
+
+				// Récupérez l'ID_ADDRESS et l'ID_CITY associés à cette personne
+				String^ selectAddressAndCityIdsQuery =
+					"SELECT ADDRESS.ID_ADDRESS, ADDRESS.ID_CITY " +
+					"FROM STAFF INNER JOIN ADDRESS ON STAFF.ID_ADDRESS = ADDRESS.ID_ADDRESS " +
+					"WHERE STAFF.ID_PERSON = @ID_PERSON;";
+
+				SqlCommand^ commandGetIds = gcnew SqlCommand(selectAddressAndCityIdsQuery, % sqlConn);
+				commandGetIds->Parameters->AddWithValue("@ID_PERSON", personId);
+
+				SqlDataReader^ reader = commandGetIds->ExecuteReader();
+				int addressId, cityId;
+
+				if (reader->Read()) {
+					addressId = Convert::ToInt32(reader["ID_ADDRESS"]);
+					cityId = Convert::ToInt32(reader["ID_CITY"]);
+				}
+				else {
+
+					MessageBox::Show("ID_PERSON not found in STAFF table or no associated ID_ADDRESS.", "Erreur", MessageBoxButtons::OK);
+					return;
+				}
+
+				reader->Close();
+
+				// Supprimez d'abord l'entrée dans la table STAFF
+				String^ deleteClientQuery =
+					"DELETE FROM STAFF WHERE ID_PERSON = @ID_PERSON;";
+
+				SqlCommand^ commandDeleteClient = gcnew SqlCommand(deleteClientQuery, % sqlConn);
+				commandDeleteClient->Parameters->AddWithValue("@ID_PERSON", personId);
+				commandDeleteClient->ExecuteNonQuery();
+
+				// Supprimez l'entrée dans la table ADDRESS liée
+				String^ deleteAddressQuery =
+					"DELETE FROM ADDRESS WHERE ID_ADDRESS = @ID_ADDRESS;";
+
+				SqlCommand^ commandDeleteAddress = gcnew SqlCommand(deleteAddressQuery, % sqlConn);
+				commandDeleteAddress->Parameters->AddWithValue("@ID_ADDRESS", personId);
+				commandDeleteAddress->ExecuteNonQuery();
+
+
+				// Supprimez l'entrée dans la table CITY liée
+				String^ deleteCityQuery =
+					"DELETE FROM CITY WHERE ID_CITY = @ID_CITY;";
+
+				SqlCommand^ commandDeleteCity = gcnew SqlCommand(deleteCityQuery, % sqlConn);
+				commandDeleteCity->Parameters->AddWithValue("@ID_CITY", cityId);
+				commandDeleteCity->ExecuteNonQuery();
+
+
+				// Supprimez l'entrée dans la table PERSON
+				String^ deletePersonQuery =
+					"DELETE FROM PERSON WHERE ID_PERSON = @ID_PERSON;";
+
+				SqlCommand^ commandDeletePerson = gcnew SqlCommand(deletePersonQuery, % sqlConn);
+				commandDeletePerson->Parameters->AddWithValue("@ID_PERSON", personId);
+				commandDeletePerson->ExecuteNonQuery();
+
+				MessageBox::Show("The line was successfully removed !", "Suppression réussie", MessageBoxButtons::OK);
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show("Deletion failed : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+			}
+		}
+
+
+
+	}
+
+
+	private: System::Void AddClientButtons() {
+		int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+		int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+		int spacing = 10;      // Espace entre les boutons
+
+		int panelWidth = pnlDisplay->Width;
+		int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+		// Ajout du DataGridView
+		DataGridView^ dataGridView = gcnew DataGridView();
+		dataGridView->Width = pnlDisplay->Width - 20; // Largeur du DataGridView
+		dataGridView->Height = pnlDisplay->Height - 60; // Hauteur du DataGridView
+		dataGridView->Left = 10;
+		dataGridView->Top = 10;
+
+		// Calculer la marge nécessaire pour centrer les boutons horizontalement
+		int margin = (panelWidth - totalButtonWidth) / 2;
+
+		Button^ btnAddClient = createStyledButton("ADD", gcnew System::EventHandler(this, &Form1::btnAddClient_Click));
+		btnAddClient->Width = buttonWidth;
+		btnAddClient->Height = buttonHeight;
+		btnAddClient->Left = margin;
+		btnAddClient->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		Button^ btnModifyClient = createStyledButton("EXIT", gcnew System::EventHandler(this, &Form1::btnModifyClient_Click));
+		btnModifyClient->Width = buttonWidth;
+		btnModifyClient->Height = buttonHeight;
+		btnModifyClient->Left = btnAddClient->Right + spacing;
+		btnModifyClient->Top = pnlDisplay->Height - buttonHeight - 10;
+
+
+
+		Button^ btnShowClient = createStyledButton("DISPLAY", gcnew System::EventHandler(this, &Form1::btnShowClient_Click));
+		btnShowClient->Width = buttonWidth;
+		btnShowClient->Height = buttonHeight;
+		btnShowClient->Left = btnModifyClient->Right + spacing;
+		btnShowClient->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		// Ajouter les boutons au Panel (pnlDisplay)
+		pnlDisplay->Controls->Clear();
+		pnlDisplay->Controls->Add(btnAddClient);
+		pnlDisplay->Controls->Add(btnModifyClient);
+		pnlDisplay->Controls->Add(btnShowClient);
+		pnlDisplay->Controls->Add(dataGridView);
+	}
+
+	// STOCK
+
+	private: System::Void btnAddStock_Click(System::Object^ sender, System::EventArgs^ e) {
+		InsertStock obj;
+		obj.ShowDialog();
+	}
+
+	private: System::Void btnModifyStock_Click(System::Object^ sender, System::EventArgs^ e) {
+		UpdateStock obj;
+		obj.ShowDialog();
+	}
+
+
+
+	private: System::Void btnShowStock_Click(System::Object^ sender, System::EventArgs^ e) {
+		try {
+
+			int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+			int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+			int spacing = 30;      // Espace entre les boutons
+
+			int panelWidth = pnlDisplay->Width;
+			int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+			String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+			SqlConnection sqlConn(connString);
+			sqlConn.Open();
+
+
+			// Sélectionnez toutes les colonnes de la table Stock
+			String^ selectStockQuery =
+				"SELECT * FROM ARTICLE;";
+
+			SqlDataAdapter^ dataAdapter = gcnew SqlDataAdapter(selectStockQuery, % sqlConn);
+			DataSet^ dataSet = gcnew DataSet();
+
+			// Remplissez le DataSet avec les données de la table Stock
+			dataAdapter->Fill(dataSet, "ARTICLE");
+
+			// Créez et configurez le DataGridView
+			dataGridView = gcnew DataGridView();
+			dataGridView->Width = pnlDisplay->Width - 20;
+			dataGridView->Height = pnlDisplay->Height - 60;
+			dataGridView->Left = 10;
+			dataGridView->Top = 10;
+			dataGridView->DataSource = dataSet;
+			dataGridView->DataMember = "ARTICLE";
+
+			// Créez le bouton "Retour"
+			Button^ btnRetour = createStyledButton("BACK", gcnew System::EventHandler(this, &Form1::btnRetour3_Click));
+			btnRetour->Width = buttonWidth;
+			btnRetour->Height = buttonHeight;
+			btnRetour->Top = pnlDisplay->Height - buttonHeight - 10;
+
+			Button^ btnDeleteStock = createStyledButton("DELETE", gcnew System::EventHandler(this, &Form1::btnDeleteStock_Click));
+			btnDeleteStock->Width = buttonWidth;
+			btnDeleteStock->Height = buttonHeight;
+			btnDeleteStock->Left = btnRetour->Right + spacing;
+			btnDeleteStock->Top = pnlDisplay->Height - buttonHeight - 10;
+
+			// Ajouter le DataGridView au Panel (pnlDisplay)
+			pnlDisplay->Controls->Clear(); // Effacer les anciens contrôles
+			pnlDisplay->Controls->Add(dataGridView); 
+			pnlDisplay->Controls->Add(btnRetour);
+			pnlDisplay->Controls->Add(btnDeleteStock);
+
+			// Fermer la connexion après utilisation
+			sqlConn.Close();
+		}
+		catch (Exception^ ex) {
+			MessageBox::Show("Failed to retrieve data from the Stock table : " + ex->Message, "Error", MessageBoxButtons::OK);
+		}
+	}
+
+	private: System::Void btnDeleteStock_Click(System::Object^ sender, System::EventArgs^ e) {
+
+
+		if (dataGridView->SelectedRows->Count > 0) {
+
+
+			// Récupérez l'ID de la ligne sélectionnée
+			int rowIndex = dataGridView->SelectedRows[0]->Index;
+
+			// Supprimez les entrées associées dans les tables PERSON, ADDRESS et CITY
+			try {
+				String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
+				SqlConnection sqlConn(connString);
+				sqlConn.Open();
+
+					// Récupérer les valeurs de la ligne sélectionnée
+				int idArticle = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["ID_ARTICLE"]->Value);
+				String^ articleName = dataGridView->SelectedRows[0]->Cells["PRODUCT_NAME"]->Value->ToString();
+				int stockQuantity = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["STOCK_QUANTITY"]->Value);
+				int priceHT = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["PRICE_HT"]->Value);
+				int rateTVA = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["RATE_TVA"]->Value); 
+				int reorderThreshold = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["REORDER_THRESHOLD"]->Value); 
+
+				String^ deleteQuery =
+					"DELETE FROM ARTICLE "
+					"WHERE ID_ARTICLE = @ID_ARTICLE "
+					"AND PRODUCT_NAME = @PRODUCT_NAME "
+					"AND STOCK_QUANTITY = @STOCK_QUANTITY "
+					"AND PRICE_HT = @PRICE_HT "
+					"AND RATE_TVA = @RATE_TVA "
+					"AND REORDER_THRESHOLD = @REORDER_THRESHOLD;";
+
+				SqlCommand^ commandDelete = gcnew SqlCommand(deleteQuery, % sqlConn);
+				commandDelete->Parameters->AddWithValue("@ID_ARTICLE", idArticle); 
+				commandDelete->Parameters->AddWithValue("@PRODUCT_NAME", articleName); 
+				commandDelete->Parameters->AddWithValue("@STOCK_QUANTITY", stockQuantity); 
+				commandDelete->Parameters->AddWithValue("@PRICE_HT", priceHT); 
+				commandDelete->Parameters->AddWithValue("@RATE_TVA", rateTVA); 
+				commandDelete->Parameters->AddWithValue("@REORDER_THRESHOLD", reorderThreshold); 
+
+				commandDelete->ExecuteNonQuery(); 
+
+				MessageBox::Show("The line was successfully removed !", "Suppression réussie", MessageBoxButtons::OK);
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show("Deletion failed : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+			}
+		}
+	}
+
+
+	private: System::Void AddStockButtons() {
+		int buttonWidth = 120;  // Largeur souhaitée pour chaque bouton
+		int buttonHeight = 40;  // Hauteur souhaitée pour chaque bouton
+		int spacing = 10;      // Espace entre les boutons
+
+		int panelWidth = pnlDisplay->Width;
+		int totalButtonWidth = 4 * buttonWidth + 3 * spacing;
+
+		// Ajout du DataGridView
+		DataGridView^ dataGridView = gcnew DataGridView();
+		dataGridView->Width = pnlDisplay->Width - 40; // Largeur du DataGridView
+		dataGridView->Height = pnlDisplay->Height - 60; // Hauteur du DataGridView
+		dataGridView->Left = 10;
+		dataGridView->Top = 10;
+
+		// balculer la marge nécessaire pour centrer les boutons horizontalement
+		int margin = (panelWidth - totalButtonWidth) / 2;
+
+		Button^ btnAddStock = createStyledButton("ADD", gcnew System::EventHandler(this, &Form1::btnAddStock_Click));
+		btnAddStock->Width = buttonWidth;
+		btnAddStock->Height = buttonHeight;
+		btnAddStock->Left = margin;
+		btnAddStock->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		Button^ btnModifyStock = createStyledButton("EXIT", gcnew System::EventHandler(this, &Form1::btnModifyStock_Click));
+		btnModifyStock->Width = buttonWidth;
+		btnModifyStock->Height = buttonHeight;
+		btnModifyStock->Left = btnAddStock->Right + spacing;
+		btnModifyStock->Top = pnlDisplay->Height - buttonHeight - 10;
+
+
+
+		Button^ btnShowStock = createStyledButton("DISPLAY", gcnew System::EventHandler(this, &Form1::btnShowStock_Click));
+		btnShowStock->Width = buttonWidth;
+		btnShowStock->Height = buttonHeight;
+		btnShowStock->Left = btnModifyStock->Right + spacing;
+		btnShowStock->Top = pnlDisplay->Height - buttonHeight - 10;
+
+		// Ajouter les boutons au Panel (pnlDisplay)
+		pnlDisplay->Controls->Clear();
+		pnlDisplay->Controls->Add(btnAddStock);
+		pnlDisplay->Controls->Add(btnModifyStock);
+		pnlDisplay->Controls->Add(btnShowStock);
+		pnlDisplay->Controls->Add(dataGridView);
+	}
+};
 }
