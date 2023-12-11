@@ -219,7 +219,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->tbMP->Location = System::Drawing::Point(273, 374);
 			this->tbMP->Name = L"tbMP";
-			this->tbMP->Size = System::Drawing::Size(379, 38);
+			this->tbMP->Size = System::Drawing::Size(411, 38);
 			this->tbMP->TabIndex = 4;
 			// 
 			// btnOK
@@ -380,7 +380,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->tbBP->Location = System::Drawing::Point(273, 490);
 			this->tbBP->Name = L"tbBP";
-			this->tbBP->Size = System::Drawing::Size(379, 38);
+			this->tbBP->Size = System::Drawing::Size(411, 38);
 			this->tbBP->TabIndex = 31;
 			// 
 			// EmissionDate
@@ -406,7 +406,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->dtpPaiementDate->Location = System::Drawing::Point(273, 435);
 			this->dtpPaiementDate->Name = L"dtpPaiementDate";
-			this->dtpPaiementDate->Size = System::Drawing::Size(419, 38);
+			this->dtpPaiementDate->Size = System::Drawing::Size(411, 38);
 			this->dtpPaiementDate->TabIndex = 34;
 			// 
 			// UpdateOrder
@@ -487,11 +487,11 @@ namespace CppCLRWinFormsProject {
 
 					// Utilize parameters to avoid SQL injection attacks
 					String^ orderQuery =
-						"UPDATE ORDERS SET DATE_DELEVERY = @DATE_DELEVERY, DATE_EMISSION = @DATE_EMISSION, ID_CLIENT = @ID_CLIENT, ID_SOCIETY = @ID_SOCIETY WHERE REF_ORDER = @REF_ORDER;";
+						"UPDATE ORDERS SET DATE_DELIVERY = @DATE_DELIVERY, DATE_EMISSION = @DATE_EMISSION, ID_CLIENT = @ID_CLIENT, ID_SOCIETY = @ID_SOCIETY WHERE REF_ORDER = @REF_ORDER;";
 
 					SqlCommand^ commandOrder = gcnew SqlCommand(orderQuery, % sqlConn, sqlTran);
 					commandOrder->Parameters->AddWithValue("@REF_ORDER", tbRef->Text);
-					commandOrder->Parameters->AddWithValue("@DATE_DELEVERY", dtpDelivery->Value.ToString("yyyy-MM-dd"));
+					commandOrder->Parameters->AddWithValue("@DATE_DELIVERY", dtpDelivery->Value.ToString("yyyy-MM-dd"));
 					commandOrder->Parameters->AddWithValue("@DATE_EMISSION", dtpSend->Value.ToString("yyyy-MM-dd"));
 					commandOrder->Parameters->AddWithValue("@ID_CLIENT", clientId);
 					commandOrder->Parameters->AddWithValue("@ID_SOCIETY", societyId);
