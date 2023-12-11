@@ -89,6 +89,10 @@ Nous avons pu également réaliser un diagramme de **Classes** afin modéliser l
 
 <p align="center"><img src="https://imgur.com/R3SMR7j.png" width="686.5" ></img></p>
 
+Et pour la base de données nous avons réalisés un Modèle Logique de Données :
+
+<p align="center"><img src="https://imgur.com/eFYJxoA.png"  ></img></p>
+
 > ! Les autres diagrammes que nous avons pus réaliser se trouvent dans les annexes.
 
 ### La Programmation
@@ -114,6 +118,5 @@ Nous avons réalisés la base de données avec SQL Server et voici également un
 
 ## Test d'utilisateur
 
-### Premier test
-
-### Deuxième test
+<p align="center"><img src="https://imgur.com/bgabLpY.png"></img></p>
+<p align="center"><img src="https://imgur.com/m65tu2D.png"></img></p>
