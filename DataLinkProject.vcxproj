@@ -153,6 +153,9 @@
     <ClInclude Include="InsertOrder.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Stats.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="UpdateOrder.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -184,6 +187,7 @@
     <ClCompile Include="InsertStock.cpp" />
     <ClCompile Include="CLOrder.cpp" />
     <ClCompile Include="InsertOrder.cpp" />
+    <ClCompile Include="Stats.cpp" />
     <ClCompile Include="UpdateOrder.cpp" />
     <ClCompile Include="UpdateStock.cpp" />
     <ClCompile Include="UpdateClient.cpp" />
@@ -220,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InsertStock.resx">
       <DependentUpon>InsertStock.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Stats.resx">
+      <DependentUpon>Stats.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UpdateClient.resx">
       <DependentUpon>UpdateClient.h</DependentUpon>

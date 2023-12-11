@@ -7,6 +7,7 @@
 #include "UpdateStock.h"
 #include "InsertOrder.h"
 #include "UpdateOrder.h"
+#include "Stats.h"
 
 namespace CppCLRWinFormsProject {
 
@@ -498,6 +499,8 @@ namespace CppCLRWinFormsProject {
 	private: System::Void btnstats_Click(System::Object^ sender, System::EventArgs^ e) {
 		pnlDisplay->Visible = false;
 		pnlBut->Top = btnstats->Top;
+		Stats obj; 
+		obj.ShowDialog(); 
 	}
 	private: System::Void richTextBox1_TextChanged(System::Object^ sender, System::EventArgs^ e) {
 	}
@@ -514,8 +517,6 @@ namespace CppCLRWinFormsProject {
 		UpdateStaff obj;
 		obj.ShowDialog();
 	}
-
-	
 		  
 	private: System::Void btnShowStaff_Click(System::Object^ sender, System::EventArgs^ e) {
 		try {
