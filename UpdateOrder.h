@@ -123,6 +123,8 @@ namespace CppCLRWinFormsProject {
 
 
 	private: System::Windows::Forms::DateTimePicker^ dtpPaiementDate;
+private: System::Windows::Forms::Label^ label4;
+private: System::Windows::Forms::Panel^ panel2;
 
 
 
@@ -170,6 +172,8 @@ namespace CppCLRWinFormsProject {
 			this->EmissionDate = (gcnew System::Windows::Forms::Label());
 			this->dtpSend = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dtpPaiementDate = (gcnew System::Windows::Forms::DateTimePicker());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -191,7 +195,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->PM->AutoSize = true;
 			this->PM->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->PM->Location = System::Drawing::Point(12, 378);
+			this->PM->Location = System::Drawing::Point(718, 174);
 			this->PM->Name = L"PM";
 			this->PM->Size = System::Drawing::Size(246, 34);
 			this->PM->TabIndex = 1;
@@ -217,7 +221,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tbMP
 			// 
-			this->tbMP->Location = System::Drawing::Point(273, 374);
+			this->tbMP->Location = System::Drawing::Point(979, 170);
 			this->tbMP->Name = L"tbMP";
 			this->tbMP->Size = System::Drawing::Size(411, 38);
 			this->tbMP->TabIndex = 4;
@@ -230,7 +234,7 @@ namespace CppCLRWinFormsProject {
 			this->btnOK->FlatAppearance->BorderSize = 0;
 			this->btnOK->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->btnOK->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->btnOK->Location = System::Drawing::Point(493, 565);
+			this->btnOK->Location = System::Drawing::Point(493, 552);
 			this->btnOK->Name = L"btnOK";
 			this->btnOK->Size = System::Drawing::Size(172, 47);
 			this->btnOK->TabIndex = 5;
@@ -246,7 +250,7 @@ namespace CppCLRWinFormsProject {
 			this->btnCancel->FlatAppearance->BorderSize = 0;
 			this->btnCancel->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->btnCancel->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->btnCancel->Location = System::Drawing::Point(773, 566);
+			this->btnCancel->Location = System::Drawing::Point(773, 553);
 			this->btnCancel->Name = L"btnCancel";
 			this->btnCancel->Size = System::Drawing::Size(172, 46);
 			this->btnCancel->TabIndex = 6;
@@ -260,7 +264,7 @@ namespace CppCLRWinFormsProject {
 			this->DeliveryDate->BackColor = System::Drawing::Color::Transparent;
 			this->DeliveryDate->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->DeliveryDate->Location = System::Drawing::Point(764, 211);
+			this->DeliveryDate->Location = System::Drawing::Point(40, 469);
 			this->DeliveryDate->Name = L"DeliveryDate";
 			this->DeliveryDate->Size = System::Drawing::Size(198, 34);
 			this->DeliveryDate->TabIndex = 7;
@@ -270,7 +274,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->PD->AutoSize = true;
 			this->PD->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->PD->Location = System::Drawing::Point(14, 435);
+			this->PD->Location = System::Drawing::Point(720, 231);
 			this->PD->Name = L"PD";
 			this->PD->Size = System::Drawing::Size(206, 34);
 			this->PD->TabIndex = 14;
@@ -281,7 +285,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->CustomerID->AutoSize = true;
 			this->CustomerID->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->CustomerID->Location = System::Drawing::Point(764, 375);
+			this->CustomerID->Location = System::Drawing::Point(16, 235);
 			this->CustomerID->Name = L"CustomerID";
 			this->CustomerID->Size = System::Drawing::Size(181, 34);
 			this->CustomerID->TabIndex = 15;
@@ -291,7 +295,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->SocietyID->AutoSize = true;
 			this->SocietyID->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->SocietyID->Location = System::Drawing::Point(767, 431);
+			this->SocietyID->Location = System::Drawing::Point(19, 291);
 			this->SocietyID->Name = L"SocietyID";
 			this->SocietyID->Size = System::Drawing::Size(151, 34);
 			this->SocietyID->TabIndex = 16;
@@ -299,21 +303,21 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tbIdClient
 			// 
-			this->tbIdClient->Location = System::Drawing::Point(997, 371);
+			this->tbIdClient->Location = System::Drawing::Point(273, 231);
 			this->tbIdClient->Name = L"tbIdClient";
 			this->tbIdClient->Size = System::Drawing::Size(379, 38);
 			this->tbIdClient->TabIndex = 19;
 			// 
 			// tbIdSociety
 			// 
-			this->tbIdSociety->Location = System::Drawing::Point(997, 428);
+			this->tbIdSociety->Location = System::Drawing::Point(273, 288);
 			this->tbIdSociety->Name = L"tbIdSociety";
 			this->tbIdSociety->Size = System::Drawing::Size(379, 38);
 			this->tbIdSociety->TabIndex = 20;
 			// 
 			// dtpDelivery
 			// 
-			this->dtpDelivery->Location = System::Drawing::Point(997, 211);
+			this->dtpDelivery->Location = System::Drawing::Point(261, 469);
 			this->dtpDelivery->Name = L"dtpDelivery";
 			this->dtpDelivery->Size = System::Drawing::Size(413, 38);
 			this->dtpDelivery->TabIndex = 23;
@@ -324,7 +328,7 @@ namespace CppCLRWinFormsProject {
 			this->label3->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Century Gothic", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(1042, 101);
+			this->label3->Location = System::Drawing::Point(660, 401);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(134, 37);
 			this->label3->TabIndex = 27;
@@ -370,7 +374,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			this->PB->AutoSize = true;
 			this->PB->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold));
-			this->PB->Location = System::Drawing::Point(14, 492);
+			this->PB->Location = System::Drawing::Point(720, 288);
 			this->PB->Name = L"PB";
 			this->PB->Size = System::Drawing::Size(254, 34);
 			this->PB->TabIndex = 30;
@@ -378,7 +382,7 @@ namespace CppCLRWinFormsProject {
 			// 
 			// tbBP
 			// 
-			this->tbBP->Location = System::Drawing::Point(273, 490);
+			this->tbBP->Location = System::Drawing::Point(979, 286);
 			this->tbBP->Name = L"tbBP";
 			this->tbBP->Size = System::Drawing::Size(411, 38);
 			this->tbBP->TabIndex = 31;
@@ -389,7 +393,7 @@ namespace CppCLRWinFormsProject {
 			this->EmissionDate->BackColor = System::Drawing::Color::Transparent;
 			this->EmissionDate->Font = (gcnew System::Drawing::Font(L"Century Gothic", 16.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->EmissionDate->Location = System::Drawing::Point(764, 270);
+			this->EmissionDate->Location = System::Drawing::Point(754, 472);
 			this->EmissionDate->Name = L"EmissionDate";
 			this->EmissionDate->Size = System::Drawing::Size(201, 34);
 			this->EmissionDate->TabIndex = 32;
@@ -397,17 +401,37 @@ namespace CppCLRWinFormsProject {
 			// 
 			// dtpSend
 			// 
-			this->dtpSend->Location = System::Drawing::Point(997, 267);
+			this->dtpSend->Location = System::Drawing::Point(977, 469);
 			this->dtpSend->Name = L"dtpSend";
 			this->dtpSend->Size = System::Drawing::Size(413, 38);
 			this->dtpSend->TabIndex = 33;
 			// 
 			// dtpPaiementDate
 			// 
-			this->dtpPaiementDate->Location = System::Drawing::Point(273, 435);
+			this->dtpPaiementDate->Location = System::Drawing::Point(979, 231);
 			this->dtpPaiementDate->Name = L"dtpPaiementDate";
 			this->dtpPaiementDate->Size = System::Drawing::Size(411, 38);
 			this->dtpPaiementDate->TabIndex = 34;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Century Gothic", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->Location = System::Drawing::Point(851, 101);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(317, 37);
+			this->label4->TabIndex = 35;
+			this->label4->Text = L"Payment Information";
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::Black;
+			this->panel2->Location = System::Drawing::Point(-15, 364);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(1516, 10);
+			this->panel2->TabIndex = 36;
+			this->panel2->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &UpdateOrder::panel2_Paint);
 			// 
 			// UpdateOrder
 			// 
@@ -415,6 +439,8 @@ namespace CppCLRWinFormsProject {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::LightSteelBlue;
 			this->ClientSize = System::Drawing::Size(1422, 624);
+			this->Controls->Add(this->panel2);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->dtpPaiementDate);
 			this->Controls->Add(this->dtpSend);
 			this->Controls->Add(this->EmissionDate);
@@ -542,5 +568,7 @@ namespace CppCLRWinFormsProject {
 
 	private: System::Void label2_Click_1(System::Object^ sender, System::EventArgs^ e) {
 	}
-	};
+	private: System::Void panel2_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
+	}
+};
 }

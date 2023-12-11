@@ -447,6 +447,7 @@ namespace CppCLRWinFormsProject {
 			this->Margin = System::Windows::Forms::Padding(4);
 			this->Name = L"Stats";
 			this->Text = L"Stats";
+			this->Load += gcnew System::EventHandler(this, &Stats::Stats_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
@@ -461,7 +462,7 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Open();
 
 			String^ avgBasketQuery =
-				"SELECT AVG(tot_TTC) AS moy_basket FROM ORDERS; ";
+				"SELECT AVG(BALANCE_PAYMENT) AS moy_basket FROM PAYMENT; ";
 
 			SqlCommand^ commandavgBasket = gcnew SqlCommand(avgBasketQuery, % sqlConn);
 			SqlDataReader^ reader = commandavgBasket->ExecuteReader();
@@ -492,7 +493,7 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Open();
 
 			String^ turnoverQuery =
-				"SELECT SUM(tot_TTC) AS turnover FROM [dbo].[Order]; ";
+				"SELECT SUM(BALANCE_PAYMENT) AS turnover FROM PAYMENT; ";
 
 			SqlCommand^ commandturnover = gcnew SqlCommand(turnoverQuery, % sqlConn);
 			SqlDataReader^ reader = commandturnover->ExecuteReader();
@@ -519,7 +520,7 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Open();
 
 			String^ undertresholdQuery =
-				"SELECT ID_ARTICLE FROM [dbo].[ARTICLE] WHERE (STOCK_QUANTITY < REORDER_TRESHOLD); ";
+				"SELECT ID_ARTICLE FROM [ARTICLE] WHERE (STOCK_QUANTITY < REORDER_THRESHOLD); ";
 
 			SqlCommand^ commandundertreshold = gcnew SqlCommand(undertresholdQuery, % sqlConn);
 			SqlDataReader^ reader = commandundertreshold->ExecuteReader();
@@ -554,7 +555,7 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Open();
 
 			String^ best_sellQuery =
-				"SELECT TOP 1 PRODUCT_NAME, SUM(QUANTITY) AS best_sell FROM [datalink].[dbo].[CONTAIN] GROUP BY PRODUCT_NAME ORDER BY best_sell DESC";
+				"SELECT TOP 1 ID_ARTICLE, SUM(QUANTITY) AS best_sell FROM [CONTAIN] GROUP BY ID_ARTICLE ORDER BY best_sell DESC";
 
 			SqlCommand^ commandbest_sell = gcnew SqlCommand(best_sellQuery, % sqlConn);
 			SqlDataReader^ reader = commandbest_sell->ExecuteReader();
@@ -562,7 +563,7 @@ namespace CppCLRWinFormsProject {
 			String^ resultText = "The best-selling item is : ";
 
 			while (reader->Read()) {
-				String^ best_sell = reader["PRODUCT_NAME"]->ToString();
+				String^ best_sell = reader["ID_ARTICLE"]->ToString();
 				resultText += best_sell + ", ";
 			}
 
@@ -589,7 +590,7 @@ namespace CppCLRWinFormsProject {
 			sqlConn.Open();
 
 			String^ less_sellQuery =
-				"SELECT TOP 1 PRODUCT_NAME, SUM(QUANTITY) AS less_sell FROM [datalink].[dbo].[CONTAIN] GROUP BY PRODUCT_NAME ORDER BY less_sell ASC";
+				"SELECT TOP 1 ID_ARTICLE, SUM(QUANTITY) AS less_sell FROM [CONTAIN] GROUP BY ID_ARTICLE ORDER BY less_sell ASC";
 
 			SqlCommand^ commandless_sell = gcnew SqlCommand(less_sellQuery, % sqlConn);
 			SqlDataReader^ reader = commandless_sell->ExecuteReader();
@@ -597,7 +598,7 @@ namespace CppCLRWinFormsProject {
 			String^ resultText = "The less-selling item is : ";
 
 			while (reader->Read()) {
-				String^ less_sell = reader["PRODUCT_NAME"]->ToString();
+				String^ less_sell = reader["ID_ARTICLE"]->ToString();
 				resultText += less_sell + ", ";
 			}
 
@@ -694,5 +695,7 @@ namespace CppCLRWinFormsProject {
 	private: System::Void btnCancel_Click(System::Object^ sender, System::EventArgs^ e) {
 		this->Close();
 	}
+private: System::Void Stats_Load(System::Object^ sender, System::EventArgs^ e) {
+}
 };
 }
