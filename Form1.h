@@ -657,6 +657,9 @@ namespace CppCLRWinFormsProject {
 				commandDeletePerson->Parameters->AddWithValue("@ID_PERSON", personId);
 				commandDeletePerson->ExecuteNonQuery();
 
+				// Remove the selected row from the DataGridView
+				dataGridView->Rows->Remove(dataGridView->SelectedRows[0]);
+
 				MessageBox::Show("The line was successfully removed.", "Suppression réussie", MessageBoxButtons::OK);
 			}
 			catch (Exception^ ex) {
@@ -972,6 +975,9 @@ namespace CppCLRWinFormsProject {
 				// Valider la transaction
 				sqlConn.Close();
 
+				// Remove the selected row from the DataGridView
+				dataGridView->Rows->Remove(dataGridView->SelectedRows[0]);
+
 				MessageBox::Show("Successful data deletion!", "Success", MessageBoxButtons::OK);
 			}
 			catch (Exception^ ex) {
@@ -1127,7 +1133,7 @@ namespace CppCLRWinFormsProject {
 			// Récupérez l'ID de la ligne sélectionnée
 			int rowIndex = dataGridView->SelectedRows[0]->Index;
 
-			// Supprimez les entrées associées dans les tables PERSON, ADDRESS et CITY
+			// Supprimez les entrées associées 
 			try {
 				String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
 				SqlConnection sqlConn(connString);
@@ -1159,6 +1165,9 @@ namespace CppCLRWinFormsProject {
 				commandDelete->Parameters->AddWithValue("@REORDER_THRESHOLD", reorderThreshold); 
 
 				commandDelete->ExecuteNonQuery(); 
+
+				// Remove the selected row from the DataGridView
+				dataGridView->Rows->Remove(dataGridView->SelectedRows[0]);
 
 				MessageBox::Show("The line was successfully removed !", "Suppression réussie", MessageBoxButtons::OK);
 			}
@@ -1299,49 +1308,49 @@ namespace CppCLRWinFormsProject {
 	private: System::Void btnDeleteOrder_Click(System::Object^ sender, System::EventArgs^ e) {
 
 
-		if (dataGridView->SelectedRows->Count > 0) {
+		{
+			// Check if a row is selected
+			if (dataGridView->SelectedRows->Count > 0)
+			{
+				// Get the value in the "REF_ORDER" column of the selected row
+				String^ selectedRefOrder = dataGridView->SelectedRows[0]->Cells["REF_ORDER"]->Value->ToString();
 
+				// Perform deletion in the database
+				try
+				{
+					String^ connString = "Data Source = localhost\\ ; Initial Catalog=datalink; Integrated Security=True";
+					SqlConnection sqlConn(connString);
+					sqlConn.Open();
 
-			// Récupérez l'ID de la ligne sélectionnée
-			int rowIndex = dataGridView->SelectedRows[0]->Index;
+					SqlTransaction^ sqlTran = sqlConn.BeginTransaction();
 
-			// Supprimez les entrées associées dans les tables PERSON, ADDRESS et CITY
-			try {
-				String^ connString = "Data Source=localhost\\;Initial Catalog=datalink;Integrated Security=True";
-				SqlConnection sqlConn(connString);
-				sqlConn.Open();
+					// Delete from the PAYMENT table first
+					String^ paymentDeleteQuery = "DELETE FROM PAYMENT WHERE REF_ORDER = @REF_ORDER;";
+					SqlCommand^ commandPaymentDelete = gcnew SqlCommand(paymentDeleteQuery, % sqlConn, sqlTran);
+					commandPaymentDelete->Parameters->AddWithValue("@REF_ORDER", selectedRefOrder);
+					commandPaymentDelete->ExecuteNonQuery();
 
-				// Récupérer les valeurs de la ligne sélectionnée
-				int idArticle = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["ID_ARTICLE"]->Value);
-				String^ articleName = dataGridView->SelectedRows[0]->Cells["PRODUCT_NAME"]->Value->ToString();
-				int OrderQuantity = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["STOCK_QUANTITY"]->Value);
-				int priceHT = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["PRICE_HT"]->Value);
-				int rateTVA = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["RATE_TVA"]->Value);
-				int reorderThreshold = System::Convert::ToInt32(dataGridView->SelectedRows[0]->Cells["REORDER_THRESHOLD"]->Value);
+					// Then delete from the ORDERS table
+					String^ orderDeleteQuery = "DELETE FROM ORDERS WHERE REF_ORDER = @REF_ORDER;";
+					SqlCommand^ commandOrderDelete = gcnew SqlCommand(orderDeleteQuery, % sqlConn, sqlTran);
+					commandOrderDelete->Parameters->AddWithValue("@REF_ORDER", selectedRefOrder);
+					commandOrderDelete->ExecuteNonQuery();
 
-				String^ deleteQuery =
-					"DELETE FROM ARTICLE "
-					"WHERE ID_ARTICLE = @ID_ARTICLE "
-					"AND PRODUCT_NAME = @PRODUCT_NAME "
-					"AND STOCK_QUANTITY = @STOCK_QUANTITY "
-					"AND PRICE_HT = @PRICE_HT "
-					"AND RATE_TVA = @RATE_TVA "
-					"AND REORDER_THRESHOLD = @REORDER_THRESHOLD;";
+					sqlTran->Commit();
 
-				SqlCommand^ commandDelete = gcnew SqlCommand(deleteQuery, % sqlConn);
-				commandDelete->Parameters->AddWithValue("@ID_ARTICLE", idArticle);
-				commandDelete->Parameters->AddWithValue("@PRODUCT_NAME", articleName);
-				commandDelete->Parameters->AddWithValue("@STOCK_QUANTITY", OrderQuantity);
-				commandDelete->Parameters->AddWithValue("@PRICE_HT", priceHT);
-				commandDelete->Parameters->AddWithValue("@RATE_TVA", rateTVA);
-				commandDelete->Parameters->AddWithValue("@REORDER_THRESHOLD", reorderThreshold);
+					// Remove the selected row from the DataGridView
+					dataGridView->Rows->Remove(dataGridView->SelectedRows[0]);
 
-				commandDelete->ExecuteNonQuery();
-
-				MessageBox::Show("The line was successfully removed !", "Suppression réussie", MessageBoxButtons::OK);
+					MessageBox::Show("Data deletion successful!", "Success", MessageBoxButtons::OK);
+				}
+				catch (Exception^ ex)
+				{
+					MessageBox::Show("Failed to delete data: " + ex->Message, "Delete failure", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
 			}
-			catch (Exception^ ex) {
-				MessageBox::Show("Deletion failed : " + ex->Message, "Erreur", MessageBoxButtons::OK);
+			else
+			{
+				MessageBox::Show("Please select a row to delete.", "No row selected", MessageBoxButtons::OK, MessageBoxIcon::Warning);
 			}
 		}
 	}
