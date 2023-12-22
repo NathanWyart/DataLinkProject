@@ -116,7 +116,7 @@ Nous avons réalisés la base de données avec SQL Server et voici également un
 
 <p align="center"><img src="https://imgur.com/hPl6PIf.png"></img></p>
 
-## Test d'utilisateur
+## Test d'utilisation
 
 <p align="center"><img src="https://imgur.com/bgabLpY.png"></img></p>
 <p align="center"><img src="https://imgur.com/m65tu2D.png"></img></p>
